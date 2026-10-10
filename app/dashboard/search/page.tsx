@@ -3,25 +3,55 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ArrowLeft, HelpCircle, Search } from "lucide-react";
-import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  Search,
+  MapPin,
+  Calendar,
+  Shield,
+  Phone,
+  Compass,
+  Hash,
+  Plus,
+  Sparkles,
+  AlertTriangle,
+  ArrowRight,
+  ExternalLink,
+  Copy,
+  Check,
+} from "lucide-react";
+
+const TYPES = ["LOST", "FOUND", "THEFT", "MISSING"] as const;
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const type = (searchParams.get("type") || "LOST").toUpperCase();
+  const initialType = (searchParams.get("type") || "LOST").toUpperCase();
 
+  const [type, setType] = useState<typeof TYPES[number]>(
+    TYPES.includes(initialType as any) ? (initialType as typeof TYPES[number]) : "LOST"
+  );
   const [query, setQuery] = useState("");
   const [items, setItems] = useState<any[]>([]);
-
+  const [loading, setLoading] = useState(true);
+  const [copiedId, setCopiedId] = useState<string | number | null>(null);
 
   useEffect(() => {
-    console.log("Search Page Mounted");
-    console.log("USER =", localStorage.getItem("user"));
-  }, []);
+    const paramType = (searchParams.get("type") || "LOST").toUpperCase();
+    if (TYPES.includes(paramType as any)) {
+      setType(paramType as typeof TYPES[number]);
+    }
+  }, [searchParams]);
+
+  const handleTypeChange = (newType: typeof TYPES[number]) => {
+    setType(newType);
+    setQuery("");
+    router.replace(`/dashboard/search?type=${newType}`);
+  };
 
   useEffect(() => {
     const fetchItems = async () => {
+      setLoading(true);
       try {
         let url = "";
 
@@ -29,206 +59,498 @@ export default function SearchPage() {
           case "LOST":
             url = "/api/serach/lost";
             break;
-
           case "FOUND":
             url = "/api/serach/found";
             break;
-
           case "THEFT":
             url = "/api/serach/theft";
             break;
-
           case "MISSING":
-            url = "/api/serach/missing";
+            url = "/api/missing";
             break;
-
           default:
             url = "/api/serach/lost";
         }
 
         const res = await axios.get(url);
-        console.log("TYPE =", type);
-        console.log("API DATA =", res.data);
-        // PHP returns array directly
-        const list = Array.isArray(res.data) ? res.data : [];
+        const list = Array.isArray(res.data)
+          ? res.data
+          : Array.isArray(res.data?.data)
+          ? res.data.data
+          : [];
 
         const filtered = list.filter((item: any) => {
-          const itemName =
+          if (!query.trim()) return true;
+          const q = query.toLowerCase();
+
+          const itemName = (
             item.Itemname ||
             item.itemname ||
             item.name ||
-            "";
+            ""
+          ).toLowerCase();
 
-          return itemName
-            .toLowerCase()
-            .includes(query.toLowerCase());
+          const place = (
+            item.lostplace ||
+            item.foundplace ||
+            item.theftplace ||
+            item.missingplace ||
+            item.place ||
+            ""
+          ).toLowerCase();
+
+          const police = (
+            item.nearpolicestation ||
+            item.Nearpolicestation ||
+            item.police ||
+            ""
+          ).toLowerCase();
+
+          const district = (item.district || item.District || "").toLowerCase();
+          const town = (item.town || item.Town || "").toLowerCase();
+          const pin = (item.pin || item.Pin || "").toString().toLowerCase();
+
+          return (
+            itemName.includes(q) ||
+            place.includes(q) ||
+            police.includes(q) ||
+            district.includes(q) ||
+            town.includes(q) ||
+            pin.includes(q)
+          );
         });
 
         setItems(filtered);
       } catch (err) {
-        console.log(err);
-        alert("Unable to load data.");
+        console.error(err);
+        setItems([]);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchItems();
   }, [query, type]);
 
+  const handleCopyPhone = (id: string | number, phone: string) => {
+    navigator.clipboard.writeText(phone);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const typeConfig = {
+    LOST: {
+      title: "Lost Property Listings",
+      badge: "Lost Property",
+      badgeClass: "bg-amber-100 text-amber-900 border-amber-300",
+      accentBorder: "border-t-[#8b5e3c]",
+      emptyMessage: "No lost property matches your search.",
+    },
+    FOUND: {
+      title: "Found Belongings Directory",
+      badge: "Good Samaritan",
+      badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300",
+      accentBorder: "border-t-emerald-700",
+      emptyMessage: "No found belongings match your search.",
+    },
+    THEFT: {
+      title: "Theft Incident Reports",
+      badge: "Security Alert",
+      badgeClass: "bg-rose-100 text-rose-900 border-rose-300",
+      accentBorder: "border-t-rose-700",
+      emptyMessage: "No theft incidents match your search.",
+    },
+    MISSING: {
+      title: "Missing Person Alerts",
+      badge: "Urgent Priority",
+      badgeClass: "bg-red-100 text-red-900 border-red-400",
+      accentBorder: "border-t-red-600",
+      emptyMessage: "No missing person notices match your search.",
+    },
+  }[type];
+
   return (
-    <div className="min-h-screen animated-gradient bg-[#e9e6e1]">
+    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
+      
+      {/* STICKY TOP BAR */}
+      <div className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => router.push("/dashboard")}
+            className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer"
+          >
+            <ArrowLeft size={16} />
+            <span>Back to Dashboard</span>
+          </button>
 
-      {/* HEADER */}
-      <motion.div
-        initial={{ y: -60, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="animated-gradient text-white pb-24 pt-6 px-6 rounded-b-3xl"
-      >
-        <div className="flex justify-between items-center mb-6">
-          <ArrowLeft onClick={() => router.back()} className="cursor-pointer" />
-          <span className="text-xL tracking-widest font-serif opacity-80">
-            SEARCH
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-medium">
+            Hopest Portal • Search Records
           </span>
-          <HelpCircle className="cursor-pointer opacity-80" />
+        </div>
+      </div>
+
+      {/* MAIN CONTAINER */}
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
+        
+        {/* HERO BANNER WITH CATEGORY SWITCHER */}
+        <div className="animated-gradient text-white rounded-3xl p-6 sm:p-8 md:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
+          <div className="relative z-10">
+            {/* CATEGORY SWITCHER TABS */}
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              {TYPES.map((t) => (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => handleTypeChange(t)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
+                    type === t
+                      ? "bg-white text-[#3b2a21] shadow-md scale-105"
+                      : "bg-white/10 text-white/80 hover:text-white hover:bg-white/20"
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 mb-2">
+              <span className={`inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${typeConfig.badgeClass}`}>
+                {typeConfig.badge}
+              </span>
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white tracking-tight">
+              {typeConfig.title}
+            </h1>
+
+            <p className="mt-2 text-sm sm:text-base text-white/85 max-w-2xl font-light">
+              Search real-time community records across Kerala by item title, locality, town, district, or police station.
+            </p>
+          </div>
         </div>
 
-        <div className="text-center">
-          <h1 className="text-3xl font-semibold font-serif">
-            {type.charAt(0) + type.slice(1).toLowerCase()} Items
-          </h1>
-          <p className="text-sm opacity-80 mt-2 font-serif">
-            Browse and search through reported items
-          </p>
-        </div>
-      </motion.div>
+        {/* SEARCH AND ACTION BAR */}
+        <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#e8dfd6] shadow-[0_8px_30px_-6px_rgba(75,52,37,0.06)] mb-8">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
+            
+            {/* SEARCH INPUT */}
+            <div className="flex-1 flex items-center gap-3 bg-[#fbf9f6] border border-[#dcd2c6] focus-within:border-[#6b3f23] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#8b5e3c]/20 rounded-2xl px-4 py-3 transition-all">
+              <Search size={18} className="text-[#8b5e3c] shrink-0" />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={`Search ${type.toLowerCase()} records (e.g., "wallet", "Aluva", "Ernakulam")...`}
+                className="w-full bg-transparent text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="w-5 h-5 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 flex items-center justify-center text-xs transition cursor-pointer shrink-0"
+                  title="Clear"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
 
-      {/* SEARCH BOX */}
-      <motion.div
-        initial={{ y: 40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="max-w-2xl mx-auto px-6 -mt-12"
-      >
-        <div className="bg-white rounded-2xl shadow-lg border p-4">
-          <div className="flex items-center gap-3 bg-gray-100 rounded-xl px-3 py-2">
-            <Search size={18} className="text-gray-500" />
-
-            <input
-              type="text"
-              placeholder={`Search ${type.toLowerCase()} items`}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm"
-            />
-
-            {query && (
-              <button onClick={() => setQuery("")}>✕</button>
+            {/* CREATE SHORTCUT BUTTON */}
+            {type !== "MISSING" && (
+              <button
+                type="button"
+                onClick={() => router.push(`/dashboard/create?type=${type}`)}
+                className="bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] hover:brightness-110 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-2xl flex items-center justify-center gap-2 shadow-sm hover:shadow transition shrink-0 cursor-pointer"
+              >
+                <Plus size={16} />
+                <span>Report New {type}</span>
+              </button>
             )}
           </div>
 
-          <div className="flex justify-between text-xs text-gray-500 mt-2">
-            <span>{items.length} results found</span>
-            <span>Latest first</span>
+          {/* SEARCH META ROW */}
+          <div className="flex items-center justify-between text-xs text-[#7a6252] mt-4 pt-3 border-t border-[#f0e8e0]">
+            <span>
+              Showing <strong>{items.length}</strong> {type.toLowerCase()} listing{items.length === 1 ? "" : "s"}
+            </span>
+            <span className="text-[#8b5e3c] font-medium">
+              Sorted by latest submissions
+            </span>
           </div>
         </div>
-      </motion.div>
 
-      {/* RESULTS */}
-      <div className="max-w-2xl mx-auto px-6 pb-12 space-y-6 mt-6">
-        {items.length === 0 ? (
-          <p className="text-center text-gray-500 text-lg">
-            No items found.
-          </p>
+        {/* RESULTS GRID */}
+        {loading ? (
+          /* LOADING SKELETONS */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[1, 2, 3, 4].map((n) => (
+              <div key={n} className="bg-white rounded-3xl p-6 border border-[#e8dfd6] shadow-sm animate-pulse">
+                <div className="h-6 bg-gray-200 rounded-md w-2/3 mb-4"></div>
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="h-14 bg-gray-100 rounded-xl"></div>
+                  <div className="h-14 bg-gray-100 rounded-xl"></div>
+                  <div className="h-14 bg-gray-100 rounded-xl"></div>
+                  <div className="h-14 bg-gray-100 rounded-xl"></div>
+                </div>
+                <div className="h-10 bg-gray-100 rounded-xl"></div>
+              </div>
+            ))}
+          </div>
+        ) : items.length === 0 ? (
+          /* EMPTY STATE */
+          <div className="bg-white rounded-3xl p-12 text-center border border-[#e8dfd6] shadow-sm max-w-xl mx-auto my-6">
+            <div className="w-16 h-16 rounded-2xl bg-[#f4efe9] text-[#6b3f23] flex items-center justify-center mx-auto mb-4">
+              <Search size={28} />
+            </div>
+
+            <h3 className="text-xl font-serif font-bold text-[#2b1f18] mb-2">
+              {typeConfig.emptyMessage}
+            </h3>
+
+            <p className="text-xs sm:text-sm text-[#7a6252] leading-relaxed mb-6">
+              {query
+                ? `No results found for "${query}". Try searching with a broader keyword, district name, or town.`
+                : `Currently no records have been published under this category.`}
+            </p>
+
+            {type !== "MISSING" && (
+              <button
+                type="button"
+                onClick={() => router.push(`/dashboard/create?type=${type}`)}
+                className="inline-flex items-center gap-2 bg-[#4b3425] hover:bg-[#38261a] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition cursor-pointer shadow-sm"
+              >
+                <Plus size={15} />
+                <span>File a {type} Report Now</span>
+              </button>
+            )}
+          </div>
         ) : (
-          items.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
+          /* ACTIVE RESULTS GRID */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {items.map((item, index) => {
+              const name = item.itemname || item.Itemname || item.name || "Untitled Item";
+              const place = item.lostplace || item.foundplace || item.theftplace || item.missingplace || item.place || "Location pending";
+              const date = item.lostdate || item.founddate || item.theftdate || item.missingdate || item.date || "";
+              const police = item.nearpolicestation || item.Nearpolicestation || item.police || "Jurisdiction pending";
+              const district = item.district || item.District || "";
+              const town = item.town || item.Town || "";
+              const pin = item.pin || item.Pin || "";
+              const mob = item.mob || item.Mob || "";
+              const itemImage = item.itemimage || item.Itemimage || "";
+              const itemId = item.id || index;
 
-              {/* ✅ ONLY FOR MISSING */}
-              {type === "MISSING" ? (
-                <div className="bg-white rounded-2xl p-5 shadow-md border">
-                  <h2 className="text-lg font-semibold mb-2">
-                    {item.Itemname}
-                  </h2>
+              return (
+                <div
+                  key={itemId}
+                  className={`bg-white rounded-3xl p-6 sm:p-7 border border-[#e8dfd6] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_16px_32px_-6px_rgba(75,52,37,0.12)] hover:border-[#8b5e3c]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border-t-4 ${typeConfig.accentBorder}`}
+                >
+                  {/* CARD TOP INFO */}
+                  <div>
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <div className="flex items-start gap-3.5">
+                        {itemImage && (
+                          <div className="w-14 h-14 rounded-2xl bg-[#f4efe9] border border-[#e8dfd6] overflow-hidden shrink-0 shadow-sm">
+                            <img
+                              src={`http://hopest.in/hopestphp/uploads/${itemImage}`}
+                              alt={name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src =
+                                  type === "MISSING"
+                                    ? "/missingperson.jpeg"
+                                    : type === "LOST"
+                                    ? "/lostdas.jpeg"
+                                    : type === "FOUND"
+                                    ? "/founddas.jpeg"
+                                    : "/theftdas.jpeg";
+                              }}
+                            />
+                          </div>
+                        )}
+                        <div>
+                          <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border mb-1.5 ${typeConfig.badgeClass}`}>
+                            {type}
+                          </span>
+                          <h2 className="text-lg sm:text-xl font-serif font-bold text-[#2b1f18] leading-snug">
+                            {name}
+                          </h2>
+                        </div>
+                      </div>
 
-                  <p className="text-sm text-gray-500 mb-4">
-                    {item.district} • {item.police}
-                  </p>
-
-                  <button
-                    onClick={() => router.push(`/missing/${item.id}`)}
-                    className="w-full bg-[#4b3425] text-white py-2 rounded-xl"
-                  >
-                    View
-                  </button>
-                </div>
-              ) : (
-
-                /* ✅ NORMAL CARD (UNCHANGED) */
-                <div className="bg-white rounded-2xl  font-serif p-5 shadow-md border-t-4 border-[#4b3425]">
-                  <h2 className="text-gray-800 font-semibold">
-                    {item.itemname}
-                  </h2>
-
-                  <div className="grid grid-cols-2 gap-3 text-sm mt-4">
-                    <div className="bg-gray-100 rounded-xl p-3">
-                      <p className="text-xs text-gray-500 uppercase">
-                        {type} Place
-                      </p>
-                      <p>
-                        {type === "LOST"
-                          ? item.lostplace
-                          : type === "FOUND"
-                            ? item.foundplace
-                            : type === "THEFT"
-                              ? item.theftplace
-                              : item.missingplace}
-                      </p>
+                      {date && (
+                        <div className="shrink-0 flex items-center gap-1.5 text-xs text-[#7a6252] bg-[#fcfaf7] border border-[#e8ded3] px-2.5 py-1 rounded-xl">
+                          <Calendar size={13} className="text-[#8b5e3c]" />
+                          <span>{date}</span>
+                        </div>
+                      )}
                     </div>
 
-                    <div className="bg-gray-100 rounded-xl p-3">
-                      <p className="text-xs text-gray-500 uppercase">
-                        {type} Date
-                      </p>
-                      <p>
-                        {type === "LOST"
-                          ? item.lostdate
-                          : type === "FOUND"
-                            ? item.founddate
-                            : type === "THEFT"
-                              ? item.theftdate
-                              : item.missingdate}
-                      </p>
+                    {/* STRUCTURED SPEC GRID */}
+                    <div className="grid grid-cols-2 gap-2.5 my-4 text-xs">
+                      <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
+                        <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
+                          Location / Place
+                        </span>
+                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={place}>
+                          <MapPin size={11} className="text-[#8b5e3c] shrink-0" />
+                          <span className="truncate">{place}</span>
+                        </p>
+                      </div>
+
+                      <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
+                        <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
+                          Nearest Police
+                        </span>
+                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={police}>
+                          <Shield size={11} className="text-[#8b5e3c] shrink-0" />
+                          <span className="truncate">{police}</span>
+                        </p>
+                      </div>
+
+                      <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
+                        <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
+                          District & Town
+                        </span>
+                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={`${district}, ${town}`}>
+                          <Compass size={11} className="text-[#8b5e3c] shrink-0" />
+                          <span className="truncate">{district || town ? `${district} • ${town}` : "Kerala Jurisdiction"}</span>
+                        </p>
+                      </div>
+
+                      <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
+                        <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
+                          PIN Code
+                        </span>
+                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1">
+                          <Hash size={11} className="text-[#8b5e3c] shrink-0" />
+                          <span>{pin || "Kerala"}</span>
+                        </p>
+                      </div>
                     </div>
-
-                    <div className="bg-gray-100 rounded-xl p-3">
-                      <p className="text-xs text-gray-500 uppercase">
-                        Police
-                      </p>
-                      <p>{item.nearpolicestation}</p>                    </div>
-
-                    <div className="bg-gray-100 rounded-xl p-3">
-                      <p className="text-xs text-gray-500 uppercase">
-                        District
-                      </p>
-                      <p>{item.district}</p>                    </div>
-                    <div className="bg-gray-100 rounded-xl p-3">
-                      <p className="text-xs text-gray-500 uppercase">Town</p>
-                      <p>{item.town}</p>                    </div>
-                    <div className="bg-gray-100 rounded-xl p-3">
-                      <p className="text-xs text-gray-500 uppercase">PIN</p>
-                      <p>{item.pin}</p>                    </div>
                   </div>
+
+                  {/* CARD ACTIONS */}
+                  <div className="pt-4 border-t border-[#f0e8e0]">
+                    {type === "MISSING" ? (
+                      <div className="flex flex-col gap-2">
+                        {mob && (
+                          <div className="flex items-center gap-2">
+                            <a
+                              href={`tel:${mob}`}
+                              className="flex-1 bg-gradient-to-r from-[#4b3425] to-[#6b3f23] hover:brightness-110 text-white py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition"
+                            >
+                              <Phone size={13} />
+                              <span>Call: +91 {mob}</span>
+                            </a>
+                            <button
+                              type="button"
+                              onClick={() => handleCopyPhone(itemId, mob)}
+                              title="Copy phone number"
+                              className="px-3 py-2.5 rounded-xl border border-[#d5c7bc] hover:bg-[#f7f2ed] text-[#3b2a21] text-xs font-semibold flex items-center justify-center gap-1 transition cursor-pointer"
+                            >
+                              {copiedId === itemId ? (
+                                <>
+                                  <Check size={13} className="text-emerald-700" />
+                                  <span className="text-emerald-700">Copied</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Copy size={13} />
+                                  <span className="hidden sm:inline">Copy</span>
+                                </>
+                              )}
+                            </button>
+                          </div>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => router.push("/missing")}
+                          className="w-full bg-[#4b3425] hover:bg-[#38261a] text-white py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition cursor-pointer"
+                        >
+                          <span>Open Full Missing Directory</span>
+                          <ArrowRight size={14} />
+                        </button>
+                      </div>
+                    ) : mob ? (
+                      <div className="flex items-center gap-2">
+                        <a
+                          href={`tel:${mob}`}
+                          className="flex-1 bg-gradient-to-r from-[#4b3425] to-[#6b3f23] hover:brightness-110 text-white py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition"
+                        >
+                          <Phone size={13} />
+                          <span>Call: +91 {mob}</span>
+                        </a>
+
+                        <button
+                          type="button"
+                          onClick={() => handleCopyPhone(itemId, mob)}
+                          title="Copy phone number"
+                          className="px-3 py-2.5 rounded-xl border border-[#d5c7bc] hover:bg-[#f7f2ed] text-[#3b2a21] text-xs font-semibold flex items-center justify-center gap-1 transition cursor-pointer"
+                        >
+                          {copiedId === itemId ? (
+                            <>
+                              <Check size={13} className="text-emerald-700" />
+                              <span className="text-emerald-700">Copied</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy size={13} />
+                              <span className="hidden sm:inline">Copy</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="text-center text-xs text-[#8c7565] py-1">
+                        <span>Contact coordinator through Hopest team</span>
+                      </div>
+                    )}
+                  </div>
+
                 </div>
-              )}
-            </motion.div>
-          ))
+              );
+            })}
+          </div>
         )}
-      </div>
+
+      </main>
+
+      {/* FOOTER */}
+      <footer className="mt-auto border-t border-[#e2d5c7] bg-white py-6">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#7a6252]">
+          <div className="flex items-center gap-2">
+            <span className="font-serif font-bold text-sm text-[#2b1f18]">HOPEST</span>
+            <span>– Hope for the best</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => router.push("/dashboard")}
+              className="hover:underline hover:text-[#2b1f18]"
+            >
+              Dashboard Home
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/dashboard/usesage")}
+              className="hover:underline hover:text-[#2b1f18]"
+            >
+              Community Guidelines
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/privacy")}
+              className="hover:underline hover:text-[#2b1f18]"
+            >
+              Privacy Policy
+            </button>
+          </div>
+        </div>
+      </footer>
+
     </div>
   );
 }

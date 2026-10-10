@@ -6,8 +6,8 @@ import { useRef, Suspense } from "react";
 import { useState, useEffect } from "react";
 
 function FloatingObjects() {
-  const sphereRef = useRef<any>();
-  const boxRef = useRef<any>();
+  const sphereRef = useRef<any>(null);
+  const boxRef = useRef<any>(null);
   const [scrollY, setScrollY] = useState(0);
 
   // Track scroll

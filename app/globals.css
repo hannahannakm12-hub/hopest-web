@@ -249,3 +249,13 @@ body {
   animation: fadeUp 0.6s ease-out forwards;
 }
 
+/* Auth input autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #3b2a21 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #f4efe9 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+

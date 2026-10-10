@@ -1,6 +1,6 @@
 "use client";
-import { FaWhatsapp } from "react-icons/fa";
 
+import { FaWhatsapp } from "react-icons/fa";
 import {
   Mail,
   Phone,
@@ -8,6 +8,7 @@ import {
   Linkedin,
   Facebook,
   Instagram,
+  Heart,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -15,69 +16,69 @@ import Image from "next/image";
 export default function Footer() {
   const router = useRouter();
 
-  const handleNavigation = (path: string) => {
-    router.push(path);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/landing#${id}`);
+    }
   };
 
   return (
-    <footer className="bg-black text-white">
+    <footer id="contact" className="relative bg-[#080706] text-white border-t border-white/[0.08]">
+      {/* Top subtle glow flare */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[150px] bg-amber-500/[0.03] blur-[120px]" />
 
       {/* =====================================================
           MAIN FOOTER
       ===================================================== */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14">
           {/* =================================================
               BRAND
           ================================================= */}
           <div>
-
             {/* Logo */}
             <div
               onClick={() => router.push("/landing")}
-              className="flex items-center gap-3 cursor-pointer w-fit"
+              className="flex items-center gap-3 cursor-pointer w-fit group"
             >
-              <div className="w-10 h-10 bg-white flex items-center justify-center rounded-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#1c1a16] border border-amber-500/30 flex items-center justify-center p-1.5 shadow-[0_0_15px_rgba(227,180,55,0.15)] group-hover:border-amber-400/50 transition-colors">
                 <Image
                   src="/logo.png.jpeg"
                   alt="HOPEST Logo"
                   width={28}
                   height={28}
-                  className="object-contain"
+                  className="object-contain rounded-md"
                 />
               </div>
 
-              <span className="text-xl font-bold text-[#e3b437] tracking-wide">
+              <span className="text-xl font-bold text-[#e3b437] tracking-[0.18em]">
                 HOPEST
               </span>
             </div>
 
             {/* Description */}
-            <p className="mt-6 max-w-xs text-sm leading-6 text-white/60">
-              A free community platform to report lost and found items,
-              raise theft alerts and help find missing people.
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-stone-400">
+              A free community platform to report lost and found items, raise theft
+              alerts and help find missing people.
             </p>
 
-            <p className="mt-2 text-sm text-[#e3b437]">
-              Hope for the best.
+            <p className="mt-3 text-xs font-semibold tracking-wider uppercase text-[#e3b437] flex items-center gap-1.5">
+              <span>Hope for the best</span>
             </p>
-
           </div>
-
 
           {/* =================================================
               QUICK LINKS
           ================================================= */}
           <div>
-
-            <h3 className="text-base font-semibold text-white mb-6">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
               Quick Links
             </h3>
 
-            <ul className="space-y-3 text-sm text-white/65">
-
+            <ul className="space-y-3 text-sm text-stone-400">
               <li>
                 <button
                   onClick={() => router.push("/landing")}
@@ -89,7 +90,7 @@ export default function Footer() {
 
               <li>
                 <button
-                  onClick={() => router.push("/landing#how-it-works")}
+                  onClick={() => scrollToSection("how-it-works")}
                   className="hover:text-[#e3b437] transition-colors"
                 >
                   How It Works
@@ -98,10 +99,19 @@ export default function Footer() {
 
               <li>
                 <button
-                  onClick={() => router.push("/landing#contact")}
+                  onClick={() => scrollToSection("services")}
                   className="hover:text-[#e3b437] transition-colors"
                 >
-                  Contact
+                  Services
+                </button>
+              </li>
+
+              <li>
+                <button
+                  onClick={() => scrollToSection("mobile-app")}
+                  className="hover:text-[#e3b437] transition-colors"
+                >
+                  Mobile App
                 </button>
               </li>
 
@@ -116,198 +126,122 @@ export default function Footer() {
 
               <li>
                 <button
-                  onClick={() => router.push("/landing#services")}
+                  onClick={() => scrollToSection("contact")}
                   className="hover:text-[#e3b437] transition-colors"
                 >
-                  Services
+                  Contact
                 </button>
               </li>
-
             </ul>
-
           </div>
-
 
           {/* =================================================
               CONTACT INFO
           ================================================= */}
           <div>
-
-            <h3 className="text-base font-semibold text-white mb-6">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
               Contact Info
             </h3>
 
-            <div className="space-y-4 text-sm text-white/65">
-
+            <div className="space-y-3.5 text-sm text-stone-400">
               {/* Email */}
               <div className="flex items-start gap-3">
-
-                <Mail
-                  size={18}
-                  className="text-[#e3b437] mt-0.5 shrink-0"
-                />
-
-                <span>
-                hopestdhanaf@gmail.com
-                </span>
-
+                <Mail size={17} className="text-[#e3b437] mt-0.5 shrink-0" />
+                <a
+                  href="mailto:hopestdhanaf@gmail.com"
+                  className="hover:text-white transition-colors"
+                >
+                  hopestdhanaf@gmail.com
+                </a>
               </div>
-
 
               {/* Phone */}
               <div className="flex items-start gap-3">
-
-                <Phone
-                  size={18}
-                  className="text-[#e3b437] mt-0.5 shrink-0"
-                />
-
-                <span>
-              918590168840
-                </span>
-
+                <Phone size={17} className="text-[#e3b437] mt-0.5 shrink-0" />
+                <a
+                  href="tel:918590168840"
+                  className="hover:text-white transition-colors"
+                >
+                  +91 8590168840
+                </a>
               </div>
-
 
               {/* Location */}
               <div className="flex items-start gap-3">
-
-                <MapPin
-                  size={18}
-                  className="text-[#e3b437] mt-0.5 shrink-0"
-                />
-
-                <span>
-                  Kerala, India
-                </span>
-
+                <MapPin size={17} className="text-[#e3b437] mt-0.5 shrink-0" />
+                <span>Kerala, India</span>
               </div>
-
             </div>
-
           </div>
-
 
           {/* =================================================
               CONNECT WITH US
           ================================================= */}
           <div>
-
-            <h3 className="text-base font-semibold text-white mb-6">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
               Connect With Us
             </h3>
 
             <div className="flex items-center gap-3">
-
               {/* LinkedIn */}
-              <button
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="LinkedIn"
-                className="
-                  w-10 h-10
-                  rounded-full
-                  bg-[#1c1c1c]
-                  flex items-center justify-center
-                  text-white/80
-                  hover:bg-[#e3b437]
-                  hover:text-black
-                  transition-all duration-300
-                "
+                className="w-10 h-10 rounded-xl bg-stone-900 border border-white/10 flex items-center justify-center text-stone-300 hover:bg-[#e3b437] hover:text-black hover:border-amber-400 transition-all duration-300 shadow-sm"
               >
                 <Linkedin size={18} />
-              </button>
+              </a>
 
-{/* WhatsApp */}
-{/* WhatsApp */}
-<button
-  aria-label="WhatsApp"
-  className="
-    w-10 h-10
-    rounded-full
-    bg-[#1c1c1c]
-    flex items-center justify-center
-    text-white/80
-    hover:bg-[#e3b437]
-    hover:text-black
-    transition-all duration-300
-  "
->
-  <FaWhatsapp size={19} />
-</button>
-
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/918590168840"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                className="w-10 h-10 rounded-xl bg-stone-900 border border-white/10 flex items-center justify-center text-stone-300 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all duration-300 shadow-sm"
+              >
+                <FaWhatsapp size={19} />
+              </a>
 
               {/* Facebook */}
-              <button
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Facebook"
-                className="
-                  w-10 h-10
-                  rounded-full
-                  bg-[#1c1c1c]
-                  flex items-center justify-center
-                  text-white/80
-                  hover:bg-[#e3b437]
-                  hover:text-black
-                  transition-all duration-300
-                "
+                className="w-10 h-10 rounded-xl bg-stone-900 border border-white/10 flex items-center justify-center text-stone-300 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300 shadow-sm"
               >
                 <Facebook size={18} />
-              </button>
-
+              </a>
 
               {/* Instagram */}
-              <button
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Instagram"
-                className="
-                  w-10 h-10
-                  rounded-full
-                  bg-[#1c1c1c]
-                  flex items-center justify-center
-                  text-white/80
-                  hover:bg-[#e3b437]
-                  hover:text-black
-                  transition-all duration-300
-                "
+                className="w-10 h-10 rounded-xl bg-stone-900 border border-white/10 flex items-center justify-center text-stone-300 hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F] transition-all duration-300 shadow-sm"
               >
                 <Instagram size={18} />
-              </button>
-
+              </a>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
 
       {/* =====================================================
           BOTTOM BAR
       ===================================================== */}
-      <div className="border-t border-white/10">
-
+      <div className="border-t border-white/[0.06] bg-[#050404]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-
-          <div
-            className="
-              flex
-              flex-col
-              md:flex-row
-              justify-between
-              items-center
-              gap-4
-              text-xs
-              text-white/45
-            "
-          >
-
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
             {/* Copyright */}
-            <p>
-              © 2026 HOPEST. All rights reserved.
-            </p>
+            <p>© 2026 HOPEST. All rights reserved.</p>
 
-
-            {/* Right side */}
+            {/* Right side policies */}
             <div className="flex items-center gap-3">
-
               <button
                 onClick={() => router.push("/privacy")}
                 className="hover:text-[#e3b437] transition-colors"
@@ -332,15 +266,10 @@ export default function Footer() {
               >
                 Community Guidelines
               </button>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </footer>
   );
 }
