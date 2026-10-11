@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { FilePlus, Target, Handshake, ArrowRight } from "lucide-react";
 
 export default function HowItWorks() {
+  const router = useRouter();
   const steps = [
     {
       number: "01",
@@ -30,7 +32,7 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative bg-[#0e0c0b] text-white py-24 lg:py-28 border-t border-white/[0.06] overflow-hidden"
+      className="relative bg-[#0e0c0b] landing-ambient-gradient text-white py-24 lg:py-28 border-t border-white/[0.06] overflow-hidden"
     >
       {/* Background Texture & Ambient Lights */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:32px_32px]" />
@@ -101,6 +103,24 @@ export default function HowItWorks() {
               </div>
             );
           })}
+        </div>
+
+        {/* CTA Button with Animated Gradient */}
+        <div className="mt-14 flex justify-center">
+          <button
+            onClick={() => {
+              const user = localStorage.getItem("user");
+              if (!user) {
+                router.push("/auth/login");
+              } else {
+                router.push("/dashboard/create?type=LOST");
+              }
+            }}
+            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black text-sm sm:text-base shadow-[0_0_35px_rgba(245,158,11,0.5)] hover:shadow-[0_0_50px_rgba(245,158,11,0.75)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
+          >
+            <span className="text-stone-950 font-black">Post a Report in Seconds</span>
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200 text-stone-950" />
+          </button>
         </div>
       </div>
     </section>

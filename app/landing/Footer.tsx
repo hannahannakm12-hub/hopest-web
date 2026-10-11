@@ -54,7 +54,7 @@ export default function Footer() {
                 />
               </div>
 
-              <span className="text-xl font-bold text-[#e3b437] tracking-[0.18em]">
+              <span className="text-xl font-black text-[#e3b437] tracking-[0.18em]">
                 HOPEST
               </span>
             </div>
@@ -62,7 +62,7 @@ export default function Footer() {
             {/* Description */}
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-stone-400">
               A free community platform to report lost and found items, raise theft
-              alerts and help find missing people.
+              alerts and help find missing people across Kerala and beyond.
             </p>
 
             <p className="mt-3 text-xs font-semibold tracking-wider uppercase text-[#e3b437] flex items-center gap-1.5">
@@ -90,19 +90,19 @@ export default function Footer() {
 
               <li>
                 <button
-                  onClick={() => scrollToSection("how-it-works")}
+                  onClick={() => scrollToSection("services")}
                   className="hover:text-[#e3b437] transition-colors"
                 >
-                  How It Works
+                  Services
                 </button>
               </li>
 
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection("how-it-works")}
                   className="hover:text-[#e3b437] transition-colors"
                 >
-                  Services
+                  How It Works
                 </button>
               </li>
 
@@ -238,7 +238,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
             {/* Copyright */}
-            <p>© 2026 HOPEST. All rights reserved.</p>
+            <p>© 2026 HOPEST (hopest.in) • Civic Safety &amp; Lost Property Network. All rights reserved.</p>
 
             {/* Right side policies */}
             <div className="flex items-center gap-3">

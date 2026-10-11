@@ -104,8 +104,8 @@ export default function MobileAppSection() {
           const mList = Array.isArray(missingRes.value)
             ? missingRes.value
             : Array.isArray(missingRes.value?.data)
-            ? missingRes.value.data
-            : [];
+              ? missingRes.value.data
+              : [];
           if (mList.length > 0) {
             const m = mList[0];
             items.push({
@@ -154,7 +154,7 @@ export default function MobileAppSection() {
   return (
     <section
       id="mobile-app"
-      className="relative overflow-hidden bg-[#0c0a09] text-white py-24 lg:py-28 border-t border-white/[0.06]"
+      className="relative overflow-hidden  landing-ambient-gradient  bg-[#0c0a09] text-white py-24 lg:py-28 border-t border-white/[0.06]"
     >
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
@@ -164,7 +164,7 @@ export default function MobileAppSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
+
           {/* ================================================= */}
           {/* LEFT SIDE: COPY & FEATURES */}
           {/* ================================================= */}
@@ -224,18 +224,18 @@ export default function MobileAppSection() {
               </div>
             </div>
 
-            {/* App Download Buttons (Direct Store Links) */}
+            {/* App Download Buttons (Direct Store Links with Animated Gradient) */}
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               {/* App Store Button */}
               <a
                 href="https://apps.apple.com/search?term=hopest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#d89b52] to-[#e3b437] text-stone-950 font-bold text-sm shadow-[0_0_20px_rgba(227,180,55,0.25)] hover:shadow-[0_0_30px_rgba(227,180,55,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+                className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black text-sm shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:shadow-[0_0_45px_rgba(245,158,11,0.75)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
                 title="Download from Apple App Store"
               >
                 <Smartphone className="w-5 h-5 text-stone-950" />
-                <span>App Store</span>
+                <span className="text-stone-950 font-black">App Store</span>
               </a>
 
               {/* Google Play Button */}
@@ -243,7 +243,7 @@ export default function MobileAppSection() {
                 href="https://play.google.com/store/apps/details?id=com.hopestogapp.hopestog"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl border border-white/20 bg-stone-900/40 backdrop-blur-md hover:bg-white/10 hover:border-white/40 hover:scale-[1.02] active:scale-[0.98] text-white font-semibold text-sm transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-stone-900/90 border-2 border-amber-500/50 hover:border-amber-400 hover:scale-[1.03] active:scale-[0.98] text-white font-bold text-sm shadow-lg hover:shadow-[0_0_30px_rgba(216,155,82,0.3)] transition-all duration-300 cursor-pointer"
                 title="Install from Google Play Store"
               >
                 <svg
@@ -251,7 +251,7 @@ export default function MobileAppSection() {
                   height="18"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="text-white"
+                  className="text-amber-400"
                 >
                   <path d="M3 2.5v19l11-9.5L3 2.5Z" />
                   <path d="m14 8.5 3-2.6 3.5 2c.7.4.7 1.4 0 1.8l-3.5 2L14 8.5Z" />
@@ -271,7 +271,7 @@ export default function MobileAppSection() {
 
               {/* Phone Bezel / Screen */}
               <div className="rounded-[36px] border border-white/10 bg-[#0d0c0b] overflow-hidden min-h-[520px] flex flex-col justify-between">
-                
+
                 {/* Status Bar */}
                 <div className="pt-3 px-6 pb-2 flex items-center justify-between text-[11px] text-stone-400 font-mono">
                   <span>9:41</span>
@@ -410,7 +410,7 @@ export default function MobileAppSection() {
       {activeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 animate-fade-in">
           <div className="bg-[#181614] border border-amber-500/30 text-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
-            
+
             {/* Close Button */}
             <button
               type="button"
@@ -471,8 +471,7 @@ export default function MobileAppSection() {
               {/* Option 2: Direct WhatsApp APK / Support Desk */}
               <a
                 href={`https://wa.me/918590168840?text=${encodeURIComponent(
-                  `Hello Hopest team! I would like to download the Hopest ${
-                    activeModal === "google_play" ? "Android App (APK)" : "iOS App"
+                  `Hello Hopest team! I would like to download the Hopest ${activeModal === "google_play" ? "Android App (APK)" : "iOS App"
                   }. Please share the direct download link.`
                 )}`}
                 target="_blank"

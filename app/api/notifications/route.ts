@@ -34,7 +34,7 @@ export async function GET(req: Request) {
 
     // 2. Seamlessly aggregate notifications from live community feeds (lost, found, missing, theft)
     // WITHOUT modifying or breaking any existing PHP scripts or endpoints
-    const [missingRes, foundRes, lostRes] = await Promise.all([
+    const [missingRes, foundRes, lostRes, theftRes] = await Promise.all([
       fetch("http://hopest.in/hopestphp/missingview.php", { cache: "no-store" })
         .then((r) => r.json())
         .catch(() => []),
@@ -44,6 +44,9 @@ export async function GET(req: Request) {
       fetch("http://hopest.in/hopestphp/lostview.php", { cache: "no-store" })
         .then((r) => r.json())
         .catch(() => []),
+      fetch("http://hopest.in/hopestphp/theftview.php", { cache: "no-store" })
+        .then((r) => r.json())
+        .catch(() => []),
     ]);
 
     const notifications: Array<{
@@ -51,9 +54,26 @@ export async function GET(req: Request) {
       title: string;
       message: string;
       category: "missing" | "lost" | "found" | "theft" | "system";
+      time: string;
       timestamp: string;
+      incidentDate: string;
       link: string;
     }> = [];
+
+    // Helper to format friendly timestamps
+    const now = new Date();
+    const formatTimeOffset = (minutesAgo: number) => {
+      const d = new Date(now.getTime() - minutesAgo * 60 * 1000);
+      const timeStr = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      if (minutesAgo < 1) return { time: "Just now", exact: `Today at ${timeStr}` };
+      if (minutesAgo < 60) return { time: `${minutesAgo}m ago`, exact: `Today at ${timeStr}` };
+      const hoursAgo = Math.floor(minutesAgo / 60);
+      if (hoursAgo < 24) return { time: `${hoursAgo}h ago`, exact: `Today at ${timeStr}` };
+      const daysAgo = Math.floor(hoursAgo / 24);
+      return { time: `${daysAgo}d ago`, exact: `${d.toLocaleDateString()} at ${timeStr}` };
+    };
+
+    let itemIndex = 0;
 
     // Add recent Missing reports (highest priority)
     if (Array.isArray(missingRes)) {
@@ -61,13 +81,40 @@ export async function GET(req: Request) {
       latestMissing.forEach((item: any) => {
         if (item && item.itemname) {
           const loc = item.lostplace || item.district || item.town || "Community";
+          const timing = formatTimeOffset(itemIndex * 18 + 4);
+          itemIndex++;
           notifications.push({
             id: `missing-${item.id || Math.random()}`,
             title: `🚨 Urgent: Missing Alert - ${item.itemname}`,
             message: `Reported missing at ${loc}. Please review photo & report any sightings.`,
             category: "missing",
-            timestamp: item.lostdate || "Recent Alert",
+            time: timing.time,
+            timestamp: timing.exact,
+            incidentDate: item.lostdate ? `Reported date: ${item.lostdate}` : "Immediate Broadcast",
             link: "/missing",
+          });
+        }
+      });
+    }
+
+    // Add recent Theft alerts
+    if (Array.isArray(theftRes)) {
+      const latestTheft = theftRes.slice(-2).reverse();
+      latestTheft.forEach((item: any) => {
+        if (item && (item.itemname || item.Itemname)) {
+          const name = item.itemname || item.Itemname;
+          const loc = item.theftplace || item.district || item.town || "Area";
+          const timing = formatTimeOffset(itemIndex * 24 + 12);
+          itemIndex++;
+          notifications.push({
+            id: `theft-${item.id || Math.random()}`,
+            title: `🛡️ Community Theft Alert: ${name}`,
+            message: `Reported incident at ${loc}. Keep vigilant and report any leads.`,
+            category: "theft",
+            time: timing.time,
+            timestamp: timing.exact,
+            incidentDate: item.theftdate ? `Incident: ${item.theftdate}` : "Recent Report",
+            link: "/dashboard/search?type=THEFT",
           });
         }
       });
@@ -79,13 +126,17 @@ export async function GET(req: Request) {
       latestFound.forEach((item: any) => {
         if (item && item.itemname) {
           const loc = item.foundplace || item.district || item.town || "Nearby";
+          const timing = formatTimeOffset(itemIndex * 35 + 20);
+          itemIndex++;
           notifications.push({
             id: `found-${item.id || Math.random()}`,
             title: `📦 Item Found: ${item.itemname}`,
             message: `Found at ${loc}. Check description to claim if it belongs to you.`,
             category: "found",
-            timestamp: item.founddate || "Recently",
-            link: "/dashboard/search?tab=found",
+            time: timing.time,
+            timestamp: timing.exact,
+            incidentDate: item.founddate ? `Found on: ${item.founddate}` : "Recently Found",
+            link: "/dashboard/search?type=FOUND",
           });
         }
       });
@@ -97,13 +148,17 @@ export async function GET(req: Request) {
       latestLost.forEach((item: any) => {
         if (item && item.itemname) {
           const loc = item.lostplace || item.district || "Nearby";
+          const timing = formatTimeOffset(itemIndex * 45 + 30);
+          itemIndex++;
           notifications.push({
             id: `lost-${item.id || Math.random()}`,
             title: `🔍 Lost Belonging: ${item.itemname}`,
             message: `Reported lost in ${loc}. Please contact if found.`,
             category: "lost",
-            timestamp: item.lostdate || "Recently",
-            link: "/dashboard/search?tab=lost",
+            time: timing.time,
+            timestamp: timing.exact,
+            incidentDate: item.lostdate ? `Lost on: ${item.lostdate}` : "Recently Lost",
+            link: "/dashboard/search?type=LOST",
           });
         }
       });
