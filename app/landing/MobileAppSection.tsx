@@ -286,21 +286,21 @@ export default function MobileAppSection() {
                 {/* Phone Header with Hopest Logo */}
                 <div className="px-5 pt-3 pb-3 border-b border-white/[0.06]">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-[#1c1a16] border border-amber-500/30 flex items-center justify-center p-1">
+                    <div className="flex items-center gap-2">
+                      <div className="relative h-7 w-5 flex items-center justify-center shrink-0">
                         <Image
-                          src="/logo.png.jpeg"
+                          src="/logo.png"
                           alt="Hopest"
                           width={20}
-                          height={20}
-                          className="object-contain rounded"
+                          height={28}
+                          className="h-7 w-auto object-contain drop-shadow-[0_1px_6px_rgba(216,155,82,0.3)]"
                         />
                       </div>
-                      <div>
-                        <span className="text-sm font-bold tracking-wider text-[#e4b63b]">
+                      <div className="flex flex-col justify-center">
+                        <span className="text-sm font-bold tracking-wider text-[#e4b63b] leading-tight">
                           HOPEST
                         </span>
-                        <p className="text-[9px] text-stone-400 uppercase tracking-widest font-medium -mt-0.5">
+                        <p className="text-[9px] text-stone-400 uppercase tracking-widest font-medium">
                           Live Feed
                         </p>
                       </div>
@@ -320,8 +320,9 @@ export default function MobileAppSection() {
                       {[1, 2, 3, 4].map((n) => (
                         <div
                           key={n}
-                          className="rounded-xl border border-white/[0.06] bg-stone-900/50 p-3.5 space-y-2 animate-pulse"
+                          className="rounded-xl border border-white/[0.06] bg-stone-900/50 p-3.5 space-y-2 relative overflow-hidden"
                         >
+                          <div className="absolute inset-0 hopest-shimmer-dark pointer-events-none opacity-40" />
                           <div className="flex justify-between">
                             <div className="w-12 h-3.5 bg-stone-800 rounded-md"></div>
                             <div className="w-16 h-3 bg-stone-800 rounded-md"></div>

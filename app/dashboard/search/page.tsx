@@ -20,6 +20,7 @@ import {
   Copy,
   Check,
 } from "lucide-react";
+import { HopestCardSkeleton } from "@/components/HopestLoader";
 
 const TYPES = ["LOST", "FOUND", "THEFT", "MISSING"] as const;
 
@@ -76,8 +77,8 @@ export default function SearchPage() {
         const list = Array.isArray(res.data)
           ? res.data
           : Array.isArray(res.data?.data)
-          ? res.data.data
-          : [];
+            ? res.data.data
+            : [];
 
         const filtered = list.filter((item: any) => {
           if (!query.trim()) return true;
@@ -171,7 +172,7 @@ export default function SearchPage() {
 
   return (
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
-      
+
       {/* STICKY TOP BAR */}
       <div className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
@@ -181,7 +182,7 @@ export default function SearchPage() {
             className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer"
           >
             <ArrowLeft size={16} />
-            <span>Back to Dashboard</span>
+            <span>Back</span>
           </button>
 
           <span className="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-medium">
@@ -192,7 +193,7 @@ export default function SearchPage() {
 
       {/* MAIN CONTAINER */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
-        
+
         {/* HERO BANNER WITH CATEGORY SWITCHER */}
         <div className="animated-gradient text-white rounded-3xl p-6 sm:p-8 md:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10">
@@ -203,11 +204,10 @@ export default function SearchPage() {
                   key={t}
                   type="button"
                   onClick={() => handleTypeChange(t)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
-                    type === t
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${type === t
                       ? "bg-white text-[#3b2a21] shadow-md scale-105"
                       : "bg-white/10 text-white/80 hover:text-white hover:bg-white/20"
-                  }`}
+                    }`}
                 >
                   {t}
                 </button>
@@ -233,7 +233,7 @@ export default function SearchPage() {
         {/* SEARCH AND ACTION BAR */}
         <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#e8dfd6] shadow-[0_8px_30px_-6px_rgba(75,52,37,0.06)] mb-8">
           <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
-            
+
             {/* SEARCH INPUT */}
             <div className="flex-1 flex items-center gap-3 bg-[#fbf9f6] border border-[#dcd2c6] focus-within:border-[#6b3f23] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#8b5e3c]/20 rounded-2xl px-4 py-3 transition-all">
               <Search size={18} className="text-[#8b5e3c] shrink-0" />
@@ -282,21 +282,8 @@ export default function SearchPage() {
 
         {/* RESULTS GRID */}
         {loading ? (
-          /* LOADING SKELETONS */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2, 3, 4].map((n) => (
-              <div key={n} className="bg-white rounded-3xl p-6 border border-[#e8dfd6] shadow-sm animate-pulse">
-                <div className="h-6 bg-gray-200 rounded-md w-2/3 mb-4"></div>
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="h-14 bg-gray-100 rounded-xl"></div>
-                  <div className="h-14 bg-gray-100 rounded-xl"></div>
-                  <div className="h-14 bg-gray-100 rounded-xl"></div>
-                  <div className="h-14 bg-gray-100 rounded-xl"></div>
-                </div>
-                <div className="h-10 bg-gray-100 rounded-xl"></div>
-              </div>
-            ))}
-          </div>
+          /* HOPEST BRANDED SKELETON LOADERS */
+          <HopestCardSkeleton count={4} />
         ) : items.length === 0 ? (
           /* EMPTY STATE */
           <div className="bg-white rounded-3xl p-12 text-center border border-[#e8dfd6] shadow-sm max-w-xl mx-auto my-6">
@@ -361,10 +348,10 @@ export default function SearchPage() {
                                   type === "MISSING"
                                     ? "/missingperson.jpeg"
                                     : type === "LOST"
-                                    ? "/lostdas.jpeg"
-                                    : type === "FOUND"
-                                    ? "/founddas.jpeg"
-                                    : "/theftdas.jpeg";
+                                      ? "/lostdas.jpeg"
+                                      : type === "FOUND"
+                                        ? "/founddas.jpeg"
+                                        : "/theftdas.jpeg";
                               }}
                             />
                           </div>

@@ -42,15 +42,15 @@ export default function Footer() {
             {/* Logo */}
             <div
               onClick={() => router.push("/landing")}
-              className="flex items-center gap-3 cursor-pointer w-fit group"
+              className="flex items-center gap-3 cursor-pointer w-fit group select-none"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#1c1a16] border border-amber-500/30 flex items-center justify-center p-1.5 shadow-[0_0_15px_rgba(227,180,55,0.15)] group-hover:border-amber-400/50 transition-colors">
+              <div className="relative h-9 w-7 flex items-center justify-center shrink-0">
                 <Image
-                  src="/logo.png.jpeg"
+                  src="/logo.png"
                   alt="HOPEST Logo"
-                  width={28}
-                  height={28}
-                  className="object-contain rounded-md"
+                  width={100}
+                  height={90}
+                  className="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-200 drop-shadow-[0_2px_10px_rgba(216,155,82,0.25)]"
                 />
               </div>
 

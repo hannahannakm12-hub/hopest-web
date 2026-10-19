@@ -49,7 +49,7 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className="min-h-screen flex flex-col justify-between animated-gradient px-4 py-6 sm:py-8">
-      
+
       {/* TOP HEADER WITH BACK TO LANDING BUTTON */}
       <div className="max-w-5xl mx-auto w-full flex items-center justify-between pt-2">
         <button
@@ -58,7 +58,7 @@ export default function ForgotPasswordPage() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-[#d89b52] hover:text-white border border-[#d89b52]/30 backdrop-blur-md text-xs sm:text-sm font-semibold transition cursor-pointer shadow-sm"
         >
           <ArrowLeft size={16} />
-          <span>Back to Landing Page</span>
+          <span>Back</span>
         </button>
 
         <span className="text-xs font-mono text-amber-200/80 tracking-widest hidden sm:inline uppercase">
@@ -79,23 +79,25 @@ export default function ForgotPasswordPage() {
       {/* MAIN CONTAINER */}
       <div className="flex justify-center items-center my-6">
         <div className="w-full max-w-xl bg-[#f4efe9] text-[#3b2a21] rounded-3xl p-6 sm:p-10 shadow-2xl animate-modern border border-[#e5dcd3] space-y-6">
-          
+
           {/* QUICK RECOVERY ASSISTANCE */}
           <div className="p-5 rounded-2xl bg-white/70 border border-[#e2d5c7] shadow-sm space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#6b3f23]">
               <ShieldCheck size={16} className="text-[#6b3f23]" />
               <span>Fast Account Recovery</span>
             </div>
-            
+
             <p className="text-xs text-[#5a4335] leading-relaxed">
               Enter your registered number below to instantly connect with a Hopest support coordinator on WhatsApp:
             </p>
 
-            <form onSubmit={handleQuickWhatsApp} className="space-y-3">
+            <form onSubmit={handleQuickWhatsApp} autoComplete="off" className="space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="relative">
                   <input
                     type="tel"
+                    name="mobile"
+                    autoComplete="off"
                     placeholder="Registered Mobile (+91)"
                     value={mobile}
                     onChange={(e) => {
@@ -110,6 +112,8 @@ export default function ForgotPasswordPage() {
                 <div className="relative">
                   <input
                     type="text"
+                    name="username"
+                    autoComplete="off"
                     placeholder="Username / Name (Optional)"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}

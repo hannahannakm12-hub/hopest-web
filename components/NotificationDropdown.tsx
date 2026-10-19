@@ -18,6 +18,7 @@ import {
   ArrowRight,
   Filter,
 } from "lucide-react";
+import { HopestNotificationSkeleton } from "@/components/HopestLoader";
 
 export interface NotificationItem {
   id: string;
@@ -295,7 +296,7 @@ export default function NotificationDropdown({
             </div>
 
             {/* Filter Pills Navigation */}
-            <div className="px-3.5 py-2.5 bg-[#0e0c0a] border-b border-white/[0.06] flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <div className="px-3.5 py-2.5 bg-[#0e0c0a] border-b border-white/[0.06] flex items-center gap-1.5 overflow-x-auto overflow-y-hidden no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <button
                 type="button"
                 onClick={() => setActiveFilter("all")}
@@ -370,8 +371,11 @@ export default function NotificationDropdown({
             </div>
 
             {/* Notification List Scroll Area */}
-            <div className="overflow-y-auto max-h-[380px] p-3 space-y-2.5 divide-y divide-white/[0.04]">
-              {filteredNotifications.length === 0 ? (
+            <div className="overflow-y-auto overflow-x-hidden max-h-[380px] p-3 space-y-2.5 divide-y divide-white/[0.04]">
+              {isLoading && notifications.length === 0 ? (
+                /* SKELETON NOTIFICATION LOADERS */
+                <HopestNotificationSkeleton count={3} />
+              ) : filteredNotifications.length === 0 ? (
                 <div className="py-12 px-4 text-center">
                   <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center mx-auto mb-3 shadow-inner">
                     <Sparkles className="w-6 h-6 text-amber-400" />
@@ -451,9 +455,9 @@ export default function NotificationDropdown({
                         </p>
 
                         {/* Action Link & Detailed Timing Row */}
-                        <div className="mt-2.5 pt-2 border-t border-white/[0.05] flex items-center justify-between text-[11px]">
+                        <div className="mt-2.5 pt-2 border-t border-white/[0.05] flex items-center justify-between text-[11px] gap-2 min-w-0">
                           {/* Exact Arrival Timing & Incident Date */}
-                          <div className="flex items-center gap-1.5 text-[10px] text-stone-400 truncate max-w-[240px]">
+                          <div className="flex items-center gap-1.5 text-[10px] text-stone-400 truncate min-w-0 flex-1">
                             <span className="text-stone-300 font-medium truncate">
                               {item.timestamp}
                             </span>

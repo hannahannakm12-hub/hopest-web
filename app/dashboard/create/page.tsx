@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { HopestSpinner } from "@/components/HopestLoader";
+import HopestDatePicker from "@/components/HopestDatePicker";
 
 const TYPES = ["LOST", "FOUND", "THEFT", "MISSING"] as const;
 
@@ -210,7 +212,7 @@ export default function CreatePage() {
 
   return (
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
-      
+
       {/* TOP BAR / BACK NAVIGATION */}
       <div className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
@@ -220,7 +222,7 @@ export default function CreatePage() {
             className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer"
           >
             <ArrowLeft size={16} />
-            <span>Back to Dashboard</span>
+            <span>Back</span>
           </button>
 
           <span className="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-medium">
@@ -231,7 +233,7 @@ export default function CreatePage() {
 
       {/* MAIN CONTENT AREA */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
-        
+
         {/* HEADER HERO CARD */}
         <div className="animated-gradient text-white rounded-3xl p-6 sm:p-8 md:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10">
@@ -242,11 +244,10 @@ export default function CreatePage() {
                   key={t}
                   type="button"
                   onClick={() => handleTypeChange(t)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
-                    type === t
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${type === t
                       ? "bg-white text-[#3b2a21] shadow-md scale-105"
                       : "bg-white/10 text-white/80 hover:text-white hover:bg-white/20"
-                  }`}
+                    }`}
                 >
                   {t}
                 </button>
@@ -316,7 +317,7 @@ export default function CreatePage() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              
+
               {/* ITEM NAME */}
               <div>
                 <label className="block text-xs font-bold text-[#4b3425] uppercase tracking-wider mb-2">
@@ -331,11 +332,10 @@ export default function CreatePage() {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="e.g., Black Leather Wallet, iPhone 14 Pro, RC Document"
-                  className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${
-                    errors.name
+                  className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${errors.name
                       ? "border-red-500 focus:ring-2 focus:ring-red-200"
                       : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                  }`}
+                    }`}
                 />
                 {errors.name && (
                   <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -359,11 +359,10 @@ export default function CreatePage() {
                     value={form.place}
                     onChange={handleChange}
                     placeholder="e.g., Aluva Railway Station, KSRTC Bus Stand"
-                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${
-                      errors.place
+                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${errors.place
                         ? "border-red-500 focus:ring-2 focus:ring-red-200"
                         : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                    }`}
+                      }`}
                   />
                   {errors.place && (
                     <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -379,16 +378,17 @@ export default function CreatePage() {
                       {type} Date <span className="text-red-500">*</span>
                     </span>
                   </label>
-                  <input
-                    type="date"
-                    name="date"
+                  <HopestDatePicker
                     value={form.date}
-                    onChange={handleChange}
-                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] outline-none transition-all ${
-                      errors.date
-                        ? "border-red-500 focus:ring-2 focus:ring-red-200"
-                        : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                    }`}
+                    typeLabel={type}
+                    onChange={(newDate) => {
+                      setForm((prev) => ({ ...prev, date: newDate }));
+                      if (errors.date) {
+                        setErrors((prev) => ({ ...prev, date: "" }));
+                      }
+                    }}
+                    hasError={Boolean(errors.date)}
+                    placeholder={`Select date item was ${type.toLowerCase()} (DD/MM/YYYY)...`}
                   />
                   {errors.date && (
                     <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -412,11 +412,10 @@ export default function CreatePage() {
                   value={form.police}
                   onChange={handleChange}
                   placeholder="e.g., Central Police Station, Ernakulam"
-                  className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${
-                    errors.police
+                  className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${errors.police
                       ? "border-red-500 focus:ring-2 focus:ring-red-200"
                       : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                  }`}
+                    }`}
                 />
                 {errors.police && (
                   <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -447,11 +446,10 @@ export default function CreatePage() {
                       }
                     }}
                     placeholder="10-digit mobile number"
-                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${
-                      errors.mob
+                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${errors.mob
                         ? "border-red-500 focus:ring-2 focus:ring-red-200"
                         : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                    }`}
+                      }`}
                   />
                   {errors.mob && (
                     <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -473,11 +471,10 @@ export default function CreatePage() {
                     value={form.town}
                     onChange={handleChange}
                     placeholder="e.g., Edappally, Palarivattom"
-                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${
-                      errors.town
+                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${errors.town
                         ? "border-red-500 focus:ring-2 focus:ring-red-200"
                         : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                    }`}
+                      }`}
                   />
                   {errors.town && (
                     <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -502,11 +499,10 @@ export default function CreatePage() {
                     value={form.district}
                     onChange={handleChange}
                     placeholder="e.g., Ernakulam, Kozhikode, Thrissur"
-                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${
-                      errors.district
+                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${errors.district
                         ? "border-red-500 focus:ring-2 focus:ring-red-200"
                         : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                    }`}
+                      }`}
                   />
                   {errors.district && (
                     <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -535,11 +531,10 @@ export default function CreatePage() {
                       }
                     }}
                     placeholder="e.g., 682024"
-                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${
-                      errors.pin
+                    className={`w-full bg-[#fbf9f6] border rounded-xl px-4 py-3 text-sm text-[#2b1f18] placeholder-[#9c8a7c] outline-none transition-all ${errors.pin
                         ? "border-red-500 focus:ring-2 focus:ring-red-200"
                         : "border-[#dcd2c6] focus:border-[#6b3f23] focus:bg-white focus:ring-2 focus:ring-[#8b5e3c]/20"
-                    }`}
+                      }`}
                   />
                   {errors.pin && (
                     <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
@@ -570,10 +565,13 @@ export default function CreatePage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full sm:w-auto bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] hover:brightness-110 text-white font-semibold py-3 px-10 rounded-xl text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                  className="w-full sm:w-auto bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] hover:brightness-110 text-white font-semibold py-3 px-10 rounded-xl text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {submitting ? (
-                    <span>Submitting Report...</span>
+                    <>
+                      <HopestSpinner size="sm" variant="light" />
+                      <span>Submitting Report...</span>
+                    </>
                   ) : (
                     <>
                       <span>Submit {type} Report</span>

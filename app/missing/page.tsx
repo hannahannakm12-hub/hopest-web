@@ -22,6 +22,7 @@ import {
   Users,
   Plus,
 } from "lucide-react";
+import { HopestMissingCardSkeleton } from "@/components/HopestLoader";
 
 export default function MissingPage() {
   const router = useRouter();
@@ -100,7 +101,7 @@ export default function MissingPage() {
 
   return (
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
-      
+
       {/* STICKY TOP BAR */}
       <header className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -110,7 +111,7 @@ export default function MissingPage() {
             className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer"
           >
             <ArrowLeft size={16} />
-            <span>Back to Dashboard</span>
+            <span>Back</span>
           </button>
 
           <div className="flex items-center gap-3">
@@ -128,7 +129,7 @@ export default function MissingPage() {
 
       {/* MAIN CONTAINER */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
-        
+
         {/* HERO BANNER */}
         <section className="animated-gradient text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
@@ -188,24 +189,8 @@ export default function MissingPage() {
 
         {/* CONTENT LIST */}
         {loading ? (
-          /* SKELETON LOADERS */
-          <div className="space-y-6">
-            {[1, 2].map((n) => (
-              <div key={n} className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8dfd6] shadow-sm animate-pulse md:flex gap-8">
-                <div className="w-full md:w-60 h-64 bg-gray-200 rounded-2xl shrink-0 mb-4 md:mb-0"></div>
-                <div className="flex-1 space-y-4">
-                  <div className="h-7 bg-gray-200 rounded-md w-1/2"></div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="h-16 bg-gray-100 rounded-xl"></div>
-                    <div className="h-16 bg-gray-100 rounded-xl"></div>
-                    <div className="h-16 bg-gray-100 rounded-xl"></div>
-                    <div className="h-16 bg-gray-100 rounded-xl"></div>
-                  </div>
-                  <div className="h-12 bg-gray-200 rounded-xl"></div>
-                </div>
-              </div>
-            ))}
-          </div>
+          /* HOPEST BRANDED MISSING NOTICE SKELETONS */
+          <HopestMissingCardSkeleton count={2} />
         ) : filteredItems.length === 0 ? (
           /* EMPTY STATE */
           <div className="bg-white rounded-3xl p-12 text-center border border-[#e8dfd6] shadow-sm max-w-lg mx-auto my-8">
@@ -254,7 +239,7 @@ export default function MissingPage() {
                   className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8dfd6] shadow-[0_4px_24px_-6px_rgba(75,52,37,0.06)] hover:shadow-[0_16px_36px_-6px_rgba(75,52,37,0.12)] border-t-[6px] border-t-red-600 transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
-                    
+
                     {/* PHOTO AREA WITH PROVEN FALLBACK */}
                     <div className="w-full md:w-64 shrink-0 flex flex-col items-center">
                       <div className="w-full h-72 sm:h-80 md:h-72 rounded-2xl bg-[#f7f2ed] border border-[#e5d6c5] overflow-hidden shadow-inner relative flex items-center justify-center">
@@ -285,7 +270,7 @@ export default function MissingPage() {
 
                     {/* DETAILS AREA */}
                     <div className="flex-1 w-full">
-                      
+
                       {/* HEADER ROW */}
                       <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#f0e7de]">
                         <div>
@@ -293,7 +278,7 @@ export default function MissingPage() {
                             <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span>
                             <span>Urgent Broadcast</span>
                           </div>
-                          
+
                           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#2b1f18] tracking-tight">
                             {name}
                           </h2>
@@ -334,7 +319,7 @@ export default function MissingPage() {
 
                       {/* STRUCTURED INFORMATION CARDS */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
-                        
+
                         <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-2xl p-3.5 flex items-start gap-3">
                           <div className="w-8 h-8 rounded-xl bg-[#f4efe9] text-[#6b3f23] flex items-center justify-center shrink-0">
                             <Building2 size={16} />

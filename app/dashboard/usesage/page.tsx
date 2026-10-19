@@ -95,7 +95,7 @@ export default function HowToUseContent() {
   return (
     <div className="bg-[#fbf9f6] text-[#3b2a21] min-h-screen py-8 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8 selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
       <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
-        
+
         {/* BACK TO DASHBOARD NAVIGATION */}
         <div>
           <button
@@ -104,7 +104,7 @@ export default function HowToUseContent() {
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#6b3f23] hover:text-[#2b1f18] bg-white border border-[#e8dfd6] hover:border-[#8b5e3c] px-4 py-2 rounded-full shadow-sm hover:shadow transition-all duration-200 cursor-pointer group"
           >
             <ArrowLeft size={15} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Dashboard</span>
+            <span>Back</span>
           </button>
         </div>
 
@@ -131,7 +131,7 @@ export default function HowToUseContent() {
 
         {/* STEP-BY-STEP INTERACTIVE TIMELINE */}
         <div className="relative pt-4">
-          
+
           {/* Subtle Glowing Central Connector Line */}
           <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-gradient-to-b from-[#6b3f23] via-[#d89b52] to-transparent hidden sm:block opacity-40"></div>
 
@@ -141,7 +141,7 @@ export default function HowToUseContent() {
 
               return (
                 <div key={index} className="relative sm:pl-16 group">
-                  
+
                   {/* Glowing Node Orb on Desktop */}
                   <div className="hidden sm:flex absolute left-3.5 top-6 -translate-x-1/2 items-center justify-center">
                     <div className="w-6 h-6 rounded-full bg-[#6b3f23] text-white text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-md group-hover:scale-125 group-hover:bg-[#d89b52] transition-all duration-300">
@@ -151,7 +151,7 @@ export default function HowToUseContent() {
 
                   {/* Super Card with Radiant Top Beam & Effects */}
                   <div className={`bg-white rounded-3xl p-6 sm:p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(75,52,37,0.16)] hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 ${step.isEmergency ? "border-red-200 bg-gradient-to-r from-white to-red-50/20" : ""}`}>
-                    
+
                     {/* Top Radiant Beam */}
                     <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${step.gradientBeam} opacity-75 group-hover:opacity-100 group-hover:h-2 transition-all duration-500`} />
 

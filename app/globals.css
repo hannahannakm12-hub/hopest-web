@@ -422,7 +422,51 @@ input:-webkit-autofill:active {
   display: inline-block;
 }
 
+/* =====================================================
+   HOPEST SHIMMER & SKELETON ANIMATIONS
+===================================================== */
 
+@keyframes hopestShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
 
+.hopest-shimmer-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(216, 155, 82, 0.12) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: hopestShimmer 2s infinite ease-in-out;
+}
 
+.hopest-shimmer-light {
+  background: linear-gradient(
+    90deg,
+    rgba(238, 230, 221, 0.6) 0%,
+    rgba(216, 155, 82, 0.22) 50%,
+    rgba(238, 230, 221, 0.6) 100%
+  );
+  background-size: 200% 100%;
+  animation: hopestShimmer 1.8s infinite ease-in-out;
+}
 
+/* =====================================================
+   HIDE SCROLLBAR UTILITY
+===================================================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}

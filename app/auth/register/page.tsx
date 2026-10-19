@@ -2,13 +2,20 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import {
   User,
   Phone,
   ArrowLeft,
   CheckCircle2,
   AlertCircle,
+  Sparkles,
+  Eye,
+  EyeOff,
+  ArrowRight,
+  ShieldCheck,
 } from "lucide-react";
+import { HopestSpinner } from "@/components/HopestLoader";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -128,131 +135,201 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between animated-gradient px-4 py-6 sm:py-8">
-      
-      {/* TOP HEADER WITH BACK TO LANDING BUTTON */}
-      <div className="max-w-5xl mx-auto w-full flex items-center justify-between pt-2">
+    <div className="relative min-h-screen flex flex-col justify-between bg-[#0c0a09] animated-gradient text-stone-100 px-4 py-6 sm:py-8 overflow-x-hidden selection:bg-[#d89b52]/30 selection:text-[#f8d7a4]">
+      {/* =====================================================
+          AMBIENT BACKGROUND LIGHTING & GRID TEXTURE
+      ===================================================== */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-[#b67a32]/20 via-[#8b5e3c]/10 to-transparent blur-[140px] rounded-full" />
+        <div className="absolute top-1/4 -left-32 w-[450px] h-[450px] bg-[#d89b52]/10 blur-[150px] rounded-full" />
+        <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-[#8b5e3c]/15 blur-[160px] rounded-full" />
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+            backgroundSize: "32px 32px",
+          }}
+        />
+      </div>
+
+      {/* =====================================================
+          TOP HEADER WITH BACK BUTTON & BRAND
+      ===================================================== */}
+      <div className="relative z-10 max-w-5xl mx-auto w-full flex items-center justify-between pt-2">
         <button
           type="button"
           onClick={() => router.push("/landing")}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-[#d89b52] hover:text-white border border-[#d89b52]/30 backdrop-blur-md text-xs sm:text-sm font-semibold transition cursor-pointer shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-amber-300 hover:text-white border border-amber-500/25 backdrop-blur-md text-xs sm:text-sm font-semibold transition cursor-pointer shadow-sm hover:border-amber-400/40"
         >
           <ArrowLeft size={16} />
-          <span>Back to Landing Page</span>
+          <span>Back</span>
         </button>
 
-        <span className="text-xs font-mono text-amber-200/80 tracking-widest hidden sm:inline uppercase">
-          Hopest Portal
-        </span>
+        <div className="flex items-center gap-2.5">
+          <div className="w-10 h-10 flex items-center justify-center">
+            <Image
+              src="/logo.png"
+              alt="Hopest"
+              width={25}
+              height={25}
+              className="object-contain rounded"
+            />
+          </div>
+          <span className="text-xs font-mono text-amber-200/90 tracking-widest uppercase font-semibold">
+            Hopest Portal
+          </span>
+        </div>
       </div>
 
-      {/* GREETING TITLE */}
-      <div className="text-center pt-8 sm:pt-10 animate-modern">
-        <h1 className="text-4xl sm:text-5xl font-serif text-[#d89b52] tracking-tight">
-          Hello Register!
+      {/* =====================================================
+          GREETING & HERO TITLE
+      ===================================================== */}
+      <div className="relative z-10 text-center pt-8 sm:pt-10 animate-modern">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] font-medium text-amber-300 mb-3">
+          <Sparkles size={12} className="text-amber-400" />
+          <span>New Account Registration</span>
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+          Hello{" "}
+          <span className="bg-gradient-to-r from-amber-200 via-[#e5a95d] to-[#d89b52] bg-clip-text text-transparent font-serif">
+            Register!
+          </span>
         </h1>
-        <p className="text-xs sm:text-sm text-[#c9bfb6] mt-2 max-w-sm mx-auto">
+        <p className="text-xs sm:text-sm text-stone-400 mt-2 max-w-sm mx-auto leading-relaxed">
           Create your free Hopest account to start reporting and discovering lost items.
         </p>
       </div>
 
-      {/* REGISTER CARD */}
-      <div className="flex justify-center items-center my-6">
-        <div className="w-full max-w-md bg-[#f4efe9] text-[#3b2a21] rounded-3xl p-8 sm:p-10 shadow-2xl animate-modern animate-float border border-[#e5dcd3]">
-          <form onSubmit={handleRegister} className="space-y-6">
-            
+      {/* =====================================================
+          REGISTER CARD (Luxury Glassmorphism & Gold Accents)
+      ===================================================== */}
+      <div className="relative z-10 flex justify-center items-center my-6">
+        <div className="group w-full max-w-md rounded-3xl bg-gradient-to-b from-[#1a1714]/95 to-[#12100e]/95 p-7 sm:p-9 shadow-[0_20px_60px_rgba(0,0,0,0.65)] border border-white/[0.09] hover:border-amber-500/35 transition-all duration-300 backdrop-blur-xl animate-modern relative">
+          {/* Subtle Golden Glow Overlay */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/0 via-amber-500/[0.03] to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+          <form onSubmit={handleRegister} autoComplete="off" className="relative z-10 space-y-5">
             {/* USERNAME */}
-            <div className="relative">
-              <label className="block text-xs sm:text-sm font-semibold text-[#3b2a21] mb-2">
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400/90 mb-2">
                 FULL NAME / USERNAME
               </label>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                value={username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                  if (errors.username) setErrors({ ...errors, username: "" });
-                }}
-                className={`w-full bg-transparent border-b py-2 pr-8 outline-none text-[#3b2a21] placeholder-[#a89f91] caret-[#6b3f23] transition text-sm sm:text-base ${
-                  errors.username
-                    ? "border-red-500"
-                    : "border-[#c9bfb6] focus:border-[#6b3f23]"
-                }`}
-              />
-              <User
-                className="absolute right-0 bottom-3 text-[#6b3f23]"
-                size={18}
-              />
+              <div
+                className={`relative flex items-center rounded-2xl bg-[#141210] border transition-all duration-200 shadow-inner ${errors.username
+                  ? "border-red-500/80 ring-1 ring-red-500/20"
+                  : "border-white/[0.08] focus-within:border-amber-400/60 focus-within:ring-2 focus-within:ring-amber-400/15"
+                  }`}
+              >
+                <input
+                  type="text"
+                  name="fullname"
+                  autoComplete="off"
+                  placeholder="Enter your name"
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    if (errors.username) setErrors({ ...errors, username: "" });
+                  }}
+                  className="w-full bg-transparent px-4 py-3.5 pr-11 text-white placeholder-stone-500 text-sm sm:text-base outline-none"
+                />
+                <div className="absolute right-3.5 flex items-center pointer-events-none text-amber-400/70">
+                  <User size={18} />
+                </div>
+              </div>
               {errors.username && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.username}
+                <p className="text-red-400 text-xs mt-1.5 pl-1 flex items-center gap-1">
+                  <AlertCircle size={12} />
+                  <span>{errors.username}</span>
                 </p>
               )}
             </div>
 
             {/* MOBILE */}
-            <div className="relative">
-              <label className="block text-xs sm:text-sm font-semibold text-[#3b2a21] mb-2">
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400/90 mb-2">
                 REGISTERED MOBILE (+91)
               </label>
-              <input
-                type="tel"
-                placeholder="Enter 10-digit mobile number"
-                value={mobile}
-                onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, "");
-                  if (value.length <= 10) {
-                    setMobile(value);
-                    if (errors.mobile) setErrors({ ...errors, mobile: "" });
-                  }
-                }}
-                className={`w-full bg-transparent border-b py-2 pr-8 outline-none text-[#3b2a21] placeholder-[#a89f91] caret-[#6b3f23] transition text-sm sm:text-base font-mono ${
-                  errors.mobile
-                    ? "border-red-500"
-                    : "border-[#c9bfb6] focus:border-[#6b3f23]"
-                }`}
-              />
-              <Phone
-                className="absolute right-0 bottom-3 text-[#6b3f23]"
-                size={18}
-              />
+              <div
+                className={`relative flex items-center rounded-2xl bg-[#141210] border transition-all duration-200 shadow-inner ${errors.mobile
+                  ? "border-red-500/80 ring-1 ring-red-500/20"
+                  : "border-white/[0.08] focus-within:border-amber-400/60 focus-within:ring-2 focus-within:ring-amber-400/15"
+                  }`}
+              >
+                <input
+                  type="tel"
+                  name="mobile"
+                  autoComplete="off"
+                  placeholder="Enter 10-digit mobile number"
+                  value={mobile}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "");
+                    if (value.length <= 10) {
+                      setMobile(value);
+                      if (errors.mobile) setErrors({ ...errors, mobile: "" });
+                    }
+                  }}
+                  className="w-full bg-transparent px-4 py-3.5 pr-11 text-white placeholder-stone-500 text-sm sm:text-base font-mono outline-none"
+                />
+                <div className="absolute right-3.5 flex items-center pointer-events-none text-amber-400/70">
+                  <Phone size={18} />
+                </div>
+              </div>
               {errors.mobile && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.mobile}
+                <p className="text-red-400 text-xs mt-1.5 pl-1 flex items-center gap-1">
+                  <AlertCircle size={12} />
+                  <span>{errors.mobile}</span>
                 </p>
               )}
             </div>
 
             {/* PASSWORD */}
-            <div className="relative">
-              <label className="block text-xs sm:text-sm font-semibold text-[#3b2a21] mb-2">
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400/90 mb-2">
                 PASSWORD
               </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="At least 6 characters"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  if (errors.password) setErrors({ ...errors, password: "" });
-                }}
-                className={`w-full bg-transparent border-b py-2 pr-16 outline-none text-[#3b2a21] placeholder-[#a89f91] caret-[#6b3f23] transition text-sm sm:text-base ${
-                  errors.password
-                    ? "border-red-500"
-                    : "border-[#c9bfb6] focus:border-[#6b3f23]"
-                }`}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-0 bottom-3 text-[#6b3f23] hover:text-[#3b2a21] text-xs font-semibold cursor-pointer"
+              <div
+                className={`relative flex items-center rounded-2xl bg-[#141210] border transition-all duration-200 shadow-inner ${errors.password
+                  ? "border-red-500/80 ring-1 ring-red-500/20"
+                  : "border-white/[0.08] focus-within:border-amber-400/60 focus-within:ring-2 focus-within:ring-amber-400/15"
+                  }`}
               >
-                {showPassword ? "Hide" : "Show"}
-              </button>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="new-password"
+                  autoComplete="new-password"
+                  placeholder="At least 6 characters"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (errors.password) setErrors({ ...errors, password: "" });
+                  }}
+                  className="w-full bg-transparent px-4 py-3.5 pr-20 text-white placeholder-stone-500 text-sm sm:text-base outline-none"
+                />
+                <div className="absolute right-3 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="flex items-center gap-1 text-amber-400/80 hover:text-amber-300 text-xs font-semibold px-2 py-1 rounded-lg hover:bg-white/[0.05] transition cursor-pointer"
+                  >
+                    {showPassword ? (
+                      <>
+                        <EyeOff size={14} />
+                        <span>Hide</span>
+                      </>
+                    ) : (
+                      <>
+                        <Eye size={14} />
+                        <span>Show</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
               {errors.password && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.password}
+                <p className="text-red-400 text-xs mt-1.5 pl-1 flex items-center gap-1">
+                  <AlertCircle size={12} />
+                  <span>{errors.password}</span>
                 </p>
               )}
             </div>
@@ -261,82 +338,85 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-2 py-3 rounded-xl text-white font-medium shimmer-button hover:opacity-90 transition cursor-pointer flex items-center justify-center gap-2 shadow-md disabled:opacity-50"
+              className="w-full mt-2 py-3.5 sm:py-4 rounded-xl shimmer-button font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#b67a32] via-[#e5a95d] to-[#b67a32] text-stone-950 shadow-[0_0_25px_rgba(216,155,82,0.35)] hover:shadow-[0_0_35px_rgba(216,155,82,0.55)] hover:brightness-105 active:scale-[0.98] transition-all duration-300 cursor-pointer disabled:opacity-60"
             >
               {loading ? (
                 <>
-                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                  <HopestSpinner size="sm" variant="dark" />
                   <span>Creating Account...</span>
                 </>
               ) : (
-                <span>Register</span>
+                <>
+                  <span>Register</span>
+                  <ArrowRight size={17} />
+                </>
               )}
             </button>
 
             {/* LOGIN LINK */}
-            <p className="text-center text-xs sm:text-sm text-[#6b3f23] pt-2 border-t border-[#e2d5c7]">
+            <div className="pt-4 border-t border-white/[0.06] text-center text-xs sm:text-sm text-stone-400">
               Already have an account?{" "}
               <span
                 onClick={() => router.push("/auth/login")}
-                className="font-bold cursor-pointer hover:underline ml-1"
+                className="font-bold text-amber-300 hover:text-amber-200 cursor-pointer hover:underline ml-1 transition-colors"
               >
                 Login
               </span>
-            </p>
-
+            </div>
           </form>
         </div>
       </div>
 
-      {/* FOOTER */}
-      <footer className="text-center text-xs text-[#c9bfb6] pb-4 animate-modern">
+      {/* =====================================================
+          FOOTER
+      ===================================================== */}
+      <footer className="relative z-10 text-center text-xs text-stone-500 pb-4 animate-modern">
         © 2026 HOPEST - hope for the best
       </footer>
 
-      {/* USER-FRIENDLY PROFESSIONAL POPUP MODAL */}
+      {/* =====================================================
+          USER-FRIENDLY PROFESSIONAL POPUP MODAL
+      ===================================================== */}
       {popup?.isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-          <div className="w-full max-w-sm bg-[#f4efe9] text-[#3b2a21] rounded-3xl p-7 sm:p-8 shadow-2xl border border-[#e5dcd3] text-center animate-modern animate-float relative">
-            
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fadeIn">
+          <div className="w-full max-w-sm bg-[#161412] text-stone-100 rounded-3xl p-7 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-amber-500/30 text-center animate-modern animate-float relative">
             {/* ICON BADGE */}
             {popup.type === "success" ? (
-              <div className="w-16 h-16 rounded-full bg-emerald-100 border-2 border-emerald-400 text-emerald-700 flex items-center justify-center mx-auto mb-4 shadow-md">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/15 border-2 border-emerald-400/40 text-emerald-400 flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(52,211,153,0.2)]">
                 <CheckCircle2 size={32} />
               </div>
             ) : (
-              <div className="w-16 h-16 rounded-full bg-red-100 border-2 border-red-400 text-red-600 flex items-center justify-center mx-auto mb-4 shadow-md">
+              <div className="w-16 h-16 rounded-full bg-red-500/15 border-2 border-red-400/40 text-red-400 flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(248,113,113,0.2)]">
                 <AlertCircle size={32} />
               </div>
             )}
 
             {/* TITLE & MESSAGE */}
-            <h3 className="text-xl sm:text-2xl font-serif text-[#3b2a21] font-bold">
+            <h3 className="text-xl sm:text-2xl font-serif text-white font-bold">
               {popup.title}
             </h3>
-            <p className="text-xs sm:text-sm text-[#6b5240] mt-2 leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
               {popup.message}
             </p>
 
             {/* ACTION / PROGRESS */}
             {popup.type === "success" ? (
-              <div className="mt-5 pt-4 border-t border-[#e2d5c7] flex items-center justify-center gap-2 text-xs text-[#8c7565]">
-                <span className="w-4 h-4 border-2 border-[#6b3f23] border-t-transparent rounded-full animate-spin"></span>
+              <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-center gap-2 text-xs text-amber-300/80 font-medium">
+                <HopestSpinner size="sm" variant="light" />
                 <span>Redirecting to login...</span>
               </div>
             ) : (
               <button
                 type="button"
                 onClick={() => setPopup(null)}
-                className="mt-5 w-full py-2.5 rounded-xl bg-[#6b3f23] hover:bg-[#523019] text-white text-xs sm:text-sm font-semibold shadow-md transition cursor-pointer"
+                className="mt-5 w-full py-2.5 rounded-xl bg-gradient-to-r from-[#8b5e3c] to-[#6d4529] hover:from-[#9c6a44] hover:to-[#7c4f30] text-white text-xs sm:text-sm font-semibold shadow-md transition cursor-pointer"
               >
                 Close & Fix
               </button>
             )}
-
           </div>
         </div>
       )}
-
     </div>
   );
 }

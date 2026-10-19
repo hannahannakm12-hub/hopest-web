@@ -20,6 +20,7 @@ import {
   LogIn,
   Filter,
 } from "lucide-react";
+import { HopestCardSkeleton, HopestSpinner } from "@/components/HopestLoader";
 
 const CATEGORIES = ["ALL", "LOST", "FOUND", "THEFT"] as const;
 
@@ -170,7 +171,7 @@ export default function MyCreationsPage() {
 
   return (
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
-      
+
       {/* STICKY TOP BAR */}
       <header className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
@@ -180,7 +181,7 @@ export default function MyCreationsPage() {
             className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer"
           >
             <ArrowLeft size={16} />
-            <span>Back to Dashboard</span>
+            <span>Back</span>
           </button>
 
           <div className="flex items-center gap-3">
@@ -200,11 +201,10 @@ export default function MyCreationsPage() {
       {notification && (
         <div className="fixed top-16 right-4 z-50 max-w-md animate-fade-in">
           <div
-            className={`flex items-start gap-3 p-4 rounded-2xl shadow-xl border text-sm ${
-              notification.type === "success"
+            className={`flex items-start gap-3 p-4 rounded-2xl shadow-xl border text-sm ${notification.type === "success"
                 ? "bg-emerald-50 border-emerald-300 text-emerald-900"
                 : "bg-rose-50 border-rose-300 text-rose-900"
-            }`}
+              }`}
           >
             {notification.type === "success" ? (
               <CheckCircle2 size={18} className="text-emerald-600 shrink-0 mt-0.5" />
@@ -230,7 +230,7 @@ export default function MyCreationsPage() {
 
       {/* MAIN CONTAINER */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
-        
+
         {/* HERO BANNER */}
         <section className="animated-gradient text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
@@ -289,7 +289,7 @@ export default function MyCreationsPage() {
         {hasUser && (
           <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#e8dfd6] shadow-[0_8px_30px_-6px_rgba(75,52,37,0.06)] mb-8">
             <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-              
+
               {/* CATEGORY TABS */}
               <div className="flex flex-wrap items-center gap-2">
                 {CATEGORIES.map((cat) => (
@@ -297,11 +297,10 @@ export default function MyCreationsPage() {
                     key={cat}
                     type="button"
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wider transition-all cursor-pointer ${
-                      selectedCategory === cat
+                    className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wider transition-all cursor-pointer ${selectedCategory === cat
                         ? "bg-[#4b3425] text-white shadow-sm"
                         : "bg-[#f7f3ee] hover:bg-[#ede5dc] text-[#634e40]"
-                    }`}
+                      }`}
                   >
                     {cat}
                   </button>
@@ -348,21 +347,8 @@ export default function MyCreationsPage() {
         {hasUser && (
           <>
             {loading ? (
-              /* SKELETON LOADERS */
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[1, 2, 3, 4].map((n) => (
-                  <div key={n} className="bg-white rounded-3xl p-6 border border-[#e8dfd6] shadow-sm animate-pulse">
-                    <div className="h-6 bg-gray-200 rounded-md w-2/3 mb-4"></div>
-                    <div className="grid grid-cols-2 gap-3 mb-4">
-                      <div className="h-14 bg-gray-100 rounded-xl"></div>
-                      <div className="h-14 bg-gray-100 rounded-xl"></div>
-                      <div className="h-14 bg-gray-100 rounded-xl"></div>
-                      <div className="h-14 bg-gray-100 rounded-xl"></div>
-                    </div>
-                    <div className="h-10 bg-gray-100 rounded-xl"></div>
-                  </div>
-                ))}
-              </div>
+              /* HOPEST BRANDED SKELETON LOADERS */
+              <HopestCardSkeleton count={4} />
             ) : filteredItems.length === 0 ? (
               /* EMPTY STATE */
               <div className="bg-white rounded-3xl p-12 text-center border border-[#e8dfd6] shadow-sm max-w-lg mx-auto my-8">
@@ -376,8 +362,8 @@ export default function MyCreationsPage() {
                   {searchQuery
                     ? `No listings matched your filter "${searchQuery}". Try a different keyword.`
                     : selectedCategory !== "ALL"
-                    ? `You haven't posted any items under "${selectedCategory}" yet.`
-                    : "You haven't published any lost, found, or theft listings yet."}
+                      ? `You haven't posted any items under "${selectedCategory}" yet.`
+                      : "You haven't published any lost, found, or theft listings yet."}
                 </p>
                 <button
                   type="button"
@@ -579,7 +565,7 @@ export default function MyCreationsPage() {
               >
                 {deleting ? (
                   <>
-                    <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                    <HopestSpinner size="xs" variant="light" />
                     <span>Deleting...</span>
                   </>
                 ) : (

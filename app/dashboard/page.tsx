@@ -131,10 +131,10 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
-      
+
       {/* MAIN CONTAINER */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full space-y-10 sm:space-y-14">
-        
+
         {/* PREMIUM HERO SECTION WITH SUPER AMBIENT GLOW */}
         <section className="animated-gradient text-white rounded-3xl p-7 sm:p-10 md:p-12 shadow-2xl border border-white/15 relative overflow-hidden group">
           {/* Ambient interactive glows */}
@@ -142,14 +142,14 @@ export default function DashboardPage() {
           <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-orange-600/15 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-1000"></div>
 
           <div className="relative z-10 max-w-4xl">
-            
+
             {/* Top pill badges */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-200 text-xs font-semibold uppercase tracking-wider shadow-sm">
                 <Sparkles size={13} className="text-amber-300 animate-pulse" />
                 <span>Hopest Community Portal</span>
               </div>
-              
+
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 text-xs font-medium backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span>Live Kerala Network</span>
@@ -168,11 +168,11 @@ export default function DashboardPage() {
 
             {/* 4 INTERACTIVE QUICK SHORTCUTS */}
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-              
+
               <button
                 type="button"
                 onClick={() => router.push("/missing")}
-                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-red-400/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
+                className="bg-white/10 hover:bg-white/20 border border-white/20  hover:border-red-400/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-16 h-16 bg-red-500/20 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
                 <div className="flex items-center justify-between text-xs text-red-300 font-semibold mb-1.5">
@@ -328,7 +328,7 @@ export default function DashboardPage() {
                         {item.tag}
                       </span>
                     </div>
-                    
+
                     <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#2b1f18] group-hover:text-[#6b3f23] transition-colors leading-tight">
                       {item.title}
                     </h3>
@@ -382,7 +382,7 @@ export default function DashboardPage() {
                     <button
                       type="button"
                       onClick={() => router.push("/missing")}
-                      className="bg-[#2b1f18] hover:bg-[#1a120e] text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
+                      className="bg-[#2b1f18] hover:bg-[#1a120e] text-white px-4 py-3 rounded-xl flex items-center shimmer-button justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
                     >
                       <Eye size={16} className="group-hover/btn:scale-110 transition-transform" />
                       <span>{item.searchLabel}</span>
@@ -391,7 +391,7 @@ export default function DashboardPage() {
                     <button
                       type="button"
                       onClick={() => router.push("/dashboard/create?type=MISSING")}
-                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
+                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-xl shimmer-button flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
                     >
                       <Plus size={16} className="group-hover/btn:rotate-90 transition-transform" />
                       <span>{item.createLabel}</span>
@@ -403,7 +403,7 @@ export default function DashboardPage() {
                     <button
                       type="button"
                       onClick={() => router.push(`/dashboard/create?type=${item.type}`)}
-                      className="bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] hover:brightness-110 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
+                      className="bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] shimmer-button hover:brightness-110 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
                     >
                       <Plus size={16} className="group-hover/btn:rotate-90 transition-transform" />
                       <span>{item.createLabel}</span>
@@ -412,7 +412,7 @@ export default function DashboardPage() {
                     <button
                       type="button"
                       onClick={() => router.push(`/dashboard/search?type=${item.type}`)}
-                      className="border border-[#c9bfb6] text-[#3b2a21] hover:border-[#6b3f23] hover:bg-[#f7f2ed] px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 cursor-pointer bg-white group/btn"
+                      className="border border-[#c9bfb6] text-[#3b2a21] hover:border-[#6b3f23] shimmer-button hover:bg-[#f7f2ed] px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 cursor-pointer bg-white group/btn"
                     >
                       <Search size={16} className="group-hover/btn:scale-110 transition-transform text-[#6b3f23]" />
                       <span>{item.searchLabel}</span>
@@ -482,13 +482,13 @@ export default function DashboardPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
+
             {/* STEP 01 */}
             <div className="bg-white rounded-3xl p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(217,119,6,0.18)] hover:border-amber-400/60 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
-              
+
               {/* TOP RADIANT BEAM */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-600 via-amber-400 to-[#d89b52] opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500" />
-              
+
               {/* AMBIENT RADIAL MESH */}
               <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-amber-400/15 blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out" />
 
@@ -528,10 +528,10 @@ export default function DashboardPage() {
 
             {/* STEP 02 */}
             <div className="bg-white rounded-3xl p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.18)] hover:border-emerald-500/60 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
-              
+
               {/* TOP RADIANT BEAM */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-600 via-teal-400 to-emerald-400 opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500" />
-              
+
               {/* AMBIENT RADIAL MESH */}
               <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-emerald-400/15 blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out" />
 
@@ -571,10 +571,10 @@ export default function DashboardPage() {
 
             {/* STEP 03 */}
             <div className="bg-white rounded-3xl p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(139,94,60,0.2)] hover:border-[#8b5e3c]/60 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
-              
+
               {/* TOP RADIANT BEAM */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#6b3f23] via-[#8b5e3c] to-[#d89b52] opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500" />
-              
+
               {/* AMBIENT RADIAL MESH */}
               <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[#d89b52]/15 blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out" />
 

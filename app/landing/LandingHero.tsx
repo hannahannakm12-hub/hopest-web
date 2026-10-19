@@ -79,21 +79,20 @@ export default function LandingHero() {
           {/* Brand Logo */}
           <Link
             href="/landing"
-            className="flex items-center gap-3.5 group cursor-pointer"
+            className="flex items-center gap-[20px] group cursor-pointer select-none"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-b from-[#1c1915] to-[#12100d] border border-amber-500/35 flex items-center justify-center p-1.5 shadow-[0_0_18px_rgba(227,180,55,0.2)] group-hover:border-amber-400/60 group-hover:shadow-[0_0_24px_rgba(227,180,55,0.35)] transition-all duration-300">
+            <div className="relative h-10 w-7 sm:w-8 flex items-center justify-center shrink-0">
               <Image
-                src="/logo.png.jpeg"
+                src="/logo.png"
                 alt="HOPEST Logo"
-                width={28}
-                height={28}
-                className="object-contain rounded-md"
+                width={100}
+                height={72}
+                className="object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(216,155,82,0.25)]"
                 priority
               />
-              <div className="absolute -inset-0.5 rounded-xl bg-amber-400/20 blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-black tracking-[0.2em] text-[#e4b63b] drop-shadow-sm">
+            <div className="flex flex-col justify-center">
+              <span className="text-xl font-black tracking-[0.2em] text-[#e4b63b] leading-tight drop-shadow-sm">
                 HOPEST
               </span>
               <span className="text-[9px] uppercase tracking-widest text-stone-400 font-bold -mt-0.5 hidden sm:block">

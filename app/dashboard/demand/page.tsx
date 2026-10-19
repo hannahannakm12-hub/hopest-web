@@ -68,7 +68,7 @@ export default function DemandPage() {
   return (
     <div className="bg-[#fbf9f6] text-[#3b2a21] min-h-screen py-8 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8 selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
       <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
-        
+
         {/* BACK TO DASHBOARD NAVIGATION */}
         <div>
           <button
@@ -77,7 +77,7 @@ export default function DemandPage() {
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#6b3f23] hover:text-[#2b1f18] bg-white border border-[#e8dfd6] hover:border-[#8b5e3c] px-4 py-2 rounded-full shadow-sm hover:shadow transition-all duration-200 cursor-pointer group"
           >
             <ArrowLeft size={15} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Dashboard</span>
+            <span>Back</span>
           </button>
         </div>
 
@@ -164,7 +164,7 @@ export default function DemandPage() {
         {/* CALLOUT CARD (ELEVATED LUXURY SOLIDARITY CARD) */}
         <div className="bg-gradient-to-br from-[#2b1f18] via-[#3a281e] to-[#2b1f18] text-white border border-white/10 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
-          
+
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-5 max-w-3xl">
               <div className="w-13 h-13 rounded-2xl bg-[#d89b52]/20 border border-[#d89b52]/40 text-[#fcd69b] flex items-center justify-center shrink-0 shadow-sm mt-1 group-hover:rotate-6 transition-transform">
