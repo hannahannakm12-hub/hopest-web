@@ -154,30 +154,30 @@ export default function NotificationDropdown({
         return {
           icon: AlertTriangle,
           label: "Missing Alert",
-          badgeColor: "bg-rose-500/15 text-rose-300 border-rose-500/30",
-          iconColor: "text-rose-400 bg-rose-500/10 border-rose-500/25 shadow-[0_0_12px_rgba(244,63,94,0.25)]",
+          badgeColor: "bg-[#2b1c14] text-white border-[#7a482b]/60",
+          iconColor: "text-white bg-[#2b1c14] border-[#7a482b]/50 shadow-[0_0_12px_rgba(122,72,43,0.35)]",
         };
       case "theft":
         return {
           icon: ShieldAlert,
           label: "Theft Report",
-          badgeColor: "bg-amber-500/15 text-amber-300 border-amber-500/30",
-          iconColor: "text-amber-400 bg-amber-500/10 border-amber-500/25 shadow-[0_0_12px_rgba(245,158,11,0.25)]",
+          badgeColor: "bg-[#251811] text-[#c49371] border-[#6b3f23]/60",
+          iconColor: "text-[#c49371] bg-[#251811] border-[#6b3f23]/50 shadow-[0_0_12px_rgba(107,63,35,0.35)]",
         };
       case "found":
         return {
           icon: Package,
           label: "Found Belonging",
-          badgeColor: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
-          iconColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/25 shadow-[0_0_12px_rgba(16,185,129,0.25)]",
+          badgeColor: "bg-[#21150e] text-[#e8d5c4] border-[#5c3a21]/60",
+          iconColor: "text-[#e8d5c4] bg-[#21150e] border-[#5c3a21]/50 shadow-[0_0_12px_rgba(92,58,33,0.35)]",
         };
       case "lost":
       default:
         return {
           icon: Search,
           label: "Lost Property",
-          badgeColor: "bg-blue-500/15 text-blue-300 border-blue-500/30",
-          iconColor: "text-blue-400 bg-blue-500/10 border-blue-500/25 shadow-[0_0_12px_rgba(59,130,246,0.25)]",
+          badgeColor: "bg-[#2b1b11] text-[#d4a373] border-[#6b3f23]/60",
+          iconColor: "text-[#d4a373] bg-[#2b1b11] border-[#6b3f23]/50 shadow-[0_0_12px_rgba(107,63,35,0.35)]",
         };
     }
   };
@@ -194,22 +194,22 @@ export default function NotificationDropdown({
         aria-expanded={isOpen}
         className={`group relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 cursor-pointer ${
           isOpen
-            ? "bg-gradient-to-b from-[#241e18] to-[#171310] border border-amber-400/60 shadow-[0_0_20px_rgba(216,155,82,0.35)]"
-            : "bg-stone-900/80 hover:bg-stone-800/90 border border-white/10 hover:border-amber-500/40 shadow-md hover:shadow-[0_0_15px_rgba(216,155,82,0.2)]"
+            ? "bg-gradient-to-b from-[#2b1b11] to-[#140f0c] border border-[#6b3f23] shadow-[0_0_20px_rgba(107,63,35,0.35)]"
+            : "bg-stone-900/80 hover:bg-stone-800/90 border border-white/10 hover:border-[#6b3f23]/60 shadow-md hover:shadow-[0_0_15px_rgba(107,63,35,0.2)]"
         }`}
       >
         <Bell
           size={18}
           className={`transition-all duration-300 ${
             isOpen
-              ? "text-amber-300 scale-110"
-              : "text-stone-300 group-hover:text-amber-300 group-hover:rotate-12"
+              ? "text-[#d4a373] scale-110"
+              : "text-stone-300 group-hover:text-[#d4a373] group-hover:rotate-12"
           }`}
         />
 
         {/* Unread Indicator Badge */}
         {unreadCount > 0 && (
-          <span className="absolute -top-1.5 -right-1.5 flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-gradient-to-r from-red-600 to-amber-600 text-white font-black text-[10px] shadow-[0_0_12px_rgba(239,68,68,0.7)] border border-white/20 animate-pulse">
+          <span className="absolute -top-1.5 -right-1.5 flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-gradient-to-r from-[#4a2c17] to-[#7a482b] text-white font-black text-[10px] shadow-[0_0_12px_rgba(107,63,35,0.7)] border border-white/20 animate-pulse">
             {unreadCount > 9 ? "9+" : unreadCount}
           </span>
         )}
@@ -229,22 +229,22 @@ export default function NotificationDropdown({
           <div
             className={`fixed sm:absolute top-20 sm:top-13 ${
               align === "right" ? "right-3 sm:right-0" : "left-3 sm:left-0"
-            } z-50 w-[calc(100vw-1.5rem)] sm:w-[420px] max-w-[420px] rounded-2xl bg-[#12100e]/95 backdrop-blur-2xl border border-amber-500/25 shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_30px_rgba(216,155,82,0.15)] overflow-hidden flex flex-col max-h-[82vh] animate-in fade-in zoom-in-95 duration-200`}
+            } z-50 w-[calc(100vw-1.5rem)] sm:w-[420px] max-w-[420px] rounded-2xl bg-[#0e0c0a]/95 backdrop-blur-2xl border border-[#6b3f23]/40 shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_30px_rgba(107,63,35,0.2)] overflow-hidden flex flex-col max-h-[82vh] animate-in fade-in zoom-in-95 duration-200`}
           >
             {/* Header Ambient Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-amber-400/50 to-transparent pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-[#d4a373]/50 to-transparent pointer-events-none" />
 
             {/* Top Header Bar */}
-            <div className="p-4 bg-gradient-to-b from-[#1b1713] to-[#14110e] border-b border-white/[0.08] flex items-center justify-between">
+            <div className="p-4 bg-gradient-to-b from-[#1c140e] to-[#120e0a] border-b border-white/[0.08] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-300">
+                <div className="w-8 h-8 rounded-lg bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373]">
                   <BellRing size={16} />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white flex items-center gap-2">
                     <span>Notifications</span>
                     {unreadCount > 0 && (
-                      <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500/20 to-amber-500/30 border border-amber-500/40 text-[#f59e0b] text-[10px] font-black">
+                      <span className="px-2 py-0.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/60 text-[#d4a373] text-[10px] font-black">
                         {unreadCount} new
                       </span>
                     )}
@@ -262,9 +262,9 @@ export default function NotificationDropdown({
                     type="button"
                     onClick={handleMarkAllAsRead}
                     title="Mark all as read"
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/[0.05] hover:bg-amber-500/15 border border-white/10 hover:border-amber-500/30 text-stone-300 hover:text-amber-200 text-xs font-semibold transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/[0.05] hover:bg-[#2b1b11] border border-white/10 hover:border-[#6b3f23]/50 text-stone-300 hover:text-[#f5efe8] text-xs font-semibold transition-colors cursor-pointer"
                   >
-                    <CheckCheck size={13} className="text-amber-400" />
+                    <CheckCheck size={13} className="text-[#d4a373]" />
                     <span className="hidden sm:inline">Mark all read</span>
                   </button>
                 )}
@@ -279,7 +279,7 @@ export default function NotificationDropdown({
                   <RefreshCw
                     size={14}
                     className={`text-stone-300 ${
-                      isLoading ? "animate-spin text-amber-400" : ""
+                      isLoading ? "animate-spin text-[#d4a373]" : ""
                     }`}
                   />
                 </button>
@@ -296,13 +296,13 @@ export default function NotificationDropdown({
             </div>
 
             {/* Filter Pills Navigation */}
-            <div className="px-3.5 py-2.5 bg-[#0e0c0a] border-b border-white/[0.06] flex items-center gap-1.5 overflow-x-auto overflow-y-hidden no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <div className="px-3.5 py-2.5 bg-[#080706] border-b border-white/[0.06] flex items-center gap-1.5 overflow-x-auto overflow-y-hidden no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <button
                 type="button"
                 onClick={() => setActiveFilter("all")}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                   activeFilter === "all"
-                    ? "bg-gradient-to-r from-amber-500 to-[#d89b52] text-stone-950 shadow-[0_0_12px_rgba(216,155,82,0.4)]"
+                    ? "bg-gradient-to-r from-[#4a2c17] via-[#7a482b] to-[#4a2c17] text-white shadow-[0_0_12px_rgba(107,63,35,0.4)] border border-[#8b5e3c]/50"
                     : "bg-white/[0.04] hover:bg-white/[0.08] text-stone-400 hover:text-stone-200 border border-white/[0.06]"
                 }`}
               >
@@ -314,7 +314,7 @@ export default function NotificationDropdown({
                 onClick={() => setActiveFilter("unread")}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                   activeFilter === "unread"
-                    ? "bg-gradient-to-r from-amber-500 to-[#d89b52] text-stone-950 shadow-[0_0_12px_rgba(216,155,82,0.4)]"
+                    ? "bg-gradient-to-r from-[#4a2c17] via-[#7a482b] to-[#4a2c17] text-white shadow-[0_0_12px_rgba(107,63,35,0.4)] border border-[#8b5e3c]/50"
                     : "bg-white/[0.04] hover:bg-white/[0.08] text-stone-400 hover:text-stone-200 border border-white/[0.06]"
                 }`}
               >
@@ -326,8 +326,8 @@ export default function NotificationDropdown({
                 onClick={() => setActiveFilter("missing")}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                   activeFilter === "missing"
-                    ? "bg-rose-500 text-white shadow-[0_0_12px_rgba(244,63,94,0.4)]"
-                    : "bg-white/[0.04] hover:bg-white/[0.08] text-rose-300/80 hover:text-rose-200 border border-white/[0.06]"
+                    ? "bg-[#2b1c14] text-white border border-[#7a482b]/60 shadow-[0_0_12px_rgba(122,72,43,0.4)]"
+                    : "bg-white/[0.04] hover:bg-white/[0.08] text-stone-300 hover:text-white border border-white/[0.06]"
                 }`}
               >
                 🚨 Missing
@@ -338,8 +338,8 @@ export default function NotificationDropdown({
                 onClick={() => setActiveFilter("theft")}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                   activeFilter === "theft"
-                    ? "bg-amber-500 text-stone-950 shadow-[0_0_12px_rgba(245,158,11,0.4)]"
-                    : "bg-white/[0.04] hover:bg-white/[0.08] text-amber-300/80 hover:text-amber-200 border border-white/[0.06]"
+                    ? "bg-[#251811] text-[#c49371] border border-[#6b3f23]/60 shadow-[0_0_12px_rgba(107,63,35,0.4)]"
+                    : "bg-white/[0.04] hover:bg-white/[0.08] text-[#c49371]/80 hover:text-[#c49371] border border-white/[0.06]"
                 }`}
               >
                 🛡️ Theft
@@ -350,8 +350,8 @@ export default function NotificationDropdown({
                 onClick={() => setActiveFilter("found")}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                   activeFilter === "found"
-                    ? "bg-emerald-500 text-stone-950 shadow-[0_0_12px_rgba(16,185,129,0.4)]"
-                    : "bg-white/[0.04] hover:bg-white/[0.08] text-emerald-300/80 hover:text-emerald-200 border border-white/[0.06]"
+                    ? "bg-[#21150e] text-[#e8d5c4] border border-[#5c3a21]/60 shadow-[0_0_12px_rgba(92,58,33,0.4)]"
+                    : "bg-white/[0.04] hover:bg-white/[0.08] text-[#e8d5c4]/80 hover:text-[#e8d5c4] border border-white/[0.06]"
                 }`}
               >
                 📦 Found
@@ -362,8 +362,8 @@ export default function NotificationDropdown({
                 onClick={() => setActiveFilter("lost")}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                   activeFilter === "lost"
-                    ? "bg-blue-500 text-white shadow-[0_0_12px_rgba(59,130,246,0.4)]"
-                    : "bg-white/[0.04] hover:bg-white/[0.08] text-blue-300/80 hover:text-blue-200 border border-white/[0.06]"
+                    ? "bg-[#2b1b11] text-[#d4a373] border border-[#6b3f23]/60 shadow-[0_0_12px_rgba(107,63,35,0.4)]"
+                    : "bg-white/[0.04] hover:bg-white/[0.08] text-[#d4a373]/80 hover:text-[#d4a373] border border-white/[0.06]"
                 }`}
               >
                 🔍 Lost
@@ -377,8 +377,8 @@ export default function NotificationDropdown({
                 <HopestNotificationSkeleton count={3} />
               ) : filteredNotifications.length === 0 ? (
                 <div className="py-12 px-4 text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center mx-auto mb-3 shadow-inner">
-                    <Sparkles className="w-6 h-6 text-amber-400" />
+                  <div className="w-14 h-14 rounded-2xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center mx-auto mb-3 shadow-inner">
+                    <Sparkles className="w-6 h-6 text-[#d4a373]" />
                   </div>
                   <h4 className="text-sm font-bold text-white mb-1">
                     All caught up!
@@ -401,8 +401,8 @@ export default function NotificationDropdown({
                       onClick={() => handleItemClick(item)}
                       className={`group relative p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex items-start gap-3.5 ${
                         isRead
-                          ? "bg-[#141210]/60 hover:bg-[#1a1612]/90 border-white/[0.05] hover:border-amber-500/30 opacity-75 hover:opacity-100"
-                          : "bg-gradient-to-b from-[#1c1712]/95 to-[#15120e]/95 border-amber-500/30 hover:border-amber-400/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_24px_rgba(216,155,82,0.18)] -translate-y-0.5"
+                          ? "bg-[#141210]/60 hover:bg-[#1c1712]/90 border-white/[0.05] hover:border-[#6b3f23]/40 opacity-75 hover:opacity-100"
+                          : "bg-gradient-to-b from-[#21150e]/95 to-[#140f0c]/95 border-[#6b3f23]/40 hover:border-[#8b5e3c]/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_24px_rgba(107,63,35,0.22)] -translate-y-0.5"
                       }`}
                     >
                       {/* Left Category Icon */}
@@ -424,14 +424,14 @@ export default function NotificationDropdown({
 
                           <div className="flex items-center gap-2">
                             {/* Relative Arrival Timing Pill */}
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20 text-[10px] text-amber-300 font-semibold font-mono">
-                              <Clock size={11} className="text-amber-400 shrink-0" />
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#2b1b11] border border-[#6b3f23]/40 text-[10px] text-[#d4a373] font-semibold font-mono">
+                              <Clock size={11} className="text-[#d4a373] shrink-0" />
                               <span>{item.time || item.timestamp}</span>
                             </span>
 
                             {!isRead && (
                               <span
-                                className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.9)] animate-ping shrink-0"
+                                className="w-2 h-2 rounded-full bg-[#d4a373] shadow-[0_0_8px_rgba(212,163,115,0.9)] animate-ping shrink-0"
                                 title="Unread"
                               />
                             )}
@@ -440,7 +440,7 @@ export default function NotificationDropdown({
 
                         {/* Title */}
                         <h4
-                          className={`text-xs leading-snug line-clamp-1 group-hover:text-amber-200 transition-colors ${
+                          className={`text-xs leading-snug line-clamp-1 group-hover:text-[#f5efe8] transition-colors ${
                             isRead
                               ? "font-semibold text-stone-300"
                               : "font-black text-white"
@@ -464,14 +464,14 @@ export default function NotificationDropdown({
                             {item.incidentDate && (
                               <>
                                 <span className="text-stone-600">•</span>
-                                <span className="text-amber-400/80 truncate">
+                                <span className="text-[#d4a373]/80 truncate">
                                   {item.incidentDate}
                                 </span>
                               </>
                             )}
                           </div>
 
-                          <span className="inline-flex items-center gap-1 font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-0.5 transition-all shrink-0">
+                          <span className="inline-flex items-center gap-1 font-bold text-[#d4a373] group-hover:text-white group-hover:translate-x-0.5 transition-all shrink-0">
                             <span>View</span>
                             <ArrowRight size={12} />
                           </span>
@@ -484,14 +484,14 @@ export default function NotificationDropdown({
             </div>
 
             {/* Bottom Footer Actions */}
-            <div className="p-3 bg-[#0d0b09] border-t border-white/[0.06] flex items-center justify-between gap-3 text-xs">
+            <div className="p-3 bg-[#080706] border-t border-white/[0.06] flex items-center justify-between gap-3 text-xs">
               <button
                 type="button"
                 onClick={() => {
                   setIsOpen(false);
                   router.push("/dashboard/search");
                 }}
-                className="text-stone-400 hover:text-amber-300 font-medium transition-colors cursor-pointer flex items-center gap-1"
+                className="text-stone-400 hover:text-[#d4a373] font-medium transition-colors cursor-pointer flex items-center gap-1"
               >
                 <span>Browse all reports</span>
                 <ExternalLink size={12} />
@@ -503,7 +503,7 @@ export default function NotificationDropdown({
                   setIsOpen(false);
                   router.push("/missing");
                 }}
-                className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black text-xs hover:brightness-105 transition-all cursor-pointer shadow-md"
+                className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#4a2c17] via-[#7a482b] to-[#4a2c17] text-white font-black text-xs hover:brightness-110 transition-all cursor-pointer shadow-md border border-[#8b5e3c]/40"
               >
                 Urgent Missing Appeals →
               </button>

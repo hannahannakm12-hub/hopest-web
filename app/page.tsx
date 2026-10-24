@@ -87,14 +87,14 @@ export default function WelcomeScreen() {
   };
 
   return (
-    <div className="relative min-h-screen animated-gradient bg-[#0c0a09] text-stone-100 flex flex-col justify-between overflow-x-hidden selection:bg-[#d89b52]/30 selection:text-[#f8d7a4]">
+    <div className="relative min-h-screen animated-gradient bg-[#080706] text-stone-100 flex flex-col justify-between overflow-x-hidden selection:bg-[#6b3f23] selection:text-white">
       {/* =====================================================
           AMBIENT BACKGROUND LIGHTING & TEXTURE
       ===================================================== */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-[#b67a32]/20 via-[#8b5e3c]/10 to-transparent blur-[140px] rounded-full" />
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#d89b52]/10 blur-[150px] rounded-full" />
-        <div className="absolute bottom-10 -right-32 w-[550px] h-[550px] bg-[#8b5e3c]/15 blur-[160px] rounded-full" />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-[#6b3f23]/25 via-[#8b5e3c]/15 to-transparent blur-[140px] rounded-full" />
+        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#8b5e3c]/15 blur-[150px] rounded-full" />
+        <div className="absolute bottom-10 -right-32 w-[550px] h-[550px] bg-[#5c3a21]/20 blur-[160px] rounded-full" />
         {/* Subtle grid pattern overlay */}
         <div
           className="absolute inset-0 opacity-[0.035]"
@@ -108,7 +108,7 @@ export default function WelcomeScreen() {
       {/* =====================================================
           TOP BRAND HEADER (Standard max-w-7xl)
       ===================================================== */}
-      <header className="relative z-10 w-full border-b border-white/[0.06] bg-[#0c0a09]/75 backdrop-blur-xl">
+      <header className="relative z-10 w-full border-b border-white/[0.06] bg-[#080706]/85 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 select-none">
             <div className="relative h-10 w-8 flex items-center justify-center shrink-0">
@@ -117,12 +117,12 @@ export default function WelcomeScreen() {
                 alt="Hopest Logo"
                 width={32}
                 height={42}
-                className="h-10 w-auto object-contain drop-shadow-[0_2px_10px_rgba(216,155,82,0.25)]"
+                className="h-10 w-auto object-contain drop-shadow-[0_2px_10px_rgba(107,63,35,0.4)]"
                 priority
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-xl font-bold tracking-[0.2em] text-[#e4b63b] leading-tight">
+              <span className="text-xl font-bold tracking-[0.2em] text-[#d4a373] leading-tight">
                 HOPEST
               </span>
               <p className="text-[10px] uppercase tracking-widest text-stone-400 font-medium -mt-0.5">
@@ -131,8 +131,8 @@ export default function WelcomeScreen() {
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-medium text-amber-300">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40 text-xs font-medium text-[#d4a373]">
+            <Sparkles className="w-3.5 h-3.5 text-[#d4a373]" />
             <span>Welcome &amp; Agreement</span>
           </div>
         </div>
@@ -149,14 +149,14 @@ export default function WelcomeScreen() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center max-w-3xl mx-auto mb-10 lg:mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d89b52]/10 border border-[#d89b52]/25 text-[#e5a95d] text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-            <ShieldCheck className="w-4 h-4 text-[#e5a95d]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40 text-[#d4a373] text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+            <ShieldCheck className="w-4 h-4 text-[#d4a373]" />
             <span>Official User Guidelines</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
             Welcome to{" "}
-            <span className="bg-gradient-to-r from-amber-200 via-[#e5a95d] to-[#d89b52] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-[#d4a373] to-[#8b5e3c] bg-clip-text text-transparent">
               Hopest
             </span>
           </h1>
@@ -164,7 +164,7 @@ export default function WelcomeScreen() {
           <p className="text-stone-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Thank you very much for visiting Hopest for the first time. Only
             click{" "}
-            <span className="font-semibold text-amber-300 underline decoration-amber-400/40 underline-offset-4">
+            <span className="font-semibold text-[#d4a373] underline decoration-[#8b5e3c]/50 underline-offset-4">
               Continue
             </span>{" "}
             after reading below carefully.
@@ -185,21 +185,21 @@ export default function WelcomeScreen() {
                   delay: index * 0.07,
                   ease: "easeOut",
                 }}
-                className="group relative rounded-2xl bg-gradient-to-b from-[#1a1714]/90 to-[#12100e]/90 border border-white/[0.08] hover:border-amber-500/40 p-6 transition-all duration-300 hover:shadow-[0_10px_35px_rgba(216,155,82,0.14)] hover:-translate-y-1 flex flex-col justify-between"
+                className="group relative rounded-2xl bg-gradient-to-b from-[#140f0c]/90 to-[#0e0b09]/90 border border-white/[0.08] hover:border-[#8b5e3c]/50 p-6 transition-all duration-300 hover:shadow-[0_10px_35px_rgba(107,63,35,0.2)] hover:-translate-y-1 flex flex-col justify-between"
               >
                 {/* Subtle card glow on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-500/0 via-amber-500/[0.04] to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-[#8b5e3c]/[0.08] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
                     {/* Icon Container */}
-                    <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center shrink-0 text-amber-400 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 group-hover:scale-105 transition-all duration-300 shadow-inner">
+                    <div className="w-11 h-11 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center shrink-0 text-[#d4a373] group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:scale-105 transition-all duration-300 shadow-inner">
                       <Icon className="w-5 h-5" />
                     </div>
 
                     {/* Tag & Number Badge */}
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-semibold text-amber-400/90 tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-amber-500/[0.08] border border-amber-500/20">
+                      <span className="text-[11px] font-semibold text-[#d4a373] tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40">
                         {item.tag}
                       </span>
                       <span className="text-[11px] font-mono text-stone-500 bg-white/[0.03] px-2 py-0.5 rounded-full border border-white/[0.05]">
@@ -215,8 +215,8 @@ export default function WelcomeScreen() {
                 </div>
 
                 {/* Bottom Verified indicator */}
-                <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center gap-1.5 text-xs text-stone-400 group-hover:text-amber-300/80 transition-colors">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400/70" />
+                <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center gap-1.5 text-xs text-stone-400 group-hover:text-[#d4a373] transition-colors">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#d4a373]" />
                   <span className="text-[11px] font-medium">{item.label}</span>
                 </div>
               </motion.div>
@@ -229,10 +229,10 @@ export default function WelcomeScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          className="rounded-2xl bg-[#141210]/80 border border-amber-900/35 p-5 mb-10 backdrop-blur-sm flex items-start gap-4 max-w-5xl mx-auto w-full"
+          className="rounded-2xl bg-[#120f0d]/90 border border-[#6b3f23]/35 p-5 mb-10 backdrop-blur-sm flex items-start gap-4 max-w-5xl mx-auto w-full"
         >
-          <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
-            <Info className="w-4 h-4 text-amber-400" />
+          <div className="w-8 h-8 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center shrink-0 mt-0.5">
+            <Info className="w-4 h-4 text-[#d4a373]" />
           </div>
           <p className="text-stone-400 text-xs sm:text-sm leading-relaxed">
             These terms and conditions are subject to change at any time without
@@ -253,8 +253,8 @@ export default function WelcomeScreen() {
             <div
               onClick={() => setAcknowledged(!acknowledged)}
               className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all duration-200 ${acknowledged
-                ? "bg-amber-500 border-amber-400 text-black shadow-[0_0_14px_rgba(216,155,82,0.45)]"
-                : "bg-white/[0.04] border-white/20 group-hover:border-amber-400/60"
+                ? "bg-[#6b3f23] border-[#8b5e3c] text-white shadow-[0_0_14px_rgba(107,63,35,0.45)]"
+                : "bg-white/[0.04] border-white/20 group-hover:border-[#8b5e3c]/60"
                 }`}
             >
               {acknowledged && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -271,13 +271,13 @@ export default function WelcomeScreen() {
             onClick={handleContinue}
             disabled={!acknowledged || isNavigating}
             className={`w-full h-14 rounded-xl font-bold text-base sm:text-lg flex items-center justify-center gap-3 transition-all duration-300 active:scale-[0.98] ${acknowledged
-              ? "bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black shadow-[0_0_35px_rgba(245,158,11,0.55)] hover:shadow-[0_0_55px_rgba(245,158,11,0.85)] hover:scale-[1.01] cursor-pointer btn-animated-gradient"
+              ? "bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-bold shadow-[0_0_35px_rgba(107,63,35,0.55)] hover:shadow-[0_0_55px_rgba(139,94,60,0.85)] hover:scale-[1.01] cursor-pointer btn-animated-gradient"
               : "bg-stone-800/80 border border-white/10 text-stone-400 cursor-not-allowed opacity-60"
               }`}
           >
             {isNavigating ? (
               <>
-                <HopestSpinner size="md" variant="dark" />
+                <HopestSpinner size="md" variant="light" />
                 <span>Entering Hopest...</span>
               </>
             ) : (
@@ -299,7 +299,7 @@ export default function WelcomeScreen() {
       {/* =====================================================
           BOTTOM FOOTER BAR
       ===================================================== */}
-      <footer className="relative z-10 w-full border-t border-white/[0.05] bg-[#090807]/70 py-4 text-center">
+      <footer className="relative z-10 w-full border-t border-white/[0.05] bg-[#040303]/80 py-4 text-center">
         <p className="text-[11px] text-stone-500">
           Hopest &copy; {new Date().getFullYear()} &bull; Community Safety &amp;
           Lost Property Platform. All rights reserved.

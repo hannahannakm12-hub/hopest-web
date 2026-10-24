@@ -34,16 +34,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.png?v=2", sizes: "any", type: "image/png" },
-      { url: "/logo.png?v=2", sizes: "16x16", type: "image/png" },
-      { url: "/logo.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/logo.png?v=2", sizes: "48x48", type: "image/png" },
-      { url: "/logo.png?v=2", sizes: "192x192", type: "image/png" },
-      { url: "/logo.png?v=2", sizes: "256x256", type: "image/png" },
-      { url: "/logo.png?v=2", sizes: "512x512", type: "image/png" },
+      { url: "/logo.png?v=3", sizes: "any", type: "image/png" },
+      { url: "/logo.png?v=3", sizes: "16x16", type: "image/png" },
+      { url: "/logo.png?v=3", sizes: "32x32", type: "image/png" },
+      { url: "/logo.png?v=3", sizes: "48x48", type: "image/png" },
+      { url: "/logo.png?v=3", sizes: "192x192", type: "image/png" },
+      { url: "/logo.png?v=3", sizes: "256x256", type: "image/png" },
+      { url: "/logo.png?v=3", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/logo.png?v=2",
-    apple: "/logo.png?v=2",
+    shortcut: "/logo.png?v=3",
+    apple: "/logo.png?v=3",
   },
 };
 
@@ -55,13 +55,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
-        <link rel="icon" href="/logo.png?v=2" sizes="any" type="image/png" />
-        <link rel="icon" href="/logo.png?v=2" sizes="32x32" type="image/png" />
-        <link rel="icon" href="/logo.png?v=2" sizes="16x16" type="image/png" />
-        <link rel="shortcut icon" href="/logo.png?v=2" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo.png?v=2" />
+        <link rel="icon" href="/logo.png?v=3" sizes="any" type="image/png" />
+        <link rel="icon" href="/logo.png?v=3" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/logo.png?v=3" sizes="16x16" type="image/png" />
+        <link rel="shortcut icon" href="/logo.png?v=3" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png?v=3" />
       </head>
-      <body className={`${inter.variable} antialiased bg-[#090807] text-stone-100 selection:bg-[#d89b52]/30 selection:text-[#f8d7a4]`}>
+      <body className={`${inter.variable} antialiased bg-[#080706] text-white selection:bg-[#6b3f23] selection:text-white`}>
         {children}
       </body>
     </html>

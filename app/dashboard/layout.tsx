@@ -83,15 +83,15 @@ export default function DashboardLayout({
                     alt="HOPEST Logo"
                     width={28}
                     height={38}
-                    className="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-200 drop-shadow-[0_2px_10px_rgba(216,155,82,0.25)]"
+                    className="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-200 drop-shadow-[0_2px_10px_rgba(107,63,35,0.4)]"
                     priority
                   />
                 </div>
                 <div className="flex flex-col justify-center">
-                  <span className="text-xl md:text-2xl font-serif font-bold tracking-tight text-amber-200 transition-colors leading-tight">
+                  <span className="text-xl md:text-2xl font-serif font-bold tracking-tight text-[#d4a373] transition-colors leading-tight">
                     HOPEST
                   </span>
-                  <span className="text-[10px] tracking-wider text-amber-200 uppercase font-medium hidden sm:inline">
+                  <span className="text-[10px] tracking-wider text-[#d4a373] uppercase font-medium hidden sm:inline">
                     Community Portal
                   </span>
                 </div>
@@ -157,7 +157,7 @@ export default function DashboardLayout({
                   onClick={() => setOpenMenu(true)}
                   className="flex items-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/10 rounded-full pl-1.5 pr-3.5 py-1 transition-all cursor-pointer group"
                 >
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#d89b52] to-[#8b5e3c] flex items-center justify-center text-white font-bold text-xs shadow-sm">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#8b5e3c] to-[#4a2c17] flex items-center justify-center text-white font-bold text-xs shadow-sm">
                     {user?.fullname?.charAt(0).toUpperCase() || "U"}
                   </div>
                   <span className="text-xs font-medium text-white/90 group-hover:text-white max-w-[100px] truncate hidden sm:inline">
@@ -232,7 +232,7 @@ export default function DashboardLayout({
               </button>
 
               <div className="flex items-center gap-3.5 mt-2">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#d89b52] to-[#8b5e3c] flex items-center justify-center text-white font-bold text-2xl shadow-md border-2 border-white/20">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#8b5e3c] to-[#5c3a21] flex items-center justify-center text-white font-bold text-2xl shadow-md border-2 border-white/20">
                   {user?.fullname?.charAt(0).toUpperCase() || "U"}
                 </div>
 
@@ -240,11 +240,11 @@ export default function DashboardLayout({
                   <p className="font-semibold text-lg text-white truncate">
                     {user?.fullname || "Community Member"}
                   </p>
-                  <p className="text-xs text-amber-200/90 font-mono mt-0.5 truncate">
+                  <p className="text-xs text-[#d4a373] font-mono mt-0.5 truncate">
                     {user?.mob || "No mobile registered"}
                   </p>
-                  <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/15 text-[10px] text-amber-200 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/15 text-[10px] text-[#d4a373] font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#d4a373]"></span>
                     Active Member
                   </div>
                 </div>
@@ -355,7 +355,7 @@ export default function DashboardLayout({
               <button
                 type="button"
                 onClick={handleLogout}
-                className="w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 text-sm font-semibold transition cursor-pointer border border-red-200"
+                className="w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-[#2b1b11] hover:bg-[#3d2417] text-white text-sm font-semibold transition cursor-pointer border border-[#6b3f23]/40"
               >
                 <LogOut size={16} />
                 Sign Out

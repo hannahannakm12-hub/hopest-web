@@ -102,14 +102,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-between bg-[#0c0a09] animated-gradient text-stone-100 px-4 py-6 sm:py-8 overflow-x-hidden selection:bg-[#d89b52]/30 selection:text-[#f8d7a4]">
+    <div className="relative min-h-screen flex flex-col justify-between bg-[#080706] animated-gradient text-stone-100 px-4 py-6 sm:py-8 overflow-x-hidden selection:bg-[#6b3f23] selection:text-white">
       {/* =====================================================
           AMBIENT BACKGROUND LIGHTING & GRID TEXTURE
       ===================================================== */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#b67a32]/20 via-[#8b5e3c]/10 to-transparent blur-[140px] rounded-full" />
-        <div className="absolute top-1/3 -left-32 w-[450px] h-[450px] bg-[#d89b52]/10 blur-[150px] rounded-full" />
-        <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-[#8b5e3c]/15 blur-[160px] rounded-full" />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#6b3f23]/25 via-[#8b5e3c]/15 to-transparent blur-[140px] rounded-full" />
+        <div className="absolute top-1/3 -left-32 w-[450px] h-[450px] bg-[#8b5e3c]/15 blur-[150px] rounded-full" />
+        <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-[#5c3a21]/20 blur-[160px] rounded-full" />
         <div
           className="absolute inset-0 opacity-[0.035]"
           style={{
@@ -126,7 +126,7 @@ export default function LoginPage() {
         <button
           type="button"
           onClick={() => router.push("/landing")}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-amber-300 hover:text-white border border-amber-500/25 backdrop-blur-md text-xs sm:text-sm font-semibold transition cursor-pointer shadow-sm hover:border-amber-400/40"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#d4a373] hover:text-white border border-[#8b5e3c]/35 backdrop-blur-md text-xs sm:text-sm font-semibold transition cursor-pointer shadow-sm hover:border-[#c49371]/50"
         >
           <ArrowLeft size={16} />
           <span>Back</span>
@@ -137,12 +137,12 @@ export default function LoginPage() {
             <Image
               src="/logo.png"
               alt="Hopest"
-              width={25}
-              height={25}
-              className="object-contain rounded"
+              width={32}
+              height={42}
+              className="h-8 w-auto object-contain drop-shadow-sm"
             />
           </div>
-          <span className="text-xs font-mono text-amber-200/90 tracking-widest uppercase font-semibold">
+          <span className="text-xs font-mono text-[#d4a373] tracking-widest uppercase font-semibold">
             Hopest Portal
           </span>
         </div>
@@ -152,14 +152,14 @@ export default function LoginPage() {
           GREETING & HERO TITLE
       ===================================================== */}
       <div className="relative z-10 text-center pt-8 sm:pt-10 animate-modern">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] font-medium text-amber-300 mb-3">
-          <Sparkles size={12} className="text-amber-400" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40 text-[11px] font-medium text-[#d4a373] mb-3">
+          <Sparkles size={12} className="text-[#d4a373]" />
           <span>Secure Sign In</span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
           Hello{" "}
-          <span className="bg-gradient-to-r from-amber-200 via-[#e5a95d] to-[#d89b52] bg-clip-text text-transparent font-serif">
+          <span className="bg-gradient-to-r from-white via-[#d4a373] to-[#8b5e3c] bg-clip-text text-transparent font-serif">
             Login!
           </span>
         </h1>
@@ -172,17 +172,17 @@ export default function LoginPage() {
           LOGIN CARD (Luxury Glassmorphism & Gold Accents)
       ===================================================== */}
       <div className="relative z-10 flex justify-center items-center my-6">
-        <div className="group w-full max-w-md rounded-3xl bg-gradient-to-b from-[#1a1714]/95 to-[#12100e]/95 p-7 sm:p-9 shadow-[0_20px_60px_rgba(0,0,0,0.65)] border border-white/[0.09] hover:border-amber-500/35 transition-all duration-300 backdrop-blur-xl animate-modern relative">
+        <div className="group w-full max-w-md rounded-3xl bg-gradient-to-b from-[#140f0c]/95 to-[#0e0b09]/95 p-7 sm:p-9 shadow-[0_20px_60px_rgba(0,0,0,0.65)] border border-white/[0.09] hover:border-[#8b5e3c]/45 transition-all duration-300 backdrop-blur-xl animate-modern relative">
           {/* Subtle Golden Glow Overlay */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/0 via-amber-500/[0.03] to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-[#8b5e3c]/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
           <form onSubmit={handleLogin} autoComplete="off" className="relative z-10 space-y-5">
             {/* USERNAME INPUT */}
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400/90 mb-2">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#d4a373] mb-2">
                 USERNAME
               </label>
-              <div className="relative flex items-center rounded-2xl bg-[#141210] border border-white/[0.08] focus-within:border-amber-400/60 focus-within:ring-2 focus-within:ring-amber-400/15 transition-all duration-200 shadow-inner">
+              <div className="relative flex items-center rounded-2xl bg-[#100d0b] border border-white/[0.08] focus-within:border-[#8b5e3c]/70 focus-within:ring-2 focus-within:ring-[#8b5e3c]/20 transition-all duration-200 shadow-inner">
                 <input
                   type="text"
                   name="username"
@@ -197,7 +197,7 @@ export default function LoginPage() {
                   className={`w-full bg-transparent px-4 py-3.5 pr-11 text-white placeholder-stone-500 text-sm sm:text-base outline-none ${error ? "text-red-300" : ""
                     }`}
                 />
-                <div className="absolute right-3.5 flex items-center pointer-events-none text-amber-400/70">
+                <div className="absolute right-3.5 flex items-center pointer-events-none text-[#8b5e3c]">
                   <User size={18} />
                 </div>
               </div>
@@ -206,17 +206,17 @@ export default function LoginPage() {
             {/* PASSWORD INPUT */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400/90">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#d4a373]">
                   PASSWORD
                 </label>
                 <span
                   onClick={() => router.push("/auth/forgot-password")}
-                  className="text-xs text-amber-300/80 hover:text-amber-200 cursor-pointer transition-colors font-medium hover:underline"
+                  className="text-xs text-[#d4a373] hover:text-white cursor-pointer transition-colors font-medium hover:underline"
                 >
                   Forgot Password?
                 </span>
               </div>
-              <div className="relative flex items-center rounded-2xl bg-[#141210] border border-white/[0.08] focus-within:border-amber-400/60 focus-within:ring-2 focus-within:ring-amber-400/15 transition-all duration-200 shadow-inner">
+              <div className="relative flex items-center rounded-2xl bg-[#100d0b] border border-white/[0.08] focus-within:border-[#8b5e3c]/70 focus-within:ring-2 focus-within:ring-[#8b5e3c]/20 transition-all duration-200 shadow-inner">
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -235,7 +235,7 @@ export default function LoginPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="flex items-center gap-1 text-amber-400/80 hover:text-amber-300 text-xs font-semibold px-2 py-1 rounded-lg hover:bg-white/[0.05] transition cursor-pointer"
+                    className="flex items-center gap-1 text-[#d4a373] hover:text-white text-xs font-semibold px-2 py-1 rounded-lg hover:bg-white/[0.05] transition cursor-pointer"
                   >
                     {showPassword ? (
                       <>
@@ -265,11 +265,11 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-2 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base flex items-center shimmer-button justify-center gap-2.5 bg-gradient-to-r from-[#b67a32] via-[#e5a95d] to-[#b67a32] text-stone-950 shadow-[0_0_25px_rgba(216,155,82,0.35)] hover:shadow-[0_0_35px_rgba(216,155,82,0.55)] hover:brightness-105 active:scale-[0.98] transition-all duration-300 cursor-pointer disabled:opacity-60"
+              className="w-full mt-2 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base flex items-center shimmer-button justify-center gap-2.5 bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white shadow-[0_0_25px_rgba(107,63,35,0.45)] hover:shadow-[0_0_35px_rgba(139,94,60,0.65)] hover:brightness-105 active:scale-[0.98] transition-all duration-300 cursor-pointer disabled:opacity-60 btn-animated-gradient"
             >
               {loading ? (
                 <>
-                  <HopestSpinner size="sm" variant="dark" />
+                  <HopestSpinner size="sm" variant="light" />
                   <span>Signing In...</span>
                 </>
               ) : (
@@ -285,7 +285,7 @@ export default function LoginPage() {
               Don't have an account?{" "}
               <span
                 onClick={() => router.push("/auth/register")}
-                className="font-bold text-amber-300 hover:text-amber-200 cursor-pointer hover:underline ml-1 transition-colors"
+                className="font-bold text-[#d4a373] hover:text-white cursor-pointer hover:underline ml-1 transition-colors"
               >
                 Register Here
               </span>
@@ -306,10 +306,10 @@ export default function LoginPage() {
       ===================================================== */}
       {popup?.isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fadeIn">
-          <div className="w-full max-w-sm bg-[#161412] text-stone-100 rounded-3xl p-7 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-amber-500/30 text-center animate-modern animate-float relative">
+          <div className="w-full max-w-sm bg-[#140f0c] text-stone-100 rounded-3xl p-7 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-[#8b5e3c]/40 text-center animate-modern animate-float relative">
             {/* ICON BADGE */}
             {popup.type === "success" ? (
-              <div className="w-16 h-16 rounded-full bg-emerald-500/15 border-2 border-emerald-400/40 text-emerald-400 flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(52,211,153,0.2)]">
+              <div className="w-16 h-16 rounded-full bg-[#2b1b11] border-2 border-[#8b5e3c]/50 text-[#d4a373] flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(107,63,35,0.4)]">
                 <CheckCircle2 size={32} />
               </div>
             ) : (
@@ -328,7 +328,7 @@ export default function LoginPage() {
 
             {/* ACTION / PROGRESS */}
             {popup.type === "success" ? (
-              <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-center gap-2 text-xs text-amber-300/80 font-medium">
+              <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-center gap-2 text-xs text-[#d4a373] font-medium">
                 <HopestSpinner size="sm" variant="light" />
                 <span>Opening your dashboard...</span>
               </div>
@@ -336,7 +336,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => setPopup(null)}
-                className="mt-5 w-full py-2.5 rounded-xl bg-gradient-to-r from-[#8b5e3c] to-[#6d4529] hover:from-[#9c6a44] hover:to-[#7c4f30] text-white text-xs sm:text-sm font-semibold shadow-md transition cursor-pointer"
+                className="mt-5 w-full py-2.5 rounded-xl bg-gradient-to-r from-[#4a2c17] via-[#7a482b] to-[#4a2c17] text-white text-xs sm:text-sm font-semibold shadow-md transition cursor-pointer"
               >
                 Close & Try Again
               </button>

@@ -24,7 +24,7 @@ export default function HowToUseContent() {
       title: "Register Account",
       desc: "Create your free account using your name, mobile number, and password for verified reporting.",
       icon: UserPlus,
-      gradientBeam: "from-[#8b5e3c] via-[#d89b52] to-[#8b5e3c]",
+      gradientBeam: "from-[#4a2c17] via-[#8b5e3c] to-[#4a2c17]",
       badge: "Step 1 • Profile",
       btnText: "Create Account",
       btnAction: () => router.push("/auth/register"),
@@ -34,7 +34,7 @@ export default function HowToUseContent() {
       title: "Login to Dashboard",
       desc: "Access your dashboard anytime to track and manage your incident posts.",
       icon: LogIn,
-      gradientBeam: "from-[#6b3f23] via-[#8b5e3c] to-[#6b3f23]",
+      gradientBeam: "from-[#4a2c17] via-[#6b3f23] to-[#4a2c17]",
       badge: "Step 2 • Access",
       btnText: "Go to Dashboard",
       btnAction: () => router.push("/dashboard"),
@@ -44,7 +44,7 @@ export default function HowToUseContent() {
       title: "Report Lost Item",
       desc: "Enter the item name, description, date, place, nearest police station, and upload photos.",
       icon: Plus,
-      gradientBeam: "from-amber-600 via-amber-400 to-[#d89b52]",
+      gradientBeam: "from-[#4a2c17] via-[#7a482b] to-[#4a2c17]",
       badge: "Step 3 • Lost Case",
       btnText: "Report Lost Item",
       btnAction: () => router.push("/dashboard/create?type=LOST"),
@@ -54,7 +54,7 @@ export default function HowToUseContent() {
       title: "Search Lost Items",
       desc: "Check if someone has already found and reported your lost belonging across our database.",
       icon: Search,
-      gradientBeam: "from-[#6b3f23] via-amber-400 to-[#8b5e3c]",
+      gradientBeam: "from-[#5c3a21] via-[#d4a373] to-[#5c3a21]",
       badge: "Step 4 • Discovery",
       btnText: "Search Database",
       btnAction: () => router.push("/dashboard/search?type=LOST"),
@@ -64,7 +64,7 @@ export default function HowToUseContent() {
       title: "Report Found Item",
       desc: "Safely record belongings you found to help return them to their rightful owners.",
       icon: Package,
-      gradientBeam: "from-emerald-600 via-teal-400 to-emerald-400",
+      gradientBeam: "from-[#3a2417] via-[#6b3f23] to-[#3a2417]",
       badge: "Step 5 • Good Samaritan",
       btnText: "Report Found Item",
       btnAction: () => router.push("/dashboard/create?type=FOUND"),
@@ -74,7 +74,7 @@ export default function HowToUseContent() {
       title: "Report Theft Incident",
       desc: "Lodge an official police FIR first, then enter theft details here to alert the community.",
       icon: AlertTriangle,
-      gradientBeam: "from-rose-600 via-rose-400 to-orange-400",
+      gradientBeam: "from-[#4a2c17] via-[#8b5e3c] to-[#4a2c17]",
       badge: "Step 6 • Security Alert",
       btnText: "Report Theft Case",
       btnAction: () => router.push("/dashboard/create?type=THEFT"),
@@ -84,7 +84,7 @@ export default function HowToUseContent() {
       title: "Report Missing Person",
       desc: "Notify local authorities immediately, then create an urgent statewide broadcast.",
       icon: AlertTriangle,
-      gradientBeam: "from-red-600 via-rose-500 to-amber-500",
+      gradientBeam: "from-[#2b1c14] via-[#7a482b] to-[#2b1c14]",
       badge: "Step 7 • Emergency",
       btnText: "Missing Persons Portal",
       btnAction: () => router.push("/missing"),
@@ -110,12 +110,12 @@ export default function HowToUseContent() {
 
         {/* HERO TITLE CARD */}
         <div className="animated-gradient text-white rounded-3xl p-8 sm:p-11 shadow-2xl border border-white/15 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
-          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#6b3f23]/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
+          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-[#4a2c17]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-200 bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full mb-4 border border-white/20 shadow-sm">
-              <Sparkles size={13} className="text-amber-300 animate-pulse" />
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#d4a373] bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full mb-4 border border-white/20 shadow-sm">
+              <Sparkles size={13} className="text-[#d4a373] animate-pulse" />
               <span>User Manual</span>
             </span>
 
@@ -132,8 +132,8 @@ export default function HowToUseContent() {
         {/* STEP-BY-STEP INTERACTIVE TIMELINE */}
         <div className="relative pt-4">
 
-          {/* Subtle Glowing Central Connector Line */}
-          <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-gradient-to-b from-[#6b3f23] via-[#d89b52] to-transparent hidden sm:block opacity-40"></div>
+          {/* Subtle Central Connector Line */}
+          <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-gradient-to-b from-[#6b3f23] via-[#8b5e3c] to-transparent hidden sm:block opacity-40"></div>
 
           <div className="space-y-6 sm:space-y-8">
             {steps.map((step, index) => {
@@ -142,15 +142,15 @@ export default function HowToUseContent() {
               return (
                 <div key={index} className="relative sm:pl-16 group">
 
-                  {/* Glowing Node Orb on Desktop */}
+                  {/* Node Orb on Desktop */}
                   <div className="hidden sm:flex absolute left-3.5 top-6 -translate-x-1/2 items-center justify-center">
-                    <div className="w-6 h-6 rounded-full bg-[#6b3f23] text-white text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-md group-hover:scale-125 group-hover:bg-[#d89b52] transition-all duration-300">
+                    <div className="w-6 h-6 rounded-full bg-[#6b3f23] text-white text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-md group-hover:scale-125 group-hover:bg-[#8b5e3c] transition-all duration-300">
                       {step.stepNum}
                     </div>
                   </div>
 
                   {/* Super Card with Radiant Top Beam & Effects */}
-                  <div className={`bg-white rounded-3xl p-6 sm:p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(75,52,37,0.16)] hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 ${step.isEmergency ? "border-red-200 bg-gradient-to-r from-white to-red-50/20" : ""}`}>
+                  <div className={`bg-white rounded-3xl p-6 sm:p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(75,52,37,0.16)] hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 ${step.isEmergency ? "border-[#7a482b]/40 bg-gradient-to-r from-white to-[#2b1c14]/5" : ""}`}>
 
                     {/* Top Radiant Beam */}
                     <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${step.gradientBeam} opacity-75 group-hover:opacity-100 group-hover:h-2 transition-all duration-500`} />
@@ -183,7 +183,7 @@ export default function HowToUseContent() {
                       <button
                         type="button"
                         onClick={step.btnAction}
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] hover:brightness-110 text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer group/btn"
+                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] hover:brightness-110 text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer group/btn"
                       >
                         <span>{step.btnText}</span>
                         <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform opacity-80" />
@@ -198,15 +198,15 @@ export default function HowToUseContent() {
         </div>
 
         {/* IMPORTANT ADVISORY CARD */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-red-50 to-amber-50 border border-red-200 shadow-md flex items-start gap-4">
-          <div className="w-10 h-10 rounded-xl bg-red-100 text-red-700 flex items-center justify-center shrink-0 shadow-2xs">
+        <div className="p-6 sm:p-7 rounded-3xl bg-[#21150e] border border-[#6b3f23]/50 shadow-md flex items-start gap-4 text-white">
+          <div className="w-10 h-10 rounded-xl bg-[#2b1b11] text-[#d4a373] border border-[#6b3f23]/40 flex items-center justify-center shrink-0 shadow-2xs">
             <ShieldAlert size={20} />
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-bold text-red-900 font-serif mb-1">
+            <h4 className="text-sm sm:text-base font-bold text-white font-serif mb-1">
               Important Advisory
             </h4>
-            <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
+            <p className="text-stone-300 text-xs sm:text-sm leading-relaxed">
               <strong>Important:</strong> Always report Theft and Missing cases to the nearest police station before posting.
             </p>
           </div>

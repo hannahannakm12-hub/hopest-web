@@ -61,8 +61,8 @@ export default function MobileAppSection() {
             title: l.itemname || l.Itemname || "Lost Property",
             place: l.lostplace || l.district || l.town || "Kerala",
             time: l.lostdate ? `Reported: ${l.lostdate}` : "Live Feed",
-            badgeStyle: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-            borderHover: "hover:border-blue-400/40",
+            badgeStyle: "text-[#d4a373] bg-[#2b1b11] border-[#6b3f23]/40",
+            borderHover: "hover:border-[#8b5e3c]/50",
             link: "/dashboard/search?type=LOST",
           });
         }
@@ -77,8 +77,8 @@ export default function MobileAppSection() {
             title: f.itemname || f.Itemname || "Found Belonging",
             place: f.foundplace || f.district || f.town || "Kerala",
             time: f.founddate ? `Reported: ${f.founddate}` : "Live Feed",
-            badgeStyle: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-            borderHover: "hover:border-emerald-400/40",
+            badgeStyle: "text-[#e8d5c4] bg-[#21150e] border-[#5c3a21]/50",
+            borderHover: "hover:border-[#a06544]/50",
             link: "/dashboard/search?type=FOUND",
           });
         }
@@ -93,8 +93,8 @@ export default function MobileAppSection() {
             title: t.itemname || t.Itemname || "Stolen Property",
             place: t.theftplace || t.district || t.town || "Kerala",
             time: t.theftdate ? `Reported: ${t.theftdate}` : "Live Feed",
-            badgeStyle: "text-rose-400 bg-rose-500/10 border-rose-500/20",
-            borderHover: "hover:border-rose-400/40",
+            badgeStyle: "text-[#c49371] bg-[#251811] border-[#6b3f23]/50",
+            borderHover: "hover:border-[#8b5e3c]/50",
             link: "/dashboard/search?type=THEFT",
           });
         }
@@ -115,8 +115,8 @@ export default function MobileAppSection() {
               title: m.itemname || m.Itemname || "Missing Person Appeal",
               place: m.lostplace || m.district || m.town || "Kerala",
               time: m.lostdate ? `Reported: ${m.lostdate}` : "Urgent Alert",
-              badgeStyle: "text-red-400 bg-red-500/10 border-red-500/20",
-              borderHover: "hover:border-red-400/40",
+              badgeStyle: "text-white bg-[#2b1c14] border-[#7a482b]/50",
+              borderHover: "hover:border-[#c49371]/50",
               link: "/missing",
             });
           }
@@ -133,8 +133,8 @@ export default function MobileAppSection() {
               title: extra.itemname || "Lost Property",
               place: extra.lostplace || extra.district || "Kerala",
               time: extra.lostdate ? `Reported: ${extra.lostdate}` : "Live Feed",
-              badgeStyle: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-              borderHover: "hover:border-blue-400/40",
+              badgeStyle: "text-[#d4a373] bg-[#2b1b11] border-[#6b3f23]/40",
+              borderHover: "hover:border-[#8b5e3c]/50",
               link: "/dashboard/search?type=LOST",
             });
           }
@@ -154,12 +154,12 @@ export default function MobileAppSection() {
   return (
     <section
       id="mobile-app"
-      className="relative overflow-hidden  landing-ambient-gradient  bg-[#0c0a09] text-white py-24 lg:py-28 border-t border-white/[0.06]"
+      className="relative overflow-hidden landing-ambient-gradient bg-[#080706] text-white py-24 lg:py-28 border-t border-white/[0.06]"
     >
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 -right-32 w-[550px] h-[550px] bg-amber-500/[0.05] blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 -left-32 w-[500px] h-[500px] bg-amber-700/[0.04] blur-[160px] rounded-full" />
+        <div className="absolute top-1/2 -right-32 w-[550px] h-[550px] bg-[#8b5e3c]/[0.12] blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 -left-32 w-[500px] h-[500px] bg-[#5c3a21]/[0.1] blur-[160px] rounded-full" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -170,8 +170,8 @@ export default function MobileAppSection() {
           {/* ================================================= */}
           <div>
             {/* Label */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e3b437]/10 border border-[#e3b437]/20 mb-4">
-              <span className="text-[#e3b437] text-xs font-semibold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40 mb-4">
+              <span className="text-[#d4a373] text-xs font-semibold uppercase tracking-wider">
                 Mobile App
               </span>
             </div>
@@ -180,7 +180,7 @@ export default function MobileAppSection() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Carry Hopest
               <br />
-              <span className="bg-gradient-to-r from-amber-200 via-[#e5a95d] to-[#d89b52] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-[#d4a373] to-[#8b5e3c] bg-clip-text text-transparent">
                 in your pocket
               </span>
             </h2>
@@ -195,7 +195,7 @@ export default function MobileAppSection() {
             <div className="mt-8 space-y-4">
               {/* Feature 1 */}
               <div className="flex items-center gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.04] transition-colors">
-                <div className="w-10 h-10 shrink-0 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                <div className="w-10 h-10 shrink-0 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center text-[#d4a373]">
                   <Bell className="w-4 h-4" />
                 </div>
                 <p className="text-sm sm:text-base font-medium text-stone-200">
@@ -205,7 +205,7 @@ export default function MobileAppSection() {
 
               {/* Feature 2 */}
               <div className="flex items-center gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.04] transition-colors">
-                <div className="w-10 h-10 shrink-0 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                <div className="w-10 h-10 shrink-0 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center text-[#d4a373]">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <p className="text-sm sm:text-base font-medium text-stone-200">
@@ -215,7 +215,7 @@ export default function MobileAppSection() {
 
               {/* Feature 3 */}
               <div className="flex items-center gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.04] transition-colors">
-                <div className="w-10 h-10 shrink-0 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                <div className="w-10 h-10 shrink-0 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center text-[#d4a373]">
                   <MessageCircle className="w-4 h-4" />
                 </div>
                 <p className="text-sm sm:text-base font-medium text-stone-200">
@@ -231,11 +231,11 @@ export default function MobileAppSection() {
                 href="https://apps.apple.com/search?term=hopest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black text-sm shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:shadow-[0_0_45px_rgba(245,158,11,0.75)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
+                className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-bold text-sm shadow-[0_0_30px_rgba(107,63,35,0.5)] hover:shadow-[0_0_45px_rgba(139,94,60,0.7)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
                 title="Download from Apple App Store"
               >
-                <Smartphone className="w-5 h-5 text-stone-950" />
-                <span className="text-stone-950 font-black">App Store</span>
+                <Smartphone className="w-5 h-5 text-white" />
+                <span className="text-white font-bold">App Store</span>
               </a>
 
               {/* Google Play Button */}
@@ -243,7 +243,7 @@ export default function MobileAppSection() {
                 href="https://play.google.com/store/apps/details?id=com.hopestogapp.hopestog"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-stone-900/90 border-2 border-amber-500/50 hover:border-amber-400 hover:scale-[1.03] active:scale-[0.98] text-white font-bold text-sm shadow-lg hover:shadow-[0_0_30px_rgba(216,155,82,0.3)] transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-[#140f0c]/90 border-2 border-[#6d3f22]/60 hover:border-[#8d7455] hover:scale-[1.03] active:scale-[0.98] text-white font-bold text-sm shadow-lg hover:shadow-[0_0_30px_rgba(107,63,35,0.35)] transition-all duration-300 cursor-pointer"
                 title="Install from Google Play Store"
               >
                 <svg
@@ -251,7 +251,7 @@ export default function MobileAppSection() {
                   height="18"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="text-amber-400"
+                  className="text-[#d4a373]"
                 >
                   <path d="M3 2.5v19l11-9.5L3 2.5Z" />
                   <path d="m14 8.5 3-2.6 3.5 2c.7.4.7 1.4 0 1.8l-3.5 2L14 8.5Z" />
@@ -265,12 +265,12 @@ export default function MobileAppSection() {
           {/* RIGHT SIDE: DYNAMIC PHONE MOCKUP */}
           {/* ================================================= */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-[310px] sm:w-[350px] rounded-[44px] border-4 border-stone-800 bg-[#161412] p-2.5 shadow-[0_25px_70px_rgba(0,0,0,0.7)]">
+            <div className="relative w-[310px] sm:w-[350px] rounded-[44px] border-4 border-stone-800 bg-[#140f0c] p-2.5 shadow-[0_25px_70px_rgba(0,0,0,0.7)]">
               {/* Soft Outer Ambient Glow */}
-              <div className="absolute -inset-4 -z-10 rounded-[50px] bg-amber-500/10 blur-2xl" />
+              <div className="absolute -inset-4 -z-10 rounded-[50px] bg-[#8b5e3c]/20 blur-2xl" />
 
               {/* Phone Bezel / Screen */}
-              <div className="rounded-[36px] border border-white/10 bg-[#0d0c0b] overflow-hidden min-h-[520px] flex flex-col justify-between">
+              <div className="rounded-[36px] border border-white/10 bg-[#080706] overflow-hidden min-h-[520px] flex flex-col justify-between">
 
                 {/* Status Bar */}
                 <div className="pt-3 px-6 pb-2 flex items-center justify-between text-[11px] text-stone-400 font-mono">
@@ -293,11 +293,11 @@ export default function MobileAppSection() {
                           alt="Hopest"
                           width={20}
                           height={28}
-                          className="h-7 w-auto object-contain drop-shadow-[0_1px_6px_rgba(216,155,82,0.3)]"
+                          className="h-7 w-auto object-contain drop-shadow-[0_1px_6px_rgba(107,63,35,0.4)]"
                         />
                       </div>
                       <div className="flex flex-col justify-center">
-                        <span className="text-sm font-bold tracking-wider text-[#e4b63b] leading-tight">
+                        <span className="text-sm font-bold tracking-wider text-[#d4a373] leading-tight">
                           HOPEST
                         </span>
                         <p className="text-[9px] text-stone-400 uppercase tracking-widest font-medium">
@@ -305,9 +305,9 @@ export default function MobileAppSection() {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                      <span className="text-[9px] text-emerald-400 font-mono font-bold uppercase">Online</span>
+                    <div className="flex items-center gap-1.5 bg-[#2b1b11] border border-[#6b3f23]/40 px-2 py-0.5 rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#d4a373] animate-ping" />
+                      <span className="text-[9px] text-[#d4a373] font-mono font-bold uppercase">Online</span>
                     </div>
                   </div>
                 </div>
@@ -354,13 +354,13 @@ export default function MobileAppSection() {
                           </span>
                         </div>
 
-                        <p className="text-xs font-semibold text-white truncate capitalize group-hover:text-amber-200 transition-colors">
+                        <p className="text-xs font-semibold text-white truncate capitalize group-hover:text-[#f5efe8] transition-colors">
                           {item.title}
                         </p>
 
-                        <div className="flex items-center justify-between mt-1.5 text-[11px] text-[#e3b437]">
+                        <div className="flex items-center justify-between mt-1.5 text-[11px] text-[#d4a373]">
                           <span className="flex items-center gap-1 text-stone-400 text-[10px] truncate max-w-[170px]">
-                            <MapPin size={10} className="text-amber-400 shrink-0" />
+                            <MapPin size={10} className="text-[#d4a373] shrink-0" />
                             <span className="truncate">{item.place}</span>
                           </span>
                           <span className="flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform shrink-0">
@@ -378,7 +378,7 @@ export default function MobileAppSection() {
                   <button
                     type="button"
                     onClick={() => router.push("/landing")}
-                    className="text-[#e3b437] font-semibold hover:opacity-90 transition cursor-pointer"
+                    className="text-[#d4a373] font-semibold hover:opacity-90 transition cursor-pointer"
                   >
                     Home
                   </button>
@@ -410,7 +410,7 @@ export default function MobileAppSection() {
       {/* ===================================================== */}
       {activeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 animate-fade-in">
-          <div className="bg-[#181614] border border-amber-500/30 text-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
+          <div className="bg-[#140f0c] border border-[#8b5e3c]/40 text-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
 
             {/* Close Button */}
             <button
@@ -424,7 +424,7 @@ export default function MobileAppSection() {
 
             {/* Modal Content */}
             <div className="flex items-center gap-3.5 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center text-[#d4a373] shrink-0">
                 {activeModal === "google_play" ? (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3 2.5v19l11-9.5L3 2.5Z" />
@@ -435,7 +435,7 @@ export default function MobileAppSection() {
                 )}
               </div>
               <div>
-                <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">
+                <span className="text-[10px] font-bold text-[#d4a373] uppercase tracking-widest block">
                   Hopest Mobile Experience
                 </span>
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
@@ -461,7 +461,7 @@ export default function MobileAppSection() {
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-gradient-to-r from-[#d89b52] to-[#e3b437] hover:brightness-110 text-stone-950 font-bold py-3.5 px-5 rounded-2xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition"
+                className="w-full bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] hover:brightness-110 text-white font-bold py-3.5 px-5 rounded-2xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition"
               >
                 <span>
                   {activeModal === "google_play" ? "Open Google Play Store" : "Open Apple App Store"}
@@ -494,15 +494,15 @@ export default function MobileAppSection() {
                 }}
                 className="w-full bg-stone-900/60 hover:bg-stone-800 border border-white/[0.08] text-stone-400 hover:text-white py-3 px-5 rounded-2xl text-xs sm:text-sm font-semibold transition cursor-pointer flex items-center justify-center gap-2"
               >
-                <Sparkles size={14} className="text-amber-400" />
+                <Sparkles size={14} className="text-[#d4a373]" />
                 <span>Launch Mobile Web App Now (No Install Needed)</span>
               </button>
             </div>
 
             {/* iOS PWA Tip if on iOS */}
             {activeModal === "app_store" && (
-              <div className="mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-200/90 flex items-start gap-2">
-                <Share2 size={14} className="shrink-0 mt-0.5 text-amber-400" />
+              <div className="mt-4 p-3 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/40 text-[11px] text-[#f5efe8] flex items-start gap-2">
+                <Share2 size={14} className="shrink-0 mt-0.5 text-[#d4a373]" />
                 <span>
                   <strong>Tip for iPhone Users:</strong> In Safari, tap the <strong>Share</strong> button and choose <strong>&quot;Add to Home Screen&quot;</strong> to install the full mobile app instantly.
                 </span>

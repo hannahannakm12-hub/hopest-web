@@ -289,12 +289,12 @@ export default function HopestDatePicker({
         }`}
       >
         <div className="flex items-center gap-3 min-w-0 flex-1">
-          {/* Glowing amber icon badge */}
+          {/* Glowing brown icon badge */}
           <div
             className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${
               value
-                ? "bg-gradient-to-tr from-[#6b3f23] to-[#d89b52] text-white shadow-[0_2px_10px_rgba(216,155,82,0.35)] group-hover:scale-105"
-                : "bg-amber-500/10 border border-amber-500/30 text-[#8b5e3c]"
+                ? "bg-gradient-to-tr from-[#4a2c17] to-[#7a482b] text-white shadow-[0_2px_10px_rgba(107,63,35,0.35)] group-hover:scale-105"
+                : "bg-[#2b1b11] border border-[#6b3f23]/40 text-[#d4a373]"
             }`}
           >
             <CalendarIcon size={17} />
@@ -308,8 +308,8 @@ export default function HopestDatePicker({
                   {formatDisplayDate(value)}
                 </span>
                 {relativeTag && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 border border-amber-300 text-[10px] font-bold text-amber-900 tracking-wide">
-                    <Sparkles size={9} className="text-amber-700" />
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/50 text-[10px] font-bold text-[#d4a373] tracking-wide">
+                    <Sparkles size={9} className="text-[#d4a373]" />
                     <span>{relativeTag}</span>
                   </span>
                 )}
@@ -352,12 +352,12 @@ export default function HopestDatePicker({
       <input type="hidden" name="date" value={value} />
 
       {/* =====================================================
-          2. LUXURY OBSIDIAN-AMBER CALENDAR POPOVER
+          2. LUXURY OBSIDIAN-BROWN CALENDAR POPOVER
       ===================================================== */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 z-50 w-full sm:w-[360px] max-w-[95vw] rounded-2xl bg-[#14110e]/98 backdrop-blur-2xl border border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.7),0_0_25px_rgba(216,155,82,0.18)] p-4 text-white animate-in fade-in zoom-in-95 duration-150">
+        <div className="absolute top-full left-0 mt-2 z-50 w-full sm:w-[360px] max-w-[95vw] rounded-2xl bg-[#0e0c0a]/98 backdrop-blur-2xl border border-[#6b3f23]/40 shadow-[0_20px_50px_rgba(0,0,0,0.7),0_0_25px_rgba(107,63,35,0.2)] p-4 text-white animate-in fade-in zoom-in-95 duration-150">
           {/* Ambient top light sheen */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#d4a373]/60 to-transparent pointer-events-none" />
 
           {/* POPOVER HEADER: MONTH & YEAR WITH CONTROLS */}
           <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-white/[0.08]">
@@ -365,7 +365,7 @@ export default function HopestDatePicker({
               <span className="font-serif font-bold text-base sm:text-lg text-white tracking-wide">
                 {MONTH_NAMES[viewMonth]} {viewYear}
               </span>
-              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 font-semibold">
+              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/50 text-[#d4a373] font-semibold">
                 {typeLabel}
               </span>
             </div>
@@ -375,7 +375,7 @@ export default function HopestDatePicker({
                 type="button"
                 onClick={handlePrevMonth}
                 title="Previous month"
-                className="w-8 h-8 rounded-lg bg-white/[0.05] hover:bg-amber-500/20 border border-white/10 hover:border-amber-400/40 text-stone-300 hover:text-amber-200 flex items-center justify-center transition cursor-pointer"
+                className="w-8 h-8 rounded-lg bg-white/[0.05] hover:bg-[#2b1b11] border border-white/10 hover:border-[#6b3f23]/60 text-stone-300 hover:text-[#f5efe8] flex items-center justify-center transition cursor-pointer"
               >
                 <ChevronLeft size={16} />
               </button>
@@ -384,7 +384,7 @@ export default function HopestDatePicker({
                 type="button"
                 onClick={handleNextMonth}
                 title="Next month"
-                className="w-8 h-8 rounded-lg bg-white/[0.05] hover:bg-amber-500/20 border border-white/10 hover:border-amber-400/40 text-stone-300 hover:text-amber-200 flex items-center justify-center transition cursor-pointer"
+                className="w-8 h-8 rounded-lg bg-white/[0.05] hover:bg-[#2b1b11] border border-white/10 hover:border-[#6b3f23]/60 text-stone-300 hover:text-[#f5efe8] flex items-center justify-center transition cursor-pointer"
               >
                 <ChevronRight size={16} />
               </button>
@@ -397,7 +397,7 @@ export default function HopestDatePicker({
               <span
                 key={name}
                 className={`text-[11px] font-bold uppercase tracking-wider py-1 ${
-                  idx === 0 || idx === 6 ? "text-amber-400/80" : "text-stone-400"
+                  idx === 0 || idx === 6 ? "text-[#d4a373]" : "text-stone-400"
                 }`}
               >
                 {name}
@@ -421,9 +421,9 @@ export default function HopestDatePicker({
                   }
                   className={`h-9 rounded-xl text-xs font-semibold flex items-center justify-center relative transition-all duration-150 cursor-pointer ${
                     cell.isSelected
-                      ? "bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black shadow-[0_0_14px_rgba(245,158,11,0.6)] scale-105 z-10"
+                      ? "bg-gradient-to-r from-[#4a2c17] via-[#7a482b] to-[#4a2c17] text-white font-black shadow-[0_0_14px_rgba(107,63,35,0.6)] border border-[#8b5e3c]/50 scale-105 z-10"
                       : cell.isToday
-                      ? "border border-amber-400/80 bg-amber-500/10 text-amber-300 font-bold hover:bg-amber-500/20"
+                      ? "border border-[#d4a373]/80 bg-[#2b1b11] text-[#d4a373] font-bold hover:bg-[#3a2417]"
                       : cell.isCurrentMonth
                       ? "text-stone-200 hover:bg-white/10 hover:text-white"
                       : "text-stone-600 hover:bg-white/[0.04] hover:text-stone-400"
@@ -435,7 +435,7 @@ export default function HopestDatePicker({
                 >
                   <span>{cell.day}</span>
                   {cell.isToday && !cell.isSelected && (
-                    <span className="absolute bottom-1 w-1 h-1 rounded-full bg-amber-400" />
+                    <span className="absolute bottom-1 w-1 h-1 rounded-full bg-[#d4a373]" />
                   )}
                 </button>
               );
@@ -445,7 +445,7 @@ export default function HopestDatePicker({
           {/* QUICK REALISTIC PRESET CHIPS FOR EASY SELECTION */}
           <div className="mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-between gap-1.5">
             <span className="text-[10px] text-stone-400 uppercase tracking-widest font-bold flex items-center gap-1">
-              <Clock size={11} className="text-amber-400" />
+              <Clock size={11} className="text-[#d4a373]" />
               Quick:
             </span>
 
@@ -453,7 +453,7 @@ export default function HopestDatePicker({
               <button
                 type="button"
                 onClick={() => handlePreset(0)}
-                className="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-amber-500/20 border border-white/10 hover:border-amber-400/40 text-stone-300 hover:text-amber-200 text-[11px] font-semibold transition cursor-pointer"
+                className="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-[#2b1b11] border border-white/10 hover:border-[#6b3f23]/60 text-stone-300 hover:text-[#f5efe8] text-[11px] font-semibold transition cursor-pointer"
               >
                 Today
               </button>
@@ -461,7 +461,7 @@ export default function HopestDatePicker({
               <button
                 type="button"
                 onClick={() => handlePreset(1)}
-                className="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-amber-500/20 border border-white/10 hover:border-amber-400/40 text-stone-300 hover:text-amber-200 text-[11px] font-semibold transition cursor-pointer"
+                className="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-[#2b1b11] border border-white/10 hover:border-[#6b3f23]/60 text-stone-300 hover:text-[#f5efe8] text-[11px] font-semibold transition cursor-pointer"
               >
                 Yesterday
               </button>
@@ -469,7 +469,7 @@ export default function HopestDatePicker({
               <button
                 type="button"
                 onClick={() => handlePreset(3)}
-                className="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-amber-500/20 border border-white/10 hover:border-amber-400/40 text-stone-300 hover:text-amber-200 text-[11px] font-semibold transition cursor-pointer hidden sm:inline-block"
+                className="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-[#2b1b11] border border-white/10 hover:border-[#6b3f23]/60 text-stone-300 hover:text-[#f5efe8] text-[11px] font-semibold transition cursor-pointer hidden sm:inline-block"
               >
                 3 Days Ago
               </button>
@@ -477,7 +477,7 @@ export default function HopestDatePicker({
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="px-3 py-1 rounded-lg bg-gradient-to-r from-amber-500 to-[#d89b52] text-stone-950 text-[11px] font-black hover:brightness-105 transition cursor-pointer shadow-sm ml-1"
+                className="px-3 py-1 rounded-lg bg-gradient-to-r from-[#4a2c17] via-[#7a482b] to-[#4a2c17] text-white text-[11px] font-black hover:brightness-110 transition cursor-pointer shadow-sm border border-[#8b5e3c]/40 ml-1"
               >
                 Done
               </button>

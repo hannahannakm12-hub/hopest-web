@@ -65,34 +65,34 @@ export default function LandingHero() {
   };
 
   return (
-    <div className="relative bg-[#090807] text-white overflow-hidden selection:bg-[#d89b52]/30 selection:text-[#f8d7a4]">
+    <div className="relative bg-[#080706] text-white overflow-hidden selection:bg-[#6b3f23] selection:text-white">
       {/* =====================================================
           TOP NAVIGATION BAR (Ultra-clean glassmorphic)
       ===================================================== */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-[#090807]/90 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl shadow-black/70 py-3.5"
-          : "bg-gradient-to-b from-[#090807]/90 via-[#090807]/60 to-transparent border-b border-white/[0.04] py-5"
+          ? "bg-[#080706]/92 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl shadow-black/80 py-3.5"
+          : "bg-gradient-to-b from-[#080706]/90 via-[#080706]/60 to-transparent border-b border-white/[0.04] py-5"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
           <Link
             href="/landing"
-            className="flex items-center gap-[20px] group cursor-pointer select-none"
+            className="flex items-center gap-3 group cursor-pointer select-none"
           >
             <div className="relative h-10 w-7 sm:w-8 flex items-center justify-center shrink-0">
               <Image
-                src="/logo.png"
+                src="/main-logo.png"
                 alt="HOPEST Logo"
                 width={100}
-                height={72}
-                className="object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(216,155,82,0.25)]"
+                height={150}
+                className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(107,63,35,0.3)]"
                 priority
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-xl font-black tracking-[0.2em] text-[#e4b63b] leading-tight drop-shadow-sm">
+              <span className="text-xl font-black tracking-[0.2em] text-[#d4a373] leading-tight drop-shadow-sm group-hover:text-white transition-colors">
                 HOPEST
               </span>
               <span className="text-[9px] uppercase tracking-widest text-stone-400 font-bold -mt-0.5 hidden sm:block">
@@ -105,31 +105,31 @@ export default function LandingHero() {
           <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-stone-300">
             <button
               onClick={() => handleProtectedRoute("/dashboard")}
-              className="hover:text-amber-300 transition-colors duration-200 cursor-pointer"
+              className="hover:text-white transition-colors duration-200 cursor-pointer"
             >
               Browse
             </button>
             <button
               onClick={() => scrollToSection("services")}
-              className="hover:text-amber-300 transition-colors duration-200 cursor-pointer"
+              className="hover:text-white transition-colors duration-200 cursor-pointer"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection("how-it-works")}
-              className="hover:text-amber-300 transition-colors duration-200 cursor-pointer"
+              className="hover:text-white transition-colors duration-200 cursor-pointer"
             >
               How It Works
             </button>
             <button
               onClick={() => scrollToSection("mobile-app")}
-              className="hover:text-amber-300 transition-colors duration-200 cursor-pointer"
+              className="hover:text-white transition-colors duration-200 cursor-pointer"
             >
               Mobile App
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="hover:text-amber-300 transition-colors duration-200 cursor-pointer"
+              className="hover:text-white transition-colors duration-200 cursor-pointer"
             >
               Contact
             </button>
@@ -142,7 +142,7 @@ export default function LandingHero() {
                 <NotificationDropdown uid={user?.uid || ""} align="right" />
                 <button
                   onClick={() => router.push("/dashboard")}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-[#d89b52] text-stone-950 text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(216,155,82,0.35)] hover:brightness-105 transition-all flex items-center gap-2 cursor-pointer btn-animated-gradient"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#6b3f23] to-[#4a2c17] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(107,63,35,0.4)] hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer btn-animated-gradient"
                 >
                   <LayoutDashboard size={15} />
                   <span>Dashboard</span>
@@ -163,17 +163,17 @@ export default function LandingHero() {
               <>
                 <Link
                   href="/auth/login"
-                  className="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-stone-900/80 border border-white/20 hover:border-amber-400/60 text-xs sm:text-sm font-semibold text-stone-200 hover:text-white transition-all duration-200 shadow-md"
+                  className="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-stone-900/90 border border-white/20 hover:border-[#8b5e3c]/80 text-xs sm:text-sm font-semibold text-stone-200 hover:text-white transition-all duration-200 shadow-md"
                 >
                   Log in
                 </Link>
 
                 <Link
                   href="/auth/register"
-                  className="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(216,155,82,0.45)] hover:shadow-[0_0_30px_rgba(216,155,82,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer btn-animated-gradient"
+                  className="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(107,63,35,0.5)] hover:shadow-[0_0_30px_rgba(139,94,60,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer btn-animated-gradient"
                 >
-                  <span className="relative z-10 text-stone-950 font-black">Get Started</span>
-                  <div className="absolute inset-0 -translate-x-full group-hover:animate-streak bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12" />
+                  <span className="relative z-10 text-white font-black">Get Started</span>
+                  <div className="absolute inset-0 -translate-x-full group-hover:animate-streak bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
                 </Link>
               </>
             )}
@@ -198,31 +198,31 @@ export default function LandingHero() {
                   setMobileMenuOpen(false);
                   handleProtectedRoute("/dashboard");
                 }}
-                className="text-left py-1.5 hover:text-amber-400 transition-colors"
+                className="text-left py-1.5 hover:text-[#d4a373] transition-colors"
               >
                 Browse Listings
               </button>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-left py-1.5 hover:text-amber-400 transition-colors"
+                className="text-left py-1.5 hover:text-[#d4a373] transition-colors"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection("how-it-works")}
-                className="text-left py-1.5 hover:text-amber-400 transition-colors"
+                className="text-left py-1.5 hover:text-[#d4a373] transition-colors"
               >
                 How It Works
               </button>
               <button
                 onClick={() => scrollToSection("mobile-app")}
-                className="text-left py-1.5 hover:text-amber-400 transition-colors"
+                className="text-left py-1.5 hover:text-[#d4a373] transition-colors"
               >
                 Mobile App
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-left py-1.5 hover:text-amber-400 transition-colors"
+                className="text-left py-1.5 hover:text-[#d4a373] transition-colors"
               >
                 Contact
               </button>
@@ -238,7 +238,7 @@ export default function LandingHero() {
                   </Link>
                   <Link
                     href="/auth/register"
-                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 text-sm font-black text-center shadow-lg btn-animated-gradient"
+                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white text-sm font-bold text-center shadow-lg btn-animated-gradient"
                   >
                     Create Account
                   </Link>
@@ -246,7 +246,7 @@ export default function LandingHero() {
               ) : (
                 <button
                   onClick={() => router.push("/dashboard")}
-                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-[#d89b52] text-stone-950 font-bold text-center btn-animated-gradient"
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] to-[#6d3f22] text-white font-bold text-center btn-animated-gradient"
                 >
                   Go to Dashboard
                 </button>
@@ -259,7 +259,7 @@ export default function LandingHero() {
       {/* =====================================================
           HERO SECTION (Rich Ambient Effects & Standard Typography)
       ===================================================== */}
-      <section className="relative landing-ambient-gradient  min-h-[88vh] md:min-h-[94vh] flex flex-col justify-center items-center pt-32 pb-20">
+      <section className="relative landing-ambient-gradient min-h-[88vh] md:min-h-[94vh] flex flex-col justify-center items-center pt-32 pb-20">
         {/* Background Image & Cinematic Vignette Overlays */}
         <div
           className="absolute inset-0 bg-cover bg-no-repeat transition-transform duration-1000 scale-105"
@@ -269,9 +269,9 @@ export default function LandingHero() {
           }}
         />
         {/* Multilayered rich dark gradients */}
-        <div className="absolute inset-0 bg-[#090807]/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#090807]/92 via-[#090807]/50 to-[#090807]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_15%,rgba(9,8,7,0.85)_95%)]" />
+        <div className="absolute inset-0 bg-[#080706]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080706]/95 via-[#080706]/60 to-[#080706]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_15%,rgba(8,7,6,0.9)_95%)]" />
 
         {/* Dynamic Standard Animated Ambient Gradient Layer */}
         <div className="absolute inset-0 landing-ambient-gradient opacity-50 pointer-events-none" />
@@ -279,31 +279,31 @@ export default function LandingHero() {
         {/* =====================================================
             DYNAMIC BACKGROUND EFFECTS
         ===================================================== */}
-        {/* 1. Pulsing Golden Aurora Orb */}
-        <div className="pointer-events-none absolute top-1/5 left-1/2 -translate-x-1/2 w-[900px] h-[480px] bg-gradient-to-b from-[#d89b52]/20 via-[#e5a95d]/10 to-transparent blur-[150px] rounded-full animate-ambient-pulse" />
+        {/* 1. Pulsing Warm Brown Aurora Orb */}
+        <div className="pointer-events-none absolute top-1/5 left-1/2 -translate-x-1/2 w-[900px] h-[480px] bg-gradient-to-b from-[#8b5e3c]/25 via-[#6b3f23]/15 to-transparent blur-[150px] rounded-full animate-ambient-pulse" />
 
         {/* 2. Side Ambient Color Accents */}
-        <div className="pointer-events-none absolute top-1/3 -left-32 w-[550px] h-[550px] bg-[#b67a32]/12 blur-[170px] rounded-full" />
-        <div className="pointer-events-none absolute bottom-10 -right-32 w-[600px] h-[600px] bg-[#d89b52]/15 blur-[180px] rounded-full" />
+        <div className="pointer-events-none absolute top-1/3 -left-32 w-[550px] h-[550px] bg-[#5c3a21]/20 blur-[170px] rounded-full" />
+        <div className="pointer-events-none absolute bottom-10 -right-32 w-[600px] h-[600px] bg-[#7a482b]/20 blur-[180px] rounded-full" />
 
         {/* 3. Subtle Luminous Overhead Light Beam */}
-        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-amber-400/35 to-transparent" />
+        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-[#8b5e3c]/40 to-transparent" />
 
         {/* 4. Fine Architectural Dot Grid Overlay */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: `radial-gradient(rgba(245, 208, 150, 0.45) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(rgba(212, 163, 115, 0.35) 1px, transparent 1px)`,
             backgroundSize: "36px 36px",
           }}
         />
 
         {/* 5. Delicate Floating Sparkle Particles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-1.5 h-1.5 rounded-full bg-amber-300/40 blur-[1px] animate-pulse" />
-          <div className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full bg-amber-400/30 blur-[1px] animate-pulse [animation-delay:1.5s]" />
-          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 rounded-full bg-yellow-200/40 blur-[1px] animate-pulse [animation-delay:2.5s]" />
-          <div className="absolute top-1/2 right-1/3 w-1 h-1 rounded-full bg-amber-300/50 blur-[0.5px] animate-pulse [animation-delay:3.2s]" />
+          <div className="absolute top-1/4 left-1/4 w-1.5 h-1.5 rounded-full bg-[#d4a373]/40 blur-[1px] animate-pulse" />
+          <div className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full bg-[#c49371]/40 blur-[1px] animate-pulse [animation-delay:1.5s]" />
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 rounded-full bg-white/40 blur-[1px] animate-pulse [animation-delay:2.5s]" />
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 rounded-full bg-[#e8d5c4]/50 blur-[0.5px] animate-pulse [animation-delay:3.2s]" />
         </div>
 
         {/* =====================================================
@@ -311,26 +311,26 @@ export default function LandingHero() {
         ===================================================== */}
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center w-full">
           {/* =====================================================
-              MODERN SHIMMER BADGE (Superb & Clean)
+              MODERN SHIMMER BADGE (Clean Brown/Black/White)
           ===================================================== */}
           <div className="inline-block mb-8 group cursor-default">
-            <div className="relative p-[1px] rounded-full bg-gradient-to-r from-amber-500/30 via-amber-300/50 to-amber-500/30 shadow-[0_0_25px_rgba(216,155,82,0.22)] group-hover:shadow-[0_0_35px_rgba(216,155,82,0.4)] transition-all duration-300">
+            <div className="relative p-[1px] rounded-full bg-gradient-to-r from-[#8b5e3c]/35 via-[#d4a373]/50 to-[#8b5e3c]/35 shadow-[0_0_25px_rgba(107,63,35,0.25)] group-hover:shadow-[0_0_35px_rgba(139,94,60,0.45)] transition-all duration-300">
               <div className="flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#110f0d]/90 backdrop-blur-2xl text-xs sm:text-sm font-medium">
                 {/* Pulsing indicator */}
                 <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4a373] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d4a373]" />
                 </span>
 
-                <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-spin [animation-duration:10s]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#d4a373] animate-spin [animation-duration:10s]" />
 
                 <span className="text-stone-200 font-semibold tracking-wide">
                   Free &amp; Community-Powered Platform
                 </span>
 
-                <span className="text-amber-500/60 font-bold">•</span>
+                <span className="text-[#8b5e3c] font-bold">•</span>
 
-                <span className="bg-gradient-to-r from-amber-300 to-[#e5a95d] bg-clip-text text-transparent font-bold">
+                <span className="text-[#d4a373] font-bold">
                   Always Here to Help
                 </span>
               </div>
@@ -342,14 +342,14 @@ export default function LandingHero() {
           ===================================================== */}
           <div className="relative inline-block select-none">
             {/* Luminous Backlight Ambient Halo */}
-            <div className="absolute inset-0 -top-6 bg-gradient-to-r from-amber-500/35 via-yellow-300/25 to-amber-600/35 blur-3xl rounded-full pointer-events-none -z-10 animate-ambient-pulse" />
+            <div className="absolute inset-0 -top-6 bg-gradient-to-r from-[#6b3f23]/35 via-[#8b5e3c]/25 to-[#5c3a21]/35 blur-3xl rounded-full pointer-events-none -z-10 animate-ambient-pulse" />
 
-            {/* Monumental Headline with Continuous Animated Gold Sheen */}
+            {/* Monumental Headline with Continuous Animated Brownish Sheen */}
             <h1
               className="relative text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-[0.04em] leading-none drop-shadow-[0_4px_35px_rgba(0,0,0,0.95)] h1-animated-gradient"
               style={{
                 background:
-                  "linear-gradient(135deg, #ffffff 0%, #fef3c7 15%, #f59e0b 35%, #d89b52 50%, #fbbf24 68%, #fde68a 84%, #ffffff 100%)",
+                  "linear-gradient(135deg, #ffffff 0%, #f4ede6 18%, #af8f6a 36%, #695741 52%, #3d2415 68%, #8d7455 84%, #ffffff 100%)",
                 backgroundSize: "300% 300%",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
@@ -363,8 +363,8 @@ export default function LandingHero() {
             </h1>
           </div>
 
-          {/* Animated Golden Tagline */}
-          <div className="mt-4 sm:mt-5 flex justify-center gap-3 sm:gap-5 text-xs sm:text-sm md:text-base tracking-[0.45em] uppercase text-[#e5a95d] font-bold">
+          {/* Animated Brownish Bronze Tagline */}
+          <div className="mt-4 sm:mt-5 flex justify-center gap-3 sm:gap-5 text-xs sm:text-sm md:text-base tracking-[0.45em] uppercase text-[#af8f6a] font-bold">
             {["Hope", "For", "The", "Best"].map((word, index) => (
               <span
                 key={word}
@@ -393,32 +393,32 @@ export default function LandingHero() {
               onClick={() =>
                 handleProtectedRoute("/dashboard/create?type=LOST")
               }
-              className="group relative overflow-hidden w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black text-sm sm:text-base shadow-[0_0_35px_rgba(245,158,11,0.55),0_10px_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_55px_rgba(245,158,11,0.85),0_15px_35px_rgba(0,0,0,0.6)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer btn-animated-gradient"
+              className="group relative overflow-hidden w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-bold text-sm sm:text-base shadow-[0_0_35px_rgba(107,63,35,0.5),0_10px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_0_55px_rgba(139,94,60,0.7),0_15px_35px_rgba(0,0,0,0.7)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer btn-animated-gradient"
             >
               {/* Continuous Light Streak Effect */}
               <div className="absolute inset-0 -translate-x-full group-hover:animate-streak bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 pointer-events-none" />
 
               <PlusCircle
                 size={20}
-                className="transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110 text-stone-950"
+                className="transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110 text-white"
               />
-              <span className="relative z-10 tracking-wide text-stone-950 font-black">
+              <span className="relative z-10 tracking-wide text-white font-bold">
                 Report Lost or Found
               </span>
               <ArrowRight
                 size={18}
-                className="relative z-10 group-hover:translate-x-1.5 transition-transform duration-200 text-stone-950"
+                className="relative z-10 group-hover:translate-x-1.5 transition-transform duration-200 text-white"
               />
             </button>
 
             {/* Secondary Button */}
             <button
               onClick={() => handleProtectedRoute("/dashboard")}
-              className="group relative overflow-hidden w-full sm:w-auto px-8 py-4 rounded-xl bg-stone-900/90 border-2 border-amber-500/50 hover:border-amber-400 hover:bg-stone-800 hover:scale-[1.03] active:scale-[0.97] text-white font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2.5 shadow-xl hover:shadow-[0_0_30px_rgba(216,155,82,0.35)] cursor-pointer"
+              className="group relative overflow-hidden w-full sm:w-auto px-8 py-4 rounded-xl bg-[#140f0c]/90 border-2 border-[#6d3f22]/60 hover:border-[#8d7455] hover:bg-[#21150e] hover:scale-[1.03] active:scale-[0.97] text-white font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2.5 shadow-xl hover:shadow-[0_0_30px_rgba(107,63,35,0.35)] cursor-pointer"
             >
               <Search
                 size={18}
-                className="text-amber-400 transition-transform duration-300 group-hover:scale-110"
+                className="text-[#d4a373] transition-transform duration-300 group-hover:scale-110"
               />
               <span className="tracking-wide text-white font-bold">Browse Listings</span>
             </button>
@@ -430,19 +430,19 @@ export default function LandingHero() {
           TRUST PILLARS / CORE VALUES SECTION
           (Stunning Glassmorphism Cards)
       ===================================================== */}
-      <section className="relative landing-ambient-gradient z-10 border-y border-white/[0.08] bg-gradient-to-b from-[#110f0d]/95 via-[#0d0c0a]/95 to-[#110f0d]/95 backdrop-blur-2xl">
+      <section className="relative landing-ambient-gradient z-10 border-y border-white/[0.08] bg-gradient-to-b from-[#0c0a09]/95 via-[#080706]/95 to-[#0c0a09]/95 backdrop-blur-2xl">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* 1. Verified reports */}
-            <div className="group relative rounded-2xl bg-gradient-to-b from-[#171410]/95 to-[#100e0c]/95 border border-white/[0.06] hover:border-amber-400/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(216,155,82,0.18)] flex flex-col justify-between overflow-hidden">
+            <div className="group relative rounded-2xl bg-gradient-to-b from-[#140f0c]/95 to-[#0e0b09]/95 border border-white/[0.06] hover:border-[#8b5e3c]/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(107,63,35,0.2)] flex flex-col justify-between overflow-hidden">
               {/* Subtle radiant background glow on hover */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#8b5e3c]/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 group-hover:shadow-[0_0_20px_rgba(216,155,82,0.35)] transition-all duration-300 mb-4 shadow-inner">
+                <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <ShieldCheck size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-amber-200 transition-colors">
+                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
                   Verified Reports
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
@@ -450,21 +450,21 @@ export default function LandingHero() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-amber-400/70 group-hover:text-amber-300 font-semibold tracking-wider uppercase">
+              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-[#8b5e3c] group-hover:text-[#d4a373] font-semibold tracking-wider uppercase">
                 <span>Authentic</span>
                 <span>01</span>
               </div>
             </div>
 
             {/* 2. Privacy first */}
-            <div className="group relative rounded-2xl bg-gradient-to-b from-[#171410]/95 to-[#100e0c]/95 border border-white/[0.06] hover:border-amber-400/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(216,155,82,0.18)] flex flex-col justify-between overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="group relative rounded-2xl bg-gradient-to-b from-[#140f0c]/95 to-[#0e0b09]/95 border border-white/[0.06] hover:border-[#8b5e3c]/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(107,63,35,0.2)] flex flex-col justify-between overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#8b5e3c]/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 group-hover:shadow-[0_0_20px_rgba(216,155,82,0.35)] transition-all duration-300 mb-4 shadow-inner">
+                <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <Lock size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-amber-200 transition-colors">
+                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
                   Privacy First
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
@@ -472,21 +472,21 @@ export default function LandingHero() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-amber-400/70 group-hover:text-amber-300 font-semibold tracking-wider uppercase">
+              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-[#8b5e3c] group-hover:text-[#d4a373] font-semibold tracking-wider uppercase">
                 <span>Encrypted</span>
                 <span>02</span>
               </div>
             </div>
 
             {/* 3. Fast reach */}
-            <div className="group relative rounded-2xl bg-gradient-to-b from-[#171410]/95 to-[#100e0c]/95 border border-white/[0.06] hover:border-amber-400/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(216,155,82,0.18)] flex flex-col justify-between overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="group relative rounded-2xl bg-gradient-to-b from-[#140f0c]/95 to-[#0e0b09]/95 border border-white/[0.06] hover:border-[#8b5e3c]/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(107,63,35,0.2)] flex flex-col justify-between overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#8b5e3c]/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 group-hover:shadow-[0_0_20px_rgba(216,155,82,0.35)] transition-all duration-300 mb-4 shadow-inner">
+                <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <Clock size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-amber-200 transition-colors">
+                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
                   Fast Reach
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
@@ -494,21 +494,21 @@ export default function LandingHero() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-amber-400/70 group-hover:text-amber-300 font-semibold tracking-wider uppercase">
+              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-[#8b5e3c] group-hover:text-[#d4a373] font-semibold tracking-wider uppercase">
                 <span>Real-Time</span>
                 <span>03</span>
               </div>
             </div>
 
             {/* 4. Always free */}
-            <div className="group relative rounded-2xl bg-gradient-to-b from-[#171410]/95 to-[#100e0c]/95 border border-white/[0.06] hover:border-amber-400/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(216,155,82,0.18)] flex flex-col justify-between overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="group relative rounded-2xl bg-gradient-to-b from-[#140f0c]/95 to-[#0e0b09]/95 border border-white/[0.06] hover:border-[#8b5e3c]/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(107,63,35,0.2)] flex flex-col justify-between overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#8b5e3c]/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 group-hover:shadow-[0_0_20px_rgba(216,155,82,0.35)] transition-all duration-300 mb-4 shadow-inner">
+                <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <HeartHandshake size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-amber-200 transition-colors">
+                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
                   Always Free
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
@@ -516,7 +516,7 @@ export default function LandingHero() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-amber-400/70 group-hover:text-amber-300 font-semibold tracking-wider uppercase">
+              <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-[#8b5e3c] group-hover:text-[#d4a373] font-semibold tracking-wider uppercase">
                 <span>Non-Profit</span>
                 <span>04</span>
               </div>

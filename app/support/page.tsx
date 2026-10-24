@@ -43,9 +43,9 @@ export default function CallSupportPage() {
       desc: "Speak with a coordinator for urgent missing person appeals, verifying found property, or reporting false claims.",
       availability: "Available 24/7 for Emergencies",
       icon: Phone,
-      gradientBeam: "from-amber-600 via-amber-400 to-[#d89b52]",
-      ambientGlow: "bg-amber-400/15",
-      color: "from-[#4b3425] via-[#6b3f23] to-[#4b3425]",
+      gradientBeam: "from-[#4a2c17] via-[#8b5e3c] to-[#4a2c17]",
+      ambientGlow: "bg-[#6b3f23]/15",
+      color: "from-[#4a2c17] via-[#6b3f23] to-[#4a2c17]",
       btnText: "Call Helpline Now",
     },
     {
@@ -57,9 +57,9 @@ export default function CallSupportPage() {
       desc: "Send photographs of lost or found belongings, share location coordinates, or receive real-time case updates.",
       availability: "Immediate Response on WhatsApp",
       icon: MessageCircle,
-      gradientBeam: "from-emerald-600 via-teal-400 to-emerald-400",
-      ambientGlow: "bg-emerald-400/15",
-      color: "from-emerald-800 via-emerald-700 to-emerald-800",
+      gradientBeam: "from-[#3a2417] via-[#6b3f23] to-[#3a2417]",
+      ambientGlow: "bg-[#5c3a21]/15",
+      color: "from-[#3a2417] via-[#5c3a21] to-[#3a2417]",
       btnText: "Chat on WhatsApp",
     },
     {
@@ -71,8 +71,8 @@ export default function CallSupportPage() {
       desc: "Formal partnership queries, legal coordination with police stations, data correction, or deletion requests.",
       availability: "Response within 12-24 hours",
       icon: Mail,
-      gradientBeam: "from-[#6b3f23] via-[#8b5e3c] to-[#d89b52]",
-      ambientGlow: "bg-amber-500/10",
+      gradientBeam: "from-[#2b1b11] via-[#4a2c17] to-[#2b1b11]",
+      ambientGlow: "bg-[#4a2c17]/15",
       color: "from-[#2b1f18] via-[#3b2a21] to-[#2b1f18]",
       btnText: "Send Official Email",
     },
@@ -105,10 +105,10 @@ export default function CallSupportPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
+    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23]/30 selection:text-[#2b1f18]">
       
       {/* STICKY TOP BAR */}
-      <header className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8 shadow-sm">
+      <header className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8 shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <button
             type="button"
@@ -119,7 +119,7 @@ export default function CallSupportPage() {
             <span>Back to Dashboard</span>
           </button>
 
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-medium">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#d4a373] font-medium">
             Hopest Portal • Call Support
           </span>
         </div>
@@ -130,12 +130,12 @@ export default function CallSupportPage() {
         
         {/* HERO BANNER WITH AMBIENT PARTICLES */}
         <section className="animated-gradient text-white rounded-3xl p-7 sm:p-11 shadow-2xl border border-white/15 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
-          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#6b3f23]/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
+          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-[#4a2c17]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-              <Phone size={13} className="text-amber-300 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[#d4a373] text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+              <Phone size={13} className="text-[#d4a373] animate-pulse" />
               <span>Official Citizen Helplines</span>
             </div>
 
@@ -150,7 +150,7 @@ export default function CallSupportPage() {
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
                 href="tel:+918590168840"
-                className="bg-white text-[#2b1f18] hover:bg-amber-100 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95 duration-200"
+                className="bg-white text-[#2b1f18] hover:bg-white/90 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95 duration-200"
               >
                 <Phone size={15} />
                 <span>Call +91 85901 68840</span>
@@ -159,7 +159,7 @@ export default function CallSupportPage() {
                 href="https://wa.me/918590168840"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95 duration-200"
+                className="bg-gradient-to-r from-[#4a2c17] via-[#6b3f23] to-[#4a2c17] hover:brightness-110 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95 duration-200 border border-[#8b5e3c]/40"
               >
                 <MessageCircle size={15} />
                 <span>Chat on WhatsApp</span>
@@ -204,7 +204,7 @@ export default function CallSupportPage() {
                       <div className="w-12 h-12 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shadow-2xs group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <Icon size={22} />
                       </div>
-                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full shadow-2xs">
+                      <span className="text-[10px] font-bold text-[#d4a373] bg-[#2b1b11] border border-[#6b3f23]/40 px-2.5 py-1 rounded-full shadow-2xs">
                         {item.availability}
                       </span>
                     </div>
@@ -232,7 +232,7 @@ export default function CallSupportPage() {
                         title="Copy"
                       >
                         {isCopied ? (
-                          <Check size={15} className="text-emerald-700" />
+                          <Check size={15} className="text-[#6b3f23]" />
                         ) : (
                           <Copy size={15} />
                         )}
@@ -262,7 +262,7 @@ export default function CallSupportPage() {
         {/* EMERGENCY SERVICES QUICK DIRECTORY WITH HOVER CARDS */}
         <section className="bg-white rounded-3xl p-7 sm:p-9 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] space-y-5">
           <div className="flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-2xl bg-red-100 text-red-700 flex items-center justify-center shrink-0 shadow-2xs">
+            <div className="w-10 h-10 rounded-2xl bg-[#2b1b11] text-[#d4a373] border border-[#6b3f23]/40 flex items-center justify-center shrink-0 shadow-2xs">
               <Shield size={22} />
             </div>
             <div>
@@ -282,7 +282,7 @@ export default function CallSupportPage() {
                 href={`tel:${svc.dial}`}
                 className="bg-[#fcfaf7] border border-[#ede5db] hover:border-[#8b5e3c] rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-center group cursor-pointer"
               >
-                <span className="text-2xl font-serif font-bold text-[#4b3425] group-hover:scale-110 block transition-transform group-hover:text-red-700">
+                <span className="text-2xl font-serif font-bold text-[#4b3425] group-hover:scale-105 block transition-transform group-hover:text-[#6b3f23]">
                   {svc.dial}
                 </span>
                 <span className="font-bold text-xs sm:text-sm text-[#2b1f18] block mt-1">

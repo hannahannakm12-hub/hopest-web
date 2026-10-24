@@ -144,36 +144,36 @@ export default function MyCreationsPage() {
     switch (type?.toUpperCase()) {
       case "LOST":
         return {
-          badge: "bg-amber-100 text-amber-900 border-amber-300",
-          border: "border-t-[#8b5e3c]",
+          badge: "bg-[#2b1b11] text-[#d4a373] border-[#6b3f23]/60",
+          border: "border-t-[#6b3f23]",
           fallback: "/lostdas.jpeg",
         };
       case "FOUND":
         return {
-          badge: "bg-emerald-100 text-emerald-900 border-emerald-300",
-          border: "border-t-emerald-700",
+          badge: "bg-[#21150e] text-[#e8d5c4] border-[#5c3a21]/60",
+          border: "border-t-[#5c3a21]",
           fallback: "/founddas.jpeg",
         };
       case "THEFT":
         return {
-          badge: "bg-rose-100 text-rose-900 border-rose-300",
-          border: "border-t-rose-700",
+          badge: "bg-[#251811] text-[#c49371] border-[#6b3f23]/60",
+          border: "border-t-[#8b5e3c]",
           fallback: "/theftdas.jpeg",
         };
       default:
         return {
-          badge: "bg-[#f4efe9] text-[#4b3425] border-[#d5c7bc]",
-          border: "border-t-[#4b3425]",
+          badge: "bg-[#2b1b11] text-[#d4a373] border-[#6b3f23]/40",
+          border: "border-t-[#6b3f23]",
           fallback: "/lostdas.jpeg",
         };
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
+    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23]/30 selection:text-[#2b1f18]">
 
       {/* STICKY TOP BAR */}
-      <header className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
+      <header className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <button
             type="button"
@@ -188,7 +188,7 @@ export default function MyCreationsPage() {
             <button
               type="button"
               onClick={() => router.push("/dashboard/create?type=LOST")}
-              className="bg-amber-400/15 hover:bg-amber-400/25 text-amber-200 border border-amber-300/30 px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer shadow-xs"
+              className="bg-[#2b1b11] hover:bg-[#3a2417] text-[#d4a373] border border-[#6b3f23]/50 px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer shadow-xs"
             >
               <Plus size={14} />
               <span>Create New Report</span>
@@ -202,25 +202,25 @@ export default function MyCreationsPage() {
         <div className="fixed top-16 right-4 z-50 max-w-md animate-fade-in">
           <div
             className={`flex items-start gap-3 p-4 rounded-2xl shadow-xl border text-sm ${notification.type === "success"
-                ? "bg-emerald-50 border-emerald-300 text-emerald-900"
-                : "bg-rose-50 border-rose-300 text-rose-900"
+                ? "bg-[#2b1b11] border-[#6b3f23]/60 text-white"
+                : "bg-[#21150e] border-[#6b3f23]/60 text-stone-200"
               }`}
           >
             {notification.type === "success" ? (
-              <CheckCircle2 size={18} className="text-emerald-600 shrink-0 mt-0.5" />
+              <CheckCircle2 size={18} className="text-[#d4a373] shrink-0 mt-0.5" />
             ) : (
-              <AlertCircle size={18} className="text-rose-600 shrink-0 mt-0.5" />
+              <AlertCircle size={18} className="text-[#c49371] shrink-0 mt-0.5" />
             )}
             <div className="flex-1">
-              <p className="font-semibold">
+              <p className="font-semibold text-white">
                 {notification.type === "success" ? "Success" : "Notice"}
               </p>
-              <p className="text-xs mt-0.5">{notification.message}</p>
+              <p className="text-xs mt-0.5 text-stone-300">{notification.message}</p>
             </div>
             <button
               type="button"
               onClick={() => setNotification(null)}
-              className="text-gray-500 hover:text-gray-700 text-xs cursor-pointer font-bold ml-1"
+              className="text-stone-400 hover:text-white text-xs cursor-pointer font-bold ml-1"
             >
               ✕
             </button>
@@ -234,8 +234,8 @@ export default function MyCreationsPage() {
         {/* HERO BANNER */}
         <section className="animated-gradient text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
-              <Sparkles size={13} className="text-amber-300" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#d4a373] text-xs font-semibold uppercase tracking-wider mb-4">
+              <Sparkles size={13} className="text-[#d4a373]" />
               <span>Member Account Portfolio</span>
             </div>
 
@@ -255,7 +255,7 @@ export default function MyCreationsPage() {
               </div>
               <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/15">
                 <span className="text-white/70 block text-[11px]">Active in Community</span>
-                <strong className="text-lg text-amber-200 font-serif">
+                <strong className="text-lg text-[#d4a373] font-serif">
                   {items.filter((i) => i.id !== undefined).length}
                 </strong>
               </div>
@@ -514,7 +514,7 @@ export default function MyCreationsPage() {
                               title: name,
                             })
                           }
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 transition cursor-pointer"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8b5e3c] bg-[#2b1b11]/5 hover:bg-[#2b1b11]/15 border border-[#6b3f23]/30 transition cursor-pointer"
                         >
                           <Trash2 size={13} />
                           <span>Delete Report</span>
@@ -535,7 +535,7 @@ export default function MyCreationsPage() {
       {deleteModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
           <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-[#e8dfd6] animate-scale-up">
-            <div className="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center mb-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#2b1b11] text-[#d4a373] flex items-center justify-center mb-4 border border-[#6b3f23]/40">
               <AlertTriangle size={24} />
             </div>
 
@@ -561,7 +561,7 @@ export default function MyCreationsPage() {
                 type="button"
                 disabled={deleting}
                 onClick={confirmDelete}
-                className="px-5 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white text-xs sm:text-sm font-semibold transition cursor-pointer flex items-center gap-1.5 shadow-sm"
+                className="px-5 py-2.5 rounded-xl bg-[#4a2c17] hover:bg-[#341d14] text-white text-xs sm:text-sm font-semibold transition cursor-pointer flex items-center gap-1.5 shadow-sm border border-[#6b3f23]/50"
               >
                 {deleting ? (
                   <>

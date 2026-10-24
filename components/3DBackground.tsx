@@ -27,7 +27,7 @@ function FloatingObjects() {
     <>
       <mesh ref={sphereRef} position={[0, 1, -5]}>
         <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial color="#ff6f61" />
+        <meshStandardMaterial color="#d4a373" />
       </mesh>
 
       <mesh ref={boxRef} position={[-2, -1, -3]}>

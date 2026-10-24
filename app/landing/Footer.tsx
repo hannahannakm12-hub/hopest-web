@@ -28,7 +28,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="relative bg-[#080706] text-white border-t border-white/[0.08]">
       {/* Top subtle glow flare */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[150px] bg-amber-500/[0.03] blur-[120px]" />
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[150px] bg-[#8b5e3c]/[0.08] blur-[120px]" />
 
       {/* =====================================================
           MAIN FOOTER
@@ -46,15 +46,15 @@ export default function Footer() {
             >
               <div className="relative h-9 w-7 flex items-center justify-center shrink-0">
                 <Image
-                  src="/logo.png"
+                  src="/main-logo.png"
                   alt="HOPEST Logo"
                   width={100}
                   height={90}
-                  className="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-200 drop-shadow-[0_2px_10px_rgba(216,155,82,0.25)]"
+                  className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-200 drop-shadow-[0_2px_10px_rgba(107,63,35,0.4)]"
                 />
               </div>
 
-              <span className="text-xl font-black text-[#e3b437] tracking-[0.18em]">
+              <span className="text-xl font-black text-[#d4a373] tracking-[0.18em]">
                 HOPEST
               </span>
             </div>
@@ -65,7 +65,7 @@ export default function Footer() {
               alerts and help find missing people across Kerala and beyond.
             </p>
 
-            <p className="mt-3 text-xs font-semibold tracking-wider uppercase text-[#e3b437] flex items-center gap-1.5">
+            <p className="mt-3 text-xs font-semibold tracking-wider uppercase text-[#d4a373] flex items-center gap-1.5">
               <span>Hope for the best</span>
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => router.push("/landing")}
-                  className="hover:text-[#e3b437] transition-colors"
+                  className="hover:text-[#d4a373] transition-colors"
                 >
                   Home
                 </button>
@@ -91,7 +91,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("services")}
-                  className="hover:text-[#e3b437] transition-colors"
+                  className="hover:text-[#d4a373] transition-colors"
                 >
                   Services
                 </button>
@@ -100,7 +100,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("how-it-works")}
-                  className="hover:text-[#e3b437] transition-colors"
+                  className="hover:text-[#d4a373] transition-colors"
                 >
                   How It Works
                 </button>
@@ -109,7 +109,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("mobile-app")}
-                  className="hover:text-[#e3b437] transition-colors"
+                  className="hover:text-[#d4a373] transition-colors"
                 >
                   Mobile App
                 </button>
@@ -118,7 +118,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => router.push("/about")}
-                  className="hover:text-[#e3b437] transition-colors"
+                  className="hover:text-[#d4a373] transition-colors"
                 >
                   About
                 </button>
@@ -127,7 +127,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("contact")}
-                  className="hover:text-[#e3b437] transition-colors"
+                  className="hover:text-[#d4a373] transition-colors"
                 >
                   Contact
                 </button>
@@ -146,7 +146,7 @@ export default function Footer() {
             <div className="space-y-3.5 text-sm text-stone-400">
               {/* Email */}
               <div className="flex items-start gap-3">
-                <Mail size={17} className="text-[#e3b437] mt-0.5 shrink-0" />
+                <Mail size={17} className="text-[#d4a373] mt-0.5 shrink-0" />
                 <a
                   href="mailto:hopestdhanaf@gmail.com"
                   className="hover:text-white transition-colors"
@@ -157,7 +157,7 @@ export default function Footer() {
 
               {/* Phone */}
               <div className="flex items-start gap-3">
-                <Phone size={17} className="text-[#e3b437] mt-0.5 shrink-0" />
+                <Phone size={17} className="text-[#d4a373] mt-0.5 shrink-0" />
                 <a
                   href="tel:918590168840"
                   className="hover:text-white transition-colors"
@@ -168,7 +168,7 @@ export default function Footer() {
 
               {/* Location */}
               <div className="flex items-start gap-3">
-                <MapPin size={17} className="text-[#e3b437] mt-0.5 shrink-0" />
+                <MapPin size={17} className="text-[#d4a373] mt-0.5 shrink-0" />
                 <span>Kerala, India</span>
               </div>
             </div>
@@ -189,7 +189,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="w-10 h-10 rounded-xl bg-stone-900 border border-white/10 flex items-center justify-center text-stone-300 hover:bg-[#e3b437] hover:text-black hover:border-amber-400 transition-all duration-300 shadow-sm"
+                className="w-10 h-10 rounded-xl bg-stone-900 border border-white/10 flex items-center justify-center text-stone-300 hover:bg-[#6b3f23] hover:text-white hover:border-[#8b5e3c] transition-all duration-300 shadow-sm"
               >
                 <Linkedin size={18} />
               </a>
@@ -234,7 +234,7 @@ export default function Footer() {
       {/* =====================================================
           BOTTOM BAR
       ===================================================== */}
-      <div className="border-t border-white/[0.06] bg-[#050404]">
+      <div className="border-t border-white/[0.06] bg-[#040303]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
             {/* Copyright */}
@@ -244,7 +244,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => router.push("/privacy")}
-                className="hover:text-[#e3b437] transition-colors"
+                className="hover:text-[#d4a373] transition-colors"
               >
                 Privacy
               </button>
@@ -253,7 +253,7 @@ export default function Footer() {
 
               <button
                 onClick={() => router.push("/privacy")}
-                className="hover:text-[#e3b437] transition-colors"
+                className="hover:text-[#d4a373] transition-colors"
               >
                 Terms
               </button>
@@ -262,7 +262,7 @@ export default function Footer() {
 
               <button
                 onClick={() => router.push("/about")}
-                className="hover:text-[#e3b437] transition-colors"
+                className="hover:text-[#d4a373] transition-colors"
               >
                 Community Guidelines
               </button>

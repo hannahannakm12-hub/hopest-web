@@ -26,7 +26,7 @@ export default function PrivacyPage() {
     {
       icon: Eye,
       title: "1. Information We Collect",
-      gradientBeam: "from-amber-600 via-amber-400 to-[#d89b52]",
+      gradientBeam: "from-[#4a2c17] via-[#8b5e3c] to-[#4a2c17]",
       badge: "Data Collection",
       content:
         "When you register or submit a report on Hopest, we collect the necessary information required to facilitate recovery and community awareness. This includes your account name, email address, contact phone number, and report details (such as item title, incident category, location, date of occurrence, nearest police station, and optional photographs).",
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
     {
       icon: UserCheck,
       title: "2. How We Use and Display Your Information",
-      gradientBeam: "from-[#8b5e3c] via-[#d89b52] to-[#8b5e3c]",
+      gradientBeam: "from-[#5c3a21] via-[#d4a373] to-[#5c3a21]",
       badge: "Public Visibility",
       content:
         "Information submitted as part of a public report (Lost, Found, Theft, or Missing) is displayed on our search directories to allow citizens, local authorities, and finders to identify items or individuals. Your personal account passwords are encrypted and never disclosed. We do not use your data for advertising tracking or third-party behavioral profiling.",
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
     {
       icon: Phone,
       title: "3. Contact Number Visibility & Phone Privacy",
-      gradientBeam: "from-emerald-600 via-teal-400 to-emerald-400",
+      gradientBeam: "from-[#6b3f23] via-[#a06544] to-[#6b3f23]",
       badge: "Phone Privacy",
       content:
         "When submitting a listing, the contact telephone number you provide is made accessible to verified visitors so that an honest finder, legal owner, or police officer can reach out directly via call or WhatsApp. If you wish to mask your personal number, you may specify a designated representative or authorized police station contact instead.",
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
     {
       icon: Lock,
       title: "4. Security & Data Protection Measures",
-      gradientBeam: "from-[#6b3f23] via-[#8b5e3c] to-[#6b3f23]",
+      gradientBeam: "from-[#4a2c17] via-[#6b3f23] to-[#2b1b11]",
       badge: "Cyber Security",
       content:
         "We value your trust and implement commercially reasonable technical safeguards to protect your personal information from unauthorized access, accidental alteration, or disclosure. However, no internet transmission or electronic storage method is 100% immune from external hazards, and we continuously maintain our security practices.",
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
     {
       icon: Shield,
       title: "5. Children's Privacy (Under 13 Protection)",
-      gradientBeam: "from-purple-600 via-pink-400 to-purple-600",
+      gradientBeam: "from-[#7a482b] via-[#8b5e3c] to-[#4a2c17]",
       badge: "Child Safety",
       content:
         "Hopest services are not targeted at or knowingly made for children under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years old. If we discover that a minor under 13 has submitted personal data without verified parental consent, we immediately purge the data from our databases.",
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
     {
       icon: Trash2,
       title: "6. User Control & Right to Deletion",
-      gradientBeam: "from-rose-600 via-rose-400 to-orange-400",
+      gradientBeam: "from-[#6b3f23] via-[#d4a373] to-[#6b3f23]",
       badge: "User Autonomy",
       content:
         "You maintain full ownership of your contributions. You can remove any active listing you published at any time directly through the 'My Creations' management dashboard. Once deleted, the listing is promptly removed from public searches. To request a complete erasure of your user profile, please email our support desk.",
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
     {
       icon: Bell,
       title: "7. Modifications to This Policy",
-      gradientBeam: "from-sky-600 via-cyan-400 to-sky-600",
+      gradientBeam: "from-[#5c3a21] via-[#8b5e3c] to-[#5c3a21]",
       badge: "Policy Updates",
       content:
         "We may update our Privacy Policy periodically to reflect technological changes, community feedback, or legal updates. Any revisions will be published on this page with an updated effective date. We recommend checking this page occasionally to stay informed about how we safeguard your data.",
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
+    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23] selection:text-white">
       
       {/* STICKY TOP BAR */}
       <header className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8 shadow-sm">
@@ -96,7 +96,7 @@ export default function PrivacyPage() {
             <span>Back to Dashboard</span>
           </button>
 
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-medium">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#d4a373] font-medium">
             Hopest Portal • Privacy Policy
           </span>
         </div>
@@ -107,12 +107,12 @@ export default function PrivacyPage() {
         
         {/* HERO BANNER */}
         <section className="animated-gradient text-white rounded-3xl p-7 sm:p-11 shadow-2xl border border-white/15 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
-          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#8b5e3c]/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
+          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-[#4a2c17]/30 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-              <Lock size={13} className="text-amber-300 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2b1b11]/80 backdrop-blur-md border border-[#6b3f23]/50 text-[#d4a373] text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+              <Lock size={13} className="text-[#d4a373] animate-pulse" />
               <span>Official Privacy Notice</span>
             </div>
 
@@ -124,7 +124,7 @@ export default function PrivacyPage() {
               Your trust is our cornerstone. Read our commitment to protecting your personal information, safeguarding communications, and providing full control over your published records.
             </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-4 text-xs text-amber-200/90 pt-1 font-medium">
+            <div className="mt-7 flex flex-wrap items-center gap-4 text-xs text-[#e8d5c4] pt-1 font-medium">
               <span>Effective Date: <strong>October 2026</strong></span>
               <span>•</span>
               <span>Civic Transparency Standard 2.4</span>
@@ -134,9 +134,9 @@ export default function PrivacyPage() {
 
         {/* KEY HIGHLIGHTS STRIP WITH SUPER CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-600 to-teal-400" />
-            <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
+          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4a2c17] to-[#8b5e3c]" />
+            <div className="w-11 h-11 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
               <CheckCircle2 size={20} />
             </div>
             <div>
@@ -147,9 +147,9 @@ export default function PrivacyPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(217,119,6,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 to-[#d89b52]" />
-            <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-800 border border-amber-200 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
+          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6b3f23] to-[#d4a373]" />
+            <div className="w-11 h-11 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
               <Shield size={20} />
             </div>
             <div>
@@ -160,8 +160,8 @@ export default function PrivacyPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(139,94,60,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6b3f23] to-[#8b5e3c]" />
+          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#5c3a21] to-[#8b5e3c]" />
             <div className="w-11 h-11 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
               <Trash2 size={20} />
             </div>
@@ -212,11 +212,11 @@ export default function PrivacyPage() {
 
         {/* CONTACT PRIVACY OFFICER CARD */}
         <section className="bg-gradient-to-br from-[#2b1f18] via-[#38261a] to-[#2b1f18] text-white border border-white/10 rounded-3xl p-7 sm:p-9 shadow-xl relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#8b5e3c]/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
           
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-amber-300 font-semibold block mb-1">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#d4a373] font-semibold block mb-1">
                 Data Privacy & Inquiries
               </span>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
@@ -230,7 +230,7 @@ export default function PrivacyPage() {
             <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
               <a
                 href="mailto:hopestdhanaf@gmail.com"
-                className="w-full sm:w-auto bg-gradient-to-r from-[#d89b52] to-[#b37c3b] hover:brightness-110 text-[#2b1f18] text-xs sm:text-sm font-bold px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md transition cursor-pointer hover:scale-105 active:scale-95 duration-200"
+                className="w-full sm:w-auto bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] hover:brightness-110 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md transition cursor-pointer hover:scale-105 active:scale-95 duration-200"
               >
                 <Mail size={15} />
                 <span>Email Privacy Desk</span>

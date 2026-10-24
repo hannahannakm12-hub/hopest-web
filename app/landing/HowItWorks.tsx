@@ -32,17 +32,17 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative bg-[#0e0c0b] landing-ambient-gradient text-white py-24 lg:py-28 border-t border-white/[0.06] overflow-hidden"
+      className="relative bg-[#080706] landing-ambient-gradient text-white py-24 lg:py-28 border-t border-white/[0.06] overflow-hidden"
     >
       {/* Background Texture & Ambient Lights */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:32px_32px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-amber-600/[0.04] blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#8b5e3c]/[0.12] blur-[150px] pointer-events-none rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* ================= HEADING ================= */}
         <div className="mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e3b437]/10 border border-[#e3b437]/20 mb-4">
-            <span className="text-[#e3b437] text-xs font-semibold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40 mb-4">
+            <span className="text-[#d4a373] text-xs font-semibold uppercase tracking-wider">
               How It Works
             </span>
           </div>
@@ -65,25 +65,25 @@ export default function HowItWorks() {
             return (
               <div
                 key={step.number}
-                className="group relative rounded-2xl border border-white/[0.08] hover:border-amber-500/40 bg-gradient-to-b from-[#181512]/90 to-[#12100e]/90 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(216,155,82,0.12)] flex flex-col justify-between"
+                className="group relative rounded-2xl border border-white/[0.08] hover:border-[#8b5e3c]/50 bg-gradient-to-b from-[#140f0c]/90 to-[#0e0b09]/90 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(107,63,35,0.2)] flex flex-col justify-between"
               >
                 {/* Subtle Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.05] via-transparent to-amber-700/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8b5e3c]/[0.1] via-transparent to-[#5c3a21]/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
 
                 <div>
                   {/* Top row with Icon and Step Number */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-13 h-13 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 group-hover:scale-105 transition-all duration-300 shadow-inner">
+                    <div className="w-13 h-13 rounded-2xl bg-[#2b1b11] border border-[#6b3f23]/40 flex items-center justify-center text-[#d4a373] group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:scale-105 transition-all duration-300 shadow-inner">
                       <Icon className="w-6 h-6" />
                     </div>
 
-                    <span className="text-3xl sm:text-4xl font-mono font-extrabold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300">
+                    <span className="text-3xl sm:text-4xl font-mono font-extrabold text-[#8b5e3c]/25 group-hover:text-[#d4a373]/40 transition-colors duration-300">
                       {step.number}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-amber-200/95 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#f5efe8] transition-colors">
                     {step.title}
                   </h3>
 
@@ -94,7 +94,7 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Micro progression indicator */}
-                <div className="mt-6 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs text-stone-500 group-hover:text-amber-400/70 transition-colors">
+                <div className="mt-6 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs text-stone-500 group-hover:text-[#d4a373] transition-colors">
                   <span className="font-mono uppercase tracking-wider text-[11px]">
                     Step {idx + 1} of 3
                   </span>
@@ -116,10 +116,10 @@ export default function HowItWorks() {
                 router.push("/dashboard/create?type=LOST");
               }
             }}
-            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 font-black text-sm sm:text-base shadow-[0_0_35px_rgba(245,158,11,0.5)] hover:shadow-[0_0_50px_rgba(245,158,11,0.75)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-bold text-sm sm:text-base shadow-[0_0_35px_rgba(107,63,35,0.5)] hover:shadow-[0_0_50px_rgba(139,94,60,0.7)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
           >
-            <span className="text-stone-950 font-black">Post a Report in Seconds</span>
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200 text-stone-950" />
+            <span className="text-white font-bold">Post a Report in Seconds</span>
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200 text-white" />
           </button>
         </div>
       </div>

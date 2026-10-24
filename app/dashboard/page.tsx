@@ -57,13 +57,13 @@ export default function DashboardPage() {
     {
       title: "Lost Property",
       tag: "Lost Belonging",
-      badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
-      dotColor: "bg-amber-500",
-      gradientBeam: "from-amber-600 via-amber-400 to-[#d89b52]",
-      ambientGlow: "bg-amber-400/20",
-      iconBadgeBg: "bg-gradient-to-br from-[#8b5e3c] to-[#6b3f23]",
+      badgeColor: "bg-[#2b1b11] text-[#d4a373] border-[#6b3f23]/40",
+      dotColor: "bg-[#d4a373]",
+      gradientBeam: "from-[#4a2c17] via-[#8b5e3c] to-[#4a2c17]",
+      ambientGlow: "bg-[#8b5e3c]/20",
+      iconBadgeBg: "bg-gradient-to-br from-[#8b5e3c] to-[#4a2c17]",
       accentBorder: "hover:border-[#8b5e3c]",
-      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(139,94,60,0.22)]",
+      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(107,63,35,0.22)]",
       desc: "Misplaced your phone, wallet, documents, or keys? Create a verified notice to alert finders and residents nearby.",
       features: ["Instant Community Broadcast", "Location Mapping", "Finder Direct Contact"],
       img: "/lostdas.jpeg",
@@ -75,13 +75,13 @@ export default function DashboardPage() {
     {
       title: "Found Belongings",
       tag: "Good Samaritan",
-      badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
-      dotColor: "bg-emerald-500",
-      gradientBeam: "from-emerald-600 via-teal-400 to-emerald-400",
-      ambientGlow: "bg-emerald-400/20",
-      iconBadgeBg: "bg-gradient-to-br from-emerald-600 to-emerald-800",
-      accentBorder: "hover:border-emerald-600/70",
-      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(16,185,129,0.22)]",
+      badgeColor: "bg-[#21150e] text-[#e8d5c4] border-[#5c3a21]/50",
+      dotColor: "bg-[#e8d5c4]",
+      gradientBeam: "from-[#5c3a21] via-[#a06544] to-[#5c3a21]",
+      ambientGlow: "bg-[#a06544]/20",
+      iconBadgeBg: "bg-gradient-to-br from-[#7a482b] to-[#3a2417]",
+      accentBorder: "hover:border-[#a06544]/70",
+      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(122,72,43,0.22)]",
       desc: "Found an item in a public place, transit, or bus? Register it safely to help reunite it with its true owner.",
       features: ["Safe Custody Registration", "Owner Identity Verification", "100% Free Service"],
       img: "/founddas.jpeg",
@@ -93,13 +93,13 @@ export default function DashboardPage() {
     {
       title: "Theft Incident",
       tag: "Security Alert",
-      badgeColor: "bg-rose-100 text-rose-900 border-rose-300",
-      dotColor: "bg-rose-500",
-      gradientBeam: "from-rose-600 via-rose-400 to-orange-400",
-      ambientGlow: "bg-rose-400/20",
-      iconBadgeBg: "bg-gradient-to-br from-rose-600 to-rose-800",
-      accentBorder: "hover:border-rose-600/70",
-      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(244,63,94,0.22)]",
+      badgeColor: "bg-[#251811] text-[#c49371] border-[#6b3f23]/50",
+      dotColor: "bg-[#c49371]",
+      gradientBeam: "from-[#4a2c17] via-[#7a482b] to-[#4a2c17]",
+      ambientGlow: "bg-[#6b3f23]/25",
+      iconBadgeBg: "bg-gradient-to-br from-[#6b3f23] to-[#251811]",
+      accentBorder: "hover:border-[#8b5e3c]/70",
+      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(107,63,35,0.22)]",
       desc: "Report stolen vehicles, mobile gadgets, or valuables to mobilize statewide vigilance alongside official police reports.",
       features: ["Police GD / FIR Linking", "Serial Number Alert", "Statewide Surveillance"],
       img: "/theftdas.jpeg",
@@ -111,13 +111,13 @@ export default function DashboardPage() {
     {
       title: "Missing Person",
       tag: "Urgent Broadcast",
-      badgeColor: "bg-red-100 text-red-900 border-red-300 font-bold",
-      dotColor: "bg-red-600",
-      gradientBeam: "from-red-600 via-rose-500 to-amber-500",
-      ambientGlow: "bg-red-500/25",
-      iconBadgeBg: "bg-gradient-to-br from-red-600 to-red-800",
-      accentBorder: "hover:border-red-600 border-red-300/80 bg-gradient-to-b from-white via-white to-red-50/30",
-      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(220,38,38,0.28)]",
+      badgeColor: "bg-[#140f0c] text-white border-[#8b5e3c]/50 font-bold",
+      dotColor: "bg-white",
+      gradientBeam: "from-[#6b3f23] via-[#8b5e3c] to-[#6b3f23]",
+      ambientGlow: "bg-[#8b5e3c]/25",
+      iconBadgeBg: "bg-gradient-to-br from-[#6b3f23] to-[#140f0c]",
+      accentBorder: "hover:border-[#8b5e3c] border-[#6b3f23]/40 bg-gradient-to-b from-white via-white to-[#fbf9f6]",
+      accentGlow: "group-hover:shadow-[0_24px_50px_-12px_rgba(107,63,35,0.28)]",
       desc: "Urgent public appeal for missing persons or runaway loved ones. Mobilizes the statewide volunteer network immediately.",
       features: ["Emergency Volunteer Mobilization", "Statewide Law Enforcement Sync", "High-Priority Banner"],
       img: "/missingdas.jpeg",
@@ -130,7 +130,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
+    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23] selection:text-white">
 
       {/* MAIN CONTAINER */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full space-y-10 sm:space-y-14">
@@ -138,27 +138,27 @@ export default function DashboardPage() {
         {/* PREMIUM HERO SECTION WITH SUPER AMBIENT GLOW */}
         <section className="animated-gradient text-white rounded-3xl p-7 sm:p-10 md:p-12 shadow-2xl border border-white/15 relative overflow-hidden group">
           {/* Ambient interactive glows */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -mr-24 -mt-24 group-hover:scale-110 transition-transform duration-1000"></div>
-          <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-orange-600/15 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-1000"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#8b5e3c]/20 rounded-full blur-3xl pointer-events-none -mr-24 -mt-24 group-hover:scale-110 transition-transform duration-1000"></div>
+          <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-[#5c3a21]/20 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-1000"></div>
 
           <div className="relative z-10 max-w-4xl">
 
             {/* Top pill badges */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-200 text-xs font-semibold uppercase tracking-wider shadow-sm">
-                <Sparkles size={13} className="text-amber-300 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[#d4a373] text-xs font-semibold uppercase tracking-wider shadow-sm">
+                <Sparkles size={13} className="text-[#d4a373] animate-pulse" />
                 <span>Hopest Community Portal</span>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 text-xs font-medium backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40 text-[#d4a373] text-xs font-medium backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-[#d4a373] animate-ping"></span>
                 <span>Live Kerala Network</span>
               </div>
             </div>
 
             {/* Main Greeting */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight text-white leading-[1.15]">
-              Welcome back, <span className="text-[#fcd69b] drop-shadow-sm">{user?.fullname ? user.fullname.split(" ")[0] : "Citizen"}</span>
+              Welcome back, <span className="text-[#d4a373] drop-shadow-sm">{user?.fullname ? user.fullname.split(" ")[0] : "Citizen"}</span>
             </h1>
 
             {/* Description */}
@@ -172,12 +172,12 @@ export default function DashboardPage() {
               <button
                 type="button"
                 onClick={() => router.push("/missing")}
-                className="bg-white/10 hover:bg-white/20 border border-white/20  hover:border-red-400/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#8b5e3c]/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-16 h-16 bg-red-500/20 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
-                <div className="flex items-center justify-between text-xs text-red-300 font-semibold mb-1.5">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-[#8b5e3c]/25 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
+                <div className="flex items-center justify-between text-xs text-[#d4a373] font-semibold mb-1.5">
                   <span className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#d4a373] animate-ping"></span>
                     Urgent Appeals
                   </span>
                   <ArrowUpRight size={14} className="group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 transition-transform" />
@@ -189,10 +189,10 @@ export default function DashboardPage() {
               <button
                 type="button"
                 onClick={() => router.push("/dashboard/search?type=LOST")}
-                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-amber-400/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#8b5e3c]/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-16 h-16 bg-amber-500/20 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
-                <div className="flex items-center justify-between text-xs text-amber-300 font-semibold mb-1.5">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-[#8b5e3c]/25 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
+                <div className="flex items-center justify-between text-xs text-[#d4a373] font-semibold mb-1.5">
                   <span>Search Directory</span>
                   <ArrowUpRight size={14} className="group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 transition-transform" />
                 </div>
@@ -203,10 +203,10 @@ export default function DashboardPage() {
               <button
                 type="button"
                 onClick={() => router.push("/dashboard/search?type=FOUND")}
-                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-emerald-400/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#8b5e3c]/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-16 h-16 bg-emerald-500/20 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
-                <div className="flex items-center justify-between text-xs text-emerald-300 font-semibold mb-1.5">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-[#8b5e3c]/25 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
+                <div className="flex items-center justify-between text-xs text-[#e8d5c4] font-semibold mb-1.5">
                   <span>Found Registry</span>
                   <ArrowUpRight size={14} className="group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 transition-transform" />
                 </div>
@@ -217,10 +217,10 @@ export default function DashboardPage() {
               <button
                 type="button"
                 onClick={() => router.push("/my-creations")}
-                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-amber-300/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#8b5e3c]/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-16 h-16 bg-amber-400/20 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
-                <div className="flex items-center justify-between text-xs text-amber-200 font-semibold mb-1.5">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-[#8b5e3c]/25 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
+                <div className="flex items-center justify-between text-xs text-[#d4a373] font-semibold mb-1.5">
                   <span>My Activity</span>
                   <ArrowUpRight size={14} className="group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 transition-transform" />
                 </div>
@@ -233,25 +233,25 @@ export default function DashboardPage() {
             {/* TRUST HIGHLIGHTS */}
             <div className="mt-8 pt-6 border-t border-white/15 flex flex-wrap items-center justify-between gap-4 text-xs font-medium text-white/85">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 rounded-full bg-[#6b3f23]/30 text-[#d4a373] flex items-center justify-center shrink-0">
                   <CheckCircle2 size={13} />
                 </div>
                 <span>100% Free Public Utility</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-amber-500/25 text-amber-300 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 rounded-full bg-[#6b3f23]/30 text-[#d4a373] flex items-center justify-center shrink-0">
                   <Users size={13} />
                 </div>
                 <span>Statewide Citizen Network</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-sky-500/25 text-sky-300 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 rounded-full bg-[#6b3f23]/30 text-[#d4a373] flex items-center justify-center shrink-0">
                   <Compass size={13} />
                 </div>
                 <span>District & Town Mapping</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-purple-500/25 text-purple-300 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 rounded-full bg-[#6b3f23]/30 text-[#d4a373] flex items-center justify-center shrink-0">
                   <ShieldCheck size={13} />
                 </div>
                 <span>Law Enforcement Advisory</span>
@@ -391,7 +391,7 @@ export default function DashboardPage() {
                     <button
                       type="button"
                       onClick={() => router.push("/dashboard/create?type=MISSING")}
-                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-xl shimmer-button flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
+                      className="bg-gradient-to-r from-[#5c3a21] via-[#8b5e3c] to-[#5c3a21] hover:brightness-110 text-white px-4 py-3 rounded-xl shimmer-button flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
                     >
                       <Plus size={16} className="group-hover/btn:rotate-90 transition-transform" />
                       <span>{item.createLabel}</span>
@@ -427,7 +427,7 @@ export default function DashboardPage() {
 
         {/* POLICE & SAFETY ADVISORY (ELEVATED DARK LUXURY BANNER) */}
         <section className="bg-gradient-to-br from-[#2b1f18] via-[#38261a] to-[#2b1f18] text-white border border-white/10 rounded-3xl p-7 sm:p-9 shadow-xl relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#8b5e3c]/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
 
           <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="flex items-start gap-4 max-w-2xl">
@@ -435,7 +435,7 @@ export default function DashboardPage() {
                 <ShieldAlert size={26} />
               </div>
               <div>
-                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-amber-300 font-semibold mb-1">
+                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-[#d4a373] font-semibold mb-1">
                   Official Advisory
                 </div>
                 <h4 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
@@ -444,7 +444,7 @@ export default function DashboardPage() {
                 <p className="text-xs sm:text-sm text-white/80 mt-1.5 leading-relaxed font-light">
                   For <strong>Theft</strong> and <strong>Missing</strong> cases, always register an official GD/FIR entry at your nearest police station. Hopest acts as an awareness multiplier to support official police investigation efforts.
                 </p>
-                <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-amber-200/90 font-medium">
+                <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-[#d4a373] font-medium">
                   <span>🚨 National Emergency: <strong>112</strong></span>
                   <span>•</span>
                   <span>👮 Police Control: <strong>100</strong></span>
@@ -484,21 +484,21 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             {/* STEP 01 */}
-            <div className="bg-white rounded-3xl p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(217,119,6,0.18)] hover:border-amber-400/60 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.18)] hover:border-[#8b5e3c]/60 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
 
               {/* TOP RADIANT BEAM */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-600 via-amber-400 to-[#d89b52] opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#6b3f23] via-[#8b5e3c] to-[#6b3f23] opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500" />
 
               {/* AMBIENT RADIAL MESH */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-amber-400/15 blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out" />
+              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[#8b5e3c]/15 blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out" />
 
               <div className="relative z-10">
                 {/* STEP PILL & NUMBER ROW */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#6b3f23] to-[#d89b52] text-white flex items-center justify-center font-serif font-bold text-lg shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#6b3f23] to-[#8b5e3c] text-white flex items-center justify-center font-serif font-bold text-lg shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     01
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100/90 border border-amber-300/80 px-2.5 py-1 rounded-full shadow-2xs">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#d4a373] bg-[#2b1b11] border border-[#6b3f23]/40 px-2.5 py-1 rounded-full shadow-2xs">
                     Step 1 • Report
                   </span>
                 </div>
@@ -527,26 +527,26 @@ export default function DashboardPage() {
             </div>
 
             {/* STEP 02 */}
-            <div className="bg-white rounded-3xl p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.18)] hover:border-emerald-500/60 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.18)] hover:border-[#8b5e3c]/60 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
 
               {/* TOP RADIANT BEAM */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-600 via-teal-400 to-emerald-400 opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#5c3a21] via-[#a06544] to-[#5c3a21] opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500" />
 
               {/* AMBIENT RADIAL MESH */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-emerald-400/15 blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out" />
+              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[#8b5e3c]/15 blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out" />
 
               <div className="relative z-10">
                 {/* STEP PILL & NUMBER ROW */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-700 to-teal-500 text-white flex items-center justify-center font-serif font-bold text-lg shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#5c3a21] to-[#a06544] text-white flex items-center justify-center font-serif font-bold text-lg shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     02
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-300/80 px-2.5 py-1 rounded-full shadow-2xs">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#e8d5c4] bg-[#21150e] border border-[#5c3a21]/50 px-2.5 py-1 rounded-full shadow-2xs">
                     Step 2 • Match
                   </span>
                 </div>
 
-                <h5 className="font-bold text-lg sm:text-xl text-[#2b1f18] mb-2.5 font-serif group-hover:text-emerald-800 transition-colors">
+                <h5 className="font-bold text-lg sm:text-xl text-[#2b1f18] mb-2.5 font-serif group-hover:text-[#6b3f23] transition-colors">
                   Instant Community Matching
                 </h5>
                 <p className="text-xs sm:text-sm text-[#6e584a] leading-relaxed mb-6">
@@ -559,7 +559,7 @@ export default function DashboardPage() {
                 <button
                   type="button"
                   onClick={() => router.push("/dashboard/search?type=LOST")}
-                  className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-800 hover:brightness-110 text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer group/btn"
+                  className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#4a2c17] via-[#6b3f23] to-[#4a2c17] hover:brightness-110 text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer group/btn"
                 >
                   <Search size={15} className="group-hover/btn:scale-110 transition-transform" />
                   <span>Search Directory</span>
@@ -604,7 +604,7 @@ export default function DashboardPage() {
                   onClick={() => router.push("/my-creations")}
                   className="w-full py-2.5 px-4 rounded-xl bg-[#2b1f18] hover:bg-[#1a120e] text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer group/btn"
                 >
-                  <FolderPlus size={15} className="group-hover/btn:scale-110 transition-transform text-amber-200" />
+                  <FolderPlus size={15} className="group-hover/btn:scale-110 transition-transform text-[#d4a373]" />
                   <span>Open My Creations</span>
                   <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform opacity-80" />
                 </button>
@@ -642,7 +642,7 @@ export default function DashboardPage() {
               href="https://wa.me/918590168840?text=Hello%20Hopest%20Support,%20I%20need%20assistance%20with%20my%20dashboard%20report."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold text-center transition shadow-xs flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95 duration-200"
+              className="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#4a2c17] via-[#6b3f23] to-[#4a2c17] hover:brightness-110 border border-[#8b5e3c]/40 text-white text-xs font-semibold text-center transition shadow-xs flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95 duration-200"
             >
               <MessageCircle size={14} />
               <span>WhatsApp</span>

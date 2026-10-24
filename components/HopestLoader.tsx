@@ -26,10 +26,10 @@ export function HopestSpinner({
   }[size];
 
   const variantClasses = {
-    amber: "border-amber-400/30 border-t-amber-400",
+    amber: "border-[#6b3f23]/30 border-t-[#d4a373]",
     light: "border-white/30 border-t-white",
     dark: "border-stone-950/30 border-t-stone-950",
-    brown: "border-[#6b3f23]/30 border-t-[#6b3f23]",
+    brown: "border-[#6b3f23]/30 border-t-[#d4a373]",
   }[variant];
 
   return (
@@ -56,43 +56,43 @@ export function HopestBrandLoader({
   fullScreen = true,
 }: HopestBrandLoaderProps) {
   const containerClasses = fullScreen
-    ? "fixed inset-0 z-50 flex items-center justify-center bg-[#0c0a09]/95 backdrop-blur-xl px-4"
+    ? "fixed inset-0 z-50 flex items-center justify-center bg-[#080706]/95 backdrop-blur-xl px-4"
     : "w-full py-20 flex items-center justify-center px-4";
 
   return (
     <div className={containerClasses}>
       {/* Ambient background glow */}
-      <div className="absolute w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-amber-500/10 blur-[100px] pointer-events-none" />
+      <div className="absolute w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#6b3f23]/15 blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-sm">
         {/* Emblem with rotating dash ring */}
         <div className="relative w-24 h-24 mb-6 flex items-center justify-center">
           {/* Subtle spinning outer ring */}
-          <div className="absolute inset-0 rounded-3xl border border-dashed border-amber-400/40 animate-[spin_10s_linear_infinite]" />
+          <div className="absolute inset-0 rounded-3xl border border-dashed border-[#d4a373]/40 animate-[spin_10s_linear_infinite]" />
           
           {/* Glowing pulse ring */}
-          <div className="absolute inset-1 rounded-2xl bg-gradient-to-tr from-[#6b3f23] to-[#d89b52] opacity-30 blur-md animate-pulse" />
+          <div className="absolute inset-1 rounded-2xl bg-gradient-to-tr from-[#4a2c17] to-[#d4a373] opacity-30 blur-md animate-pulse" />
 
           {/* Core icon box */}
-          <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#1f1915] via-[#2d221a] to-[#1a1410] border border-amber-500/40 flex items-center justify-center shadow-[0_0_30px_rgba(216,155,82,0.25)]">
+          <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#140f0c] via-[#21150e] to-[#140f0c] border border-[#6b3f23]/60 flex items-center justify-center shadow-[0_0_30px_rgba(107,63,35,0.35)] p-2.5">
             <Image
               src="/logo.png"
               alt="Hopest Emblem"
-              width={38}
-              height={38}
-              className="object-contain"
+              width={42}
+              height={42}
+              className="w-auto h-11 object-contain drop-shadow-[0_2px_10px_rgba(107,63,35,0.4)]"
               priority
             />
           </div>
 
           {/* Floating mini spark */}
-          <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-amber-500/20 border border-amber-400/60 flex items-center justify-center shadow-[0_0_12px_rgba(245,158,11,0.6)]">
-            <Sparkles size={11} className="text-amber-300 animate-pulse" />
+          <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#2b1b11] border border-[#d4a373]/60 flex items-center justify-center shadow-[0_0_12px_rgba(107,63,35,0.6)]">
+            <Sparkles size={11} className="text-[#d4a373] animate-pulse" />
           </div>
         </div>
 
         {/* Brand Name */}
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold tracking-widest text-[#e4b63b] drop-shadow-sm">
+        <h2 className="text-2xl sm:text-3xl font-serif font-bold tracking-widest text-[#d4a373] drop-shadow-sm">
           HOPEST
         </h2>
 
@@ -106,11 +106,11 @@ export function HopestBrandLoader({
           {subtitle}
         </p>
 
-        {/* 3 Bouncing Amber Rhythm Dots */}
+        {/* 3 Bouncing Brown/White Rhythm Dots */}
         <div className="mt-5 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce [animation-delay:-0.3s]"></span>
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce [animation-delay:-0.15s]"></span>
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce"></span>
+          <span className="w-2 h-2 rounded-full bg-[#d4a373] animate-bounce [animation-delay:-0.3s]"></span>
+          <span className="w-2 h-2 rounded-full bg-[#d4a373] animate-bounce [animation-delay:-0.15s]"></span>
+          <span className="w-2 h-2 rounded-full bg-[#d4a373] animate-bounce"></span>
         </div>
       </div>
     </div>
@@ -126,7 +126,7 @@ export function HopestCardSkeleton({ count = 4 }: { count?: number }) {
       {Array.from({ length: count }).map((_, i) => (
         <div
           key={i}
-          className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e8dfd6] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] border-t-4 border-t-amber-500/40 flex flex-col justify-between overflow-hidden relative"
+          className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e8dfd6] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] border-t-4 border-t-[#6b3f23]/60 flex flex-col justify-between overflow-hidden relative"
         >
           {/* Subtle shimmer sweep overlay */}
           <div className="absolute inset-0 hopest-shimmer-light pointer-events-none opacity-40" />
@@ -183,7 +183,7 @@ export function HopestMissingCardSkeleton({ count = 2 }: { count?: number }) {
       {Array.from({ length: count }).map((_, i) => (
         <div
           key={i}
-          className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8dfd6] border-t-[6px] border-t-red-600/70 shadow-[0_4px_24px_-6px_rgba(75,52,37,0.06)] relative overflow-hidden"
+          className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8dfd6] border-t-[6px] border-t-[#6b3f23] shadow-[0_4px_24px_-6px_rgba(75,52,37,0.06)] relative overflow-hidden"
         >
           {/* Shimmer sweep */}
           <div className="absolute inset-0 hopest-shimmer-light pointer-events-none opacity-40" />
@@ -192,7 +192,7 @@ export function HopestMissingCardSkeleton({ count = 2 }: { count?: number }) {
             {/* Photo column */}
             <div className="w-full md:w-64 shrink-0 flex flex-col items-center">
               <div className="w-full h-72 rounded-2xl bg-[#f7f2ed] border border-[#e5d6c5] flex flex-col items-center justify-between p-4">
-                <div className="w-28 h-5 rounded-full bg-red-100 self-start" />
+                <div className="w-28 h-5 rounded-full bg-[#f0e4d8] self-start" />
                 <div className="w-16 h-16 rounded-full bg-[#ece2d6]" />
                 <div className="w-32 h-3 rounded bg-[#ded3c5]" />
               </div>
@@ -203,7 +203,7 @@ export function HopestMissingCardSkeleton({ count = 2 }: { count?: number }) {
               {/* Header row */}
               <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#f0e7de]">
                 <div className="space-y-2">
-                  <div className="w-32 h-4 rounded-full bg-red-100/70" />
+                  <div className="w-32 h-4 rounded-full bg-[#f0e4d8]" />
                   <div className="w-56 sm:w-80 h-7 rounded-md bg-[#ded3c5]" />
                 </div>
                 <div className="w-24 h-8 rounded-xl bg-[#efe7de]" />
@@ -284,7 +284,7 @@ export function HopestDashboardSkeleton() {
           <div className="max-w-4xl space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-36 h-6 rounded-full bg-white/15" />
-              <div className="w-28 h-6 rounded-full bg-emerald-500/20" />
+              <div className="w-28 h-6 rounded-full bg-[#6b3f23]/30" />
             </div>
 
             <div className="w-3/4 h-10 rounded-xl bg-white/20" />

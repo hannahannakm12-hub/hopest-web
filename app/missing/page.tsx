@@ -103,7 +103,7 @@ export default function MissingPage() {
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
 
       {/* STICKY TOP BAR */}
-      <header className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
+      <header className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <button
             type="button"
@@ -118,7 +118,7 @@ export default function MissingPage() {
             <button
               type="button"
               onClick={() => router.push("/dashboard/create?type=MISSING")}
-              className="bg-amber-400/15 hover:bg-amber-400/25 text-amber-200 border border-amber-300/30 px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer"
+              className="bg-[#2b1b11] hover:bg-[#3a2417] text-[#d4a373] border border-[#6b3f23]/50 px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer shadow-sm"
             >
               <Plus size={14} />
               <span>Report Missing Person</span>
@@ -134,8 +134,8 @@ export default function MissingPage() {
         <section className="animated-gradient text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
             {/* Live alert pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/60 border border-red-500/40 text-red-200 text-xs font-semibold uppercase tracking-wider mb-4">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping mr-0.5"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2b1c14] border border-[#7a482b]/60 text-white text-xs font-semibold uppercase tracking-wider mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#d4a373] animate-ping mr-0.5"></span>
               <span>Verified Public Broadcast</span>
             </div>
 
@@ -149,7 +149,7 @@ export default function MissingPage() {
 
             {/* LIVE SEARCH BAR (CONNECTED TO STATE) */}
             <div className="mt-6 flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 focus-within:border-white focus-within:bg-white/15 rounded-2xl px-4 py-3 text-white transition-all">
-              <Search size={18} className="text-amber-200 shrink-0" />
+              <Search size={18} className="text-[#d4a373] shrink-0" />
               <input
                 type="text"
                 value={searchQuery}
@@ -170,7 +170,7 @@ export default function MissingPage() {
             </div>
 
             {/* RESULTS META */}
-            <div className="flex items-center justify-between text-xs text-amber-200/90 mt-3 pt-2">
+            <div className="flex items-center justify-between text-xs text-[#d4a373] mt-3 pt-2">
               <span>
                 Showing <strong>{filteredItems.length}</strong> verified alert{filteredItems.length === 1 ? "" : "s"}
               </span>
@@ -236,7 +236,7 @@ export default function MissingPage() {
               return (
                 <article
                   key={itemId}
-                  className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8dfd6] shadow-[0_4px_24px_-6px_rgba(75,52,37,0.06)] hover:shadow-[0_16px_36px_-6px_rgba(75,52,37,0.12)] border-t-[6px] border-t-red-600 transition-all duration-300"
+                  className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8dfd6] shadow-[0_4px_24px_-6px_rgba(75,52,37,0.06)] hover:shadow-[0_16px_36px_-6px_rgba(75,52,37,0.12)] border-t-[6px] border-t-[#6b3f23] transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
 
@@ -258,7 +258,7 @@ export default function MissingPage() {
                         />
 
                         {/* Top tag badge on photo */}
-                        <div className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
+                        <div className="absolute top-3 left-3 bg-[#2b1c14] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#7a482b]/60 shadow-md">
                           MISSING ALERT
                         </div>
                       </div>
@@ -274,8 +274,8 @@ export default function MissingPage() {
                       {/* HEADER ROW */}
                       <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#f0e7de]">
                         <div>
-                          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#2b1c14] text-white border border-[#7a482b]/50 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#d4a373]"></span>
                             <span>Urgent Broadcast</span>
                           </div>
 
@@ -293,8 +293,8 @@ export default function MissingPage() {
                         >
                           {sharedId === itemId ? (
                             <>
-                              <Check size={14} className="text-emerald-700" />
-                              <span className="text-emerald-700">Link Copied</span>
+                              <Check size={14} className="text-[#6b3f23]" />
+                              <span className="text-[#6b3f23]">Link Copied</span>
                             </>
                           ) : (
                             <>
@@ -394,7 +394,7 @@ export default function MissingPage() {
                               href={`https://wa.me/91${mob}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold py-3 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition"
+                              className="bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] hover:brightness-110 text-white font-semibold py-3 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition border border-[#8b5e3c]/40"
                             >
                               <MessageCircle size={15} />
                               <span>WhatsApp</span>
@@ -407,8 +407,8 @@ export default function MissingPage() {
                             >
                               {copiedId === itemId ? (
                                 <>
-                                  <Check size={15} className="text-emerald-700" />
-                                  <span className="text-emerald-700">Phone Copied</span>
+                                  <Check size={15} className="text-[#6b3f23]" />
+                                  <span className="text-[#6b3f23]">Phone Copied</span>
                                 </>
                               ) : (
                                 <>

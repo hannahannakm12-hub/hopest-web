@@ -143,38 +143,38 @@ export default function SearchPage() {
     LOST: {
       title: "Lost Property Listings",
       badge: "Lost Property",
-      badgeClass: "bg-amber-100 text-amber-900 border-amber-300",
-      accentBorder: "border-t-[#8b5e3c]",
+      badgeClass: "bg-[#2b1b11] text-[#d4a373] border-[#6b3f23]/60",
+      accentBorder: "border-t-[#6b3f23]",
       emptyMessage: "No lost property matches your search.",
     },
     FOUND: {
       title: "Found Belongings Directory",
       badge: "Good Samaritan",
-      badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300",
-      accentBorder: "border-t-emerald-700",
+      badgeClass: "bg-[#21150e] text-[#e8d5c4] border-[#5c3a21]/60",
+      accentBorder: "border-t-[#5c3a21]",
       emptyMessage: "No found belongings match your search.",
     },
     THEFT: {
       title: "Theft Incident Reports",
       badge: "Security Alert",
-      badgeClass: "bg-rose-100 text-rose-900 border-rose-300",
-      accentBorder: "border-t-rose-700",
+      badgeClass: "bg-[#251811] text-[#c49371] border-[#6b3f23]/60",
+      accentBorder: "border-t-[#8b5e3c]",
       emptyMessage: "No theft incidents match your search.",
     },
     MISSING: {
       title: "Missing Person Alerts",
       badge: "Urgent Priority",
-      badgeClass: "bg-red-100 text-red-900 border-red-400",
-      accentBorder: "border-t-red-600",
+      badgeClass: "bg-[#2b1c14] text-white border-[#7a482b]/60",
+      accentBorder: "border-t-[#4a2c17]",
       emptyMessage: "No missing person notices match your search.",
     },
   }[type];
 
   return (
-    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
+    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23]/30 selection:text-[#2b1f18]">
 
       {/* STICKY TOP BAR */}
-      <div className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
+      <div className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <button
             type="button"
@@ -185,7 +185,7 @@ export default function SearchPage() {
             <span>Back</span>
           </button>
 
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-medium">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#d4a373] font-medium">
             Hopest Portal • Search Records
           </span>
         </div>
@@ -439,8 +439,8 @@ export default function SearchPage() {
                             >
                               {copiedId === itemId ? (
                                 <>
-                                  <Check size={13} className="text-emerald-700" />
-                                  <span className="text-emerald-700">Copied</span>
+                                  <Check size={13} className="text-[#6b3f23]" />
+                                  <span className="text-[#6b3f23]">Copied</span>
                                 </>
                               ) : (
                                 <>
@@ -478,8 +478,8 @@ export default function SearchPage() {
                         >
                           {copiedId === itemId ? (
                             <>
-                              <Check size={13} className="text-emerald-700" />
-                              <span className="text-emerald-700">Copied</span>
+                              <Check size={13} className="text-[#6b3f23]" />
+                              <span className="text-[#6b3f23]">Copied</span>
                             </>
                           ) : (
                             <>

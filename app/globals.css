@@ -3,22 +3,22 @@
 
 /* Root Theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #080706;
+  --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #080706;
+    --foreground: #ffffff;
   }
 }
 
@@ -26,7 +26,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
- font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }
 
 /* -------------------------------- */
@@ -71,77 +71,67 @@ body {
   background: linear-gradient(
     -45deg,
     #000000,
-    #1a1a1a,
-    #2b1f18,
-    #8b5e3c
+    #140f0c,
+    #2b1c14,
+    #5c3a26,
+    #21150e,
+    #000000
   );
   background-size: 400% 400%;
   animation: gradientMove 10s ease infinite;
 }
 
 /* -------------------------------- */
-/* BLUE ANIMATED GRADIENT */
-/* (for Lost Items card) */
+/* BROWN & BLACK CARD GRADIENTS */
 /* -------------------------------- */
 
-.blue-animated-gradient {
+.blue-animated-gradient,
+.brown-animated-gradient-1 {
   background: linear-gradient(
     -45deg,
-    #dbeafe,
-    #bfdbfe,
-    #93c5fd,
-    #60a5fa
+    #1a120d,
+    #2b1d14,
+    #4a3020,
+    #2b1d14
   );
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite;
 }
 
-/* -------------------------------- */
-/* GREEN ANIMATED GRADIENT */
-/* (for Found Items card) */
-/* -------------------------------- */
-
-.green-animated-gradient {
+.green-animated-gradient,
+.brown-animated-gradient-2 {
   background: linear-gradient(
     -45deg,
-    #dcfce7,
-    #bbf7d0,
-    #86efac,
-    #4ade80
+    #140f0c,
+    #241710,
+    #3d2719,
+    #241710
   );
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite;
 }
 
-/* -------------------------------- */
-/* RED ANIMATED GRADIENT */
-/* (for Theft Reports card) */
-/* -------------------------------- */
-
-.red-animated-gradient {
+.red-animated-gradient,
+.brown-animated-gradient-3 {
   background: linear-gradient(
     -45deg,
-    #fee2e2,
-    #fecaca,
-    #fca5a5,
-    #f87171
+    #1f140e,
+    #301e13,
+    #523320,
+    #301e13
   );
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite;
 }
 
-/* -------------------------------- */
-/* PURPLE ANIMATED GRADIENT */
-/* (for Help & Share card) */
-/* -------------------------------- */
-
-.purple-animated-gradient {
+.purple-animated-gradient,
+.brown-animated-gradient-4 {
   background: linear-gradient(
     -45deg,
-    #f3e8ff,
-    #e9d5ff,
-    #d8b4fe,
-    #c084fc
+    #18100b,
+    #281a11,
+    #452c1c,
+    #281a11
   );
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite;
@@ -173,12 +163,15 @@ body {
 .shimmer-button {
   background: linear-gradient(
     90deg,
-    #7a4b2a 0%,
-    #b67a32 50%,
-    #7a4b2a 100%
-  );
-  background-size: 200% auto;
-  animation: shimmer 3s linear infinite;
+    #3d2314 0%,
+    #5c361e 25%,
+    #8e5932 50%,
+    #5c361e 75%,
+    #3d2314 100%
+  ) !important;
+  background-size: 200% auto !important;
+  animation: shimmer 3s linear infinite !important;
+  color: #ffffff !important;
 }
 
 /* -------------------------------- */
@@ -272,15 +265,16 @@ input:-webkit-autofill:active {
   }
 }
 
-.text-gold-sheen {
+.text-gold-sheen,
+.text-brown-sheen {
   background: linear-gradient(
     90deg,
     #ffffff 0%,
-    #fef3c7 25%,
-    #fbbf24 45%,
+    #f5efe8 25%,
+    #c49371 45%,
     #ffffff 55%,
-    #f59e0b 70%,
-    #fde68a 85%,
+    #8b5e3c 70%,
+    #f5efe8 85%,
     #ffffff 100%
   );
   background-size: 200% auto;
@@ -335,7 +329,7 @@ input:-webkit-autofill:active {
    STANDARD ANIMATED GRADIENT BUTTONS & BACKGROUNDS
 ===================================================== */
 
-@keyframes goldGradientMove {
+@keyframes brownGradientMove {
   0% {
     background-position: 0% 50%;
   }
@@ -350,44 +344,44 @@ input:-webkit-autofill:active {
 .btn-animated-gradient {
   background: linear-gradient(
     135deg,
-    #d89b52 0%,
-    #fbbf24 25%,
-    #f59e0b 50%,
-    #fde68a 75%,
-    #d89b52 100%
+    #3d2314 0%,
+    #5c361e 22%,
+    #7d4a29 48%,
+    #5c361e 74%,
+    #3d2314 100%
   ) !important;
   background-size: 250% 250% !important;
-  animation: goldGradientMove 4s ease infinite !important;
-  color: #0c0a09 !important;
+  animation: brownGradientMove 4s ease infinite !important;
+  color: #ffffff !important;
 }
 
 .btn-animated-gradient-glass {
   background: linear-gradient(
     135deg,
-    rgba(28, 24, 20, 0.95) 0%,
-    rgba(45, 33, 24, 0.9) 35%,
-    rgba(182, 122, 50, 0.35) 50%,
-    rgba(35, 27, 21, 0.9) 75%,
-    rgba(28, 24, 20, 0.95) 100%
+    rgba(20, 15, 12, 0.95) 0%,
+    rgba(50, 30, 18, 0.9) 35%,
+    rgba(110, 68, 38, 0.45) 50%,
+    rgba(40, 24, 15, 0.9) 75%,
+    rgba(20, 15, 12, 0.95) 100%
   ) !important;
   background-size: 250% 250% !important;
-  animation: goldGradientMove 5s ease infinite !important;
+  animation: brownGradientMove 5s ease infinite !important;
 }
 
 .landing-ambient-gradient {
   background: linear-gradient(
     -45deg,
-    rgba(12, 10, 9, 0.9),
-    rgba(40, 28, 20, 0.45),
-    rgba(182, 122, 50, 0.16),
-    rgba(18, 15, 13, 0.9)
+    rgba(8, 7, 6, 0.95),
+    rgba(43, 28, 20, 0.5),
+    rgba(107, 63, 35, 0.22),
+    rgba(12, 10, 9, 0.95)
   );
   background-size: 400% 400%;
   animation: gradientMove 12s ease infinite;
 }
 
 /* =====================================================
-   H1 MONUMENTAL ANIMATED GRADIENT
+   H1 MONUMENTAL ANIMATED GRADIENT (Brown, Black, White)
 ===================================================== */
 
 @keyframes h1GradientFlow {
@@ -406,11 +400,11 @@ input:-webkit-autofill:active {
   background: linear-gradient(
     135deg,
     #ffffff 0%,
-    #fef3c7 15%,
-    #f59e0b 35%,
-    #d89b52 50%,
-    #fbbf24 68%,
-    #fde68a 84%,
+    #f4ede6 18%,
+    #af8f6a 36%,
+    #695741 52%,
+    #3d2415 68%,
+    #8d7455 84%,
     #ffffff 100%
   ) !important;
   background-size: 300% 300% !important;

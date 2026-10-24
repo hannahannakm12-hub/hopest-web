@@ -183,38 +183,38 @@ export default function CreatePage() {
     LOST: {
       title: "Report Lost Property",
       desc: "Provide comprehensive details to help the community identify and return your lost item.",
-      color: "from-amber-700 to-[#6b3f23]",
+      color: "from-[#4a2c17] to-[#2b1b11]",
       badge: "Lost Property",
-      badgeClass: "bg-amber-100 text-amber-900 border-amber-300",
+      badgeClass: "bg-[#2b1b11] text-[#d4a373] border-[#6b3f23]/60",
     },
     FOUND: {
       title: "Register Found Belongings",
       desc: "Record found property so the rightful owner can safely reach out and claim it.",
-      color: "from-emerald-700 to-teal-800",
+      color: "from-[#3a2417] to-[#21150e]",
       badge: "Good Samaritan",
-      badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300",
+      badgeClass: "bg-[#21150e] text-[#e8d5c4] border-[#5c3a21]/60",
     },
     THEFT: {
       title: "File Theft Incident Alert",
       desc: "Broadcast theft details to alert your neighborhood and aid local investigations.",
-      color: "from-rose-700 to-red-800",
+      color: "from-[#4a2c17] to-[#251811]",
       badge: "Security Alert",
-      badgeClass: "bg-rose-100 text-rose-900 border-rose-300",
+      badgeClass: "bg-[#251811] text-[#c49371] border-[#6b3f23]/60",
     },
     MISSING: {
       title: "Missing Person Notice",
       desc: "Official emergency broadcast coordinated with local police authorities.",
-      color: "from-red-800 to-rose-900",
+      color: "from-[#341d14] to-[#1c100b]",
       badge: "Urgent Priority",
-      badgeClass: "bg-red-100 text-red-900 border-red-400",
+      badgeClass: "bg-[#2b1c14] text-white border-[#7a482b]/60",
     },
   }[type];
 
   return (
-    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between">
+    <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23]/30 selection:text-[#2b1f18]">
 
       {/* TOP BAR / BACK NAVIGATION */}
-      <div className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
+      <div className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button
             type="button"
@@ -225,7 +225,7 @@ export default function CreatePage() {
             <span>Back</span>
           </button>
 
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-medium">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#d4a373] font-medium">
             Hopest Portal • Create Report
           </span>
         </div>
@@ -546,7 +546,7 @@ export default function CreatePage() {
 
               {/* NOTICE BOX */}
               <div className="bg-[#fcfaf7] border border-[#e8ded3] rounded-2xl p-4 text-xs text-[#7a6252] flex items-start gap-3">
-                <CheckCircle2 size={16} className="text-emerald-700 shrink-0 mt-0.5" />
+                <CheckCircle2 size={16} className="text-[#6b3f23] shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
                   Your report will be listed immediately in the community database. You can manage, update, or remove your listing anytime from your <strong>My Creations</strong> panel.
                 </p>

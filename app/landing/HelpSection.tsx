@@ -14,12 +14,17 @@ export default function HelpSection() {
   const router = useRouter();
 
   const handleCardClick = (category: string) => {
+    if (typeof window === "undefined") return;
     const user = localStorage.getItem("user");
     if (!user) {
       router.push("/auth/login");
       return;
     }
-    router.push(`/dashboard?category=${category}`);
+    if (category === "MISSING") {
+      router.push("/missing");
+      return;
+    }
+    router.push(`/dashboard/search?type=${category}`);
   };
 
   const services = [
@@ -32,15 +37,15 @@ export default function HelpSection() {
         "Report something you have lost and let nearby community members help you track and recover it.",
       icon: Search,
       theme: {
-        iconColor: "text-blue-400",
+        iconColor: "text-[#d4a373]",
         iconBg:
-          "bg-blue-500/10 border-blue-400/25 group-hover:bg-blue-500/20 group-hover:border-blue-400/50 group-hover:shadow-[0_0_24px_rgba(59,130,246,0.35)]",
-        hoverBorder: "hover:border-blue-400/50",
-        hoverShadow: "hover:shadow-[0_20px_50px_rgba(59,130,246,0.2)]",
-        glow: "from-blue-500/20 via-blue-500/5 to-transparent",
-        accent: "text-blue-400",
-        badgeBg: "bg-blue-500/10 text-blue-300 border-blue-400/20",
-        btnHover: "group-hover:bg-blue-500/10 group-hover:border-blue-400/30",
+          "bg-[#2b1b11] border-[#6b3f23]/50 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_24px_rgba(107,63,35,0.4)]",
+        hoverBorder: "hover:border-[#8b5e3c]/60",
+        hoverShadow: "hover:shadow-[0_20px_50px_rgba(107,63,35,0.25)]",
+        glow: "from-[#8b5e3c]/20 via-[#6b3f23]/10 to-transparent",
+        accent: "text-[#d4a373]",
+        badgeBg: "bg-[#2b1b11] text-[#d4a373] border-[#6b3f23]/50",
+        btnHover: "group-hover:bg-[#2b1b11] group-hover:border-[#8b5e3c]/40",
       },
     },
     {
@@ -52,15 +57,15 @@ export default function HelpSection() {
         "Found someone's keys, wallet, or phone? Post it safely so the rightful owner can verify and claim it.",
       icon: Package,
       theme: {
-        iconColor: "text-emerald-400",
+        iconColor: "text-[#e8d5c4]",
         iconBg:
-          "bg-emerald-500/10 border-emerald-400/25 group-hover:bg-emerald-500/20 group-hover:border-emerald-400/50 group-hover:shadow-[0_0_24px_rgba(16,185,129,0.35)]",
-        hoverBorder: "hover:border-emerald-400/50",
-        hoverShadow: "hover:shadow-[0_20px_50px_rgba(16,185,129,0.2)]",
-        glow: "from-emerald-500/20 via-emerald-500/5 to-transparent",
-        accent: "text-emerald-400",
-        badgeBg: "bg-emerald-500/10 text-emerald-300 border-emerald-400/20",
-        btnHover: "group-hover:bg-emerald-500/10 group-hover:border-emerald-400/30",
+          "bg-[#21150e] border-[#5c3a21]/50 group-hover:bg-[#2b1b11] group-hover:border-[#7a482b]/60 group-hover:shadow-[0_0_24px_rgba(122,72,43,0.4)]",
+        hoverBorder: "hover:border-[#a06544]/60",
+        hoverShadow: "hover:shadow-[0_20px_50px_rgba(139,94,60,0.25)]",
+        glow: "from-[#a06544]/20 via-[#7a482b]/10 to-transparent",
+        accent: "text-[#e8d5c4]",
+        badgeBg: "bg-[#21150e] text-[#e8d5c4] border-[#7a482b]/50",
+        btnHover: "group-hover:bg-[#21150e] group-hover:border-[#7a482b]/40",
       },
     },
     {
@@ -72,15 +77,15 @@ export default function HelpSection() {
         "Alert your neighbourhood about stolen bicycles, vehicles, or suspicious activities to prevent further crimes.",
       icon: ShieldAlert,
       theme: {
-        iconColor: "text-rose-400",
+        iconColor: "text-[#c49371]",
         iconBg:
-          "bg-rose-500/10 border-rose-400/25 group-hover:bg-rose-500/20 group-hover:border-rose-400/50 group-hover:shadow-[0_0_24px_rgba(244,63,94,0.35)]",
-        hoverBorder: "hover:border-rose-400/50",
-        hoverShadow: "hover:shadow-[0_20px_50px_rgba(244,63,94,0.2)]",
-        glow: "from-rose-500/20 via-rose-500/5 to-transparent",
-        accent: "text-rose-400",
-        badgeBg: "bg-rose-500/10 text-rose-300 border-rose-400/20",
-        btnHover: "group-hover:bg-rose-500/10 group-hover:border-rose-400/30",
+          "bg-[#251811] border-[#6b3f23]/50 group-hover:bg-[#342016] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_24px_rgba(107,63,35,0.4)]",
+        hoverBorder: "hover:border-[#8b5e3c]/60",
+        hoverShadow: "hover:shadow-[0_20px_50px_rgba(107,63,35,0.25)]",
+        glow: "from-[#6b3f23]/25 via-[#4a2c17]/10 to-transparent",
+        accent: "text-[#c49371]",
+        badgeBg: "bg-[#251811] text-[#c49371] border-[#6b3f23]/50",
+        btnHover: "group-hover:bg-[#251811] group-hover:border-[#6b3f23]/40",
       },
     },
     {
@@ -92,15 +97,15 @@ export default function HelpSection() {
         "Circulate critical details and photos of a missing loved one to mobilize thousands of local eyes immediately.",
       icon: Heart,
       theme: {
-        iconColor: "text-purple-400",
+        iconColor: "text-white",
         iconBg:
-          "bg-purple-500/10 border-purple-400/25 group-hover:bg-purple-500/20 group-hover:border-purple-400/50 group-hover:shadow-[0_0_24px_rgba(168,85,247,0.35)]",
-        hoverBorder: "hover:border-purple-400/50",
-        hoverShadow: "hover:shadow-[0_20px_50px_rgba(168,85,247,0.2)]",
-        glow: "from-purple-500/20 via-purple-500/5 to-transparent",
-        accent: "text-purple-400",
-        badgeBg: "bg-purple-500/10 text-purple-300 border-purple-400/20",
-        btnHover: "group-hover:bg-purple-500/10 group-hover:border-purple-400/30",
+          "bg-[#2b1c14] border-[#7a482b]/50 group-hover:bg-[#3d2417] group-hover:border-[#a06544]/60 group-hover:shadow-[0_0_24px_rgba(139,94,60,0.4)]",
+        hoverBorder: "hover:border-[#c49371]/60",
+        hoverShadow: "hover:shadow-[0_20px_50px_rgba(160,101,68,0.25)]",
+        glow: "from-[#8b5e3c]/20 via-[#5c3a21]/10 to-transparent",
+        accent: "text-white",
+        badgeBg: "bg-[#2b1c14] text-white border-[#7a482b]/50",
+        btnHover: "group-hover:bg-[#2b1c14] group-hover:border-[#7a482b]/40",
       },
     },
   ];
@@ -108,7 +113,7 @@ export default function HelpSection() {
   return (
     <section
       id="services"
-      className="relative bg-[#090807] text-white py-24 lg:py-32 overflow-hidden selection:bg-[#d89b52]/30 selection:text-[#f8d7a4]"
+      className="relative bg-[#080706] text-white py-24 lg:py-32 overflow-hidden selection:bg-[#6b3f23] selection:text-white"
     >
       {/* =====================================================
           BACKGROUND AMBIENT LIGHTING & DOT GRID
@@ -116,13 +121,13 @@ export default function HelpSection() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Dynamic Standard Animated Ambient Gradient Layer */}
         <div className="absolute inset-0 landing-ambient-gradient opacity-35" />
-        <div className="absolute top-20 -left-48 w-[600px] h-[600px] rounded-full bg-amber-500/[0.06] blur-[160px]" />
-        <div className="absolute bottom-10 -right-48 w-[650px] h-[650px] rounded-full bg-[#8b5e3c]/[0.08] blur-[170px]" />
+        <div className="absolute top-20 -left-48 w-[600px] h-[600px] rounded-full bg-[#6b3f23]/[0.15] blur-[160px]" />
+        <div className="absolute bottom-10 -right-48 w-[650px] h-[650px] rounded-full bg-[#8b5e3c]/[0.15] blur-[170px]" />
         {/* Subtle dot grid */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `radial-gradient(rgba(245, 208, 150, 0.45) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(rgba(212, 163, 115, 0.35) 1px, transparent 1px)`,
             backgroundSize: "36px 36px",
           }}
         />
@@ -132,9 +137,9 @@ export default function HelpSection() {
         {/* ================= HEADING AREA ================= */}
         <div className="mb-16 max-w-3xl">
           {/* Section Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 mb-4 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-amber-300 font-bold text-xs uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2b1b11] border border-[#6b3f23]/40 mb-4 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#d4a373]" />
+            <span className="text-[#d4a373] font-bold text-xs uppercase tracking-wider">
               Core Community Services
             </span>
           </div>
@@ -142,7 +147,7 @@ export default function HelpSection() {
           {/* Main Heading with Gold Gradient */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
             Four ways{" "}
-            <span className="bg-gradient-to-r from-amber-200 via-[#e5a95d] to-[#d89b52] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-[#d4a373] to-[#8b5e3c] bg-clip-text text-transparent">
               Hopest helps
             </span>
           </h2>
@@ -161,8 +166,16 @@ export default function HelpSection() {
             return (
               <div
                 key={item.category}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleCardClick(item.category);
+                  }
+                }}
                 onClick={() => handleCardClick(item.category)}
-                className={`group relative min-h-[340px] p-7 rounded-2xl bg-gradient-to-b from-[#181512]/95 via-[#12100e]/95 to-[#0d0c0a]/95 border border-white/[0.07] ${item.theme.hoverBorder} ${item.theme.hoverShadow} transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col justify-between overflow-hidden shadow-xl`}
+                className={`group relative min-h-[340px] p-7 rounded-2xl bg-gradient-to-b from-[#140f0c]/95 via-[#100d0b]/95 to-[#080706]/95 border border-white/[0.07] ${item.theme.hoverBorder} ${item.theme.hoverShadow} transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col justify-between overflow-hidden shadow-xl outline-none focus-visible:ring-2 focus-visible:ring-[#8b5e3c]`}
               >
                 {/* Dynamic Category Color Glow on Hover */}
                 <div
@@ -189,13 +202,13 @@ export default function HelpSection() {
                 <div className="relative z-10 flex-1">
                   {/* Icon Container with Radiant Halo */}
                   <div
-                    className={`w-13 h-13 rounded-2xl border flex items-center justify-center transition-all duration-300 ${item.theme.iconBg} ${item.theme.iconColor}`}
+                    className={`w-12 h-12 rounded-2xl border flex items-center justify-center transition-all duration-300 ${item.theme.iconBg} ${item.theme.iconColor}`}
                   >
                     <Icon size={24} strokeWidth={2.2} />
                   </div>
 
                   {/* Title */}
-                  <h3 className="mt-6 text-xl font-extrabold text-white group-hover:text-amber-100 transition-colors">
+                  <h3 className="mt-6 text-xl font-extrabold text-white group-hover:text-[#f5efe8] transition-colors">
                     {item.title}
                   </h3>
 
@@ -207,11 +220,11 @@ export default function HelpSection() {
 
                 {/* Bottom Action Footer */}
                 <div className="relative z-10 pt-6 mt-4 border-t border-white/[0.05] flex items-center justify-between">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-[#f59e0b] to-[#d89b52] text-stone-950 text-xs font-black transition-all duration-200 group-hover:scale-105 shadow-md btn-animated-gradient">
-                    <span className="text-stone-950 font-black">Browse Feed</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white text-xs font-bold transition-all duration-200 group-hover:scale-105 shadow-md btn-animated-gradient">
+                    <span className="text-white font-bold">Browse Feed</span>
                     <ArrowUpRight
                       size={14}
-                      className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-stone-950"
+                      className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-white"
                     />
                   </div>
 

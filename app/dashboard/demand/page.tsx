@@ -21,27 +21,27 @@ export default function DemandPage() {
     {
       title: "Messages Get Buried",
       badge: "The Social Media Dilemma",
-      badgeColor: "bg-red-100 text-red-900 border-red-300",
-      dotColor: "bg-red-500",
-      gradientBeam: "from-red-600 via-rose-400 to-amber-500",
-      ambientGlow: "bg-red-500/15",
+      badgeColor: "bg-[#2b1c14] text-white border-[#7a482b]/50",
+      dotColor: "bg-[#c49371]",
+      gradientBeam: "from-[#4a2c17] via-[#7a482b] to-[#4a2c17]",
+      ambientGlow: "bg-[#6b3f23]/15",
       icon: MessageSquareOff,
-      iconBg: "bg-red-50 text-red-700 border-red-200",
+      iconBg: "bg-[#2b1c14] text-[#d4a373] border-[#6b3f23]/40",
       desc: "Social group chats move quickly. Urgent appeals vanish under casual conversations within minutes, missing real finders.",
       btnText: "File a Permanent Notice",
       btnAction: () => router.push("/dashboard/create?type=LOST"),
       btnIcon: Plus,
-      btnStyle: "bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] text-white",
+      btnStyle: "bg-gradient-to-r from-[#4a2c17] via-[#6b3f23] to-[#4a2c17] text-white",
     },
     {
       title: "Old Posts Keep Circulating",
       badge: "No Expiry or Status",
-      badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
-      dotColor: "bg-amber-500",
-      gradientBeam: "from-amber-600 via-amber-400 to-[#d89b52]",
-      ambientGlow: "bg-amber-400/15",
+      badgeColor: "bg-[#251811] text-[#c49371] border-[#6b3f23]/50",
+      dotColor: "bg-[#8b5e3c]",
+      gradientBeam: "from-[#6b3f23] via-[#8b5e3c] to-[#6b3f23]",
+      ambientGlow: "bg-[#8b5e3c]/15",
       icon: Clock,
-      iconBg: "bg-amber-50 text-amber-800 border-amber-200",
+      iconBg: "bg-[#251811] text-[#c49371] border-[#6b3f23]/40",
       desc: "Once shared into WhatsApp, posts cannot be deleted. Resolved cases continue circulating for months, creating distress.",
       btnText: "Manage & Close Cases",
       btnAction: () => router.push("/my-creations"),
@@ -51,22 +51,22 @@ export default function DemandPage() {
     {
       title: "Centralized & Verified",
       badge: "The Hopest Solution",
-      badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
-      dotColor: "bg-emerald-500",
-      gradientBeam: "from-emerald-600 via-teal-400 to-emerald-400",
-      ambientGlow: "bg-emerald-400/15",
+      badgeColor: "bg-[#21150e] text-[#e8d5c4] border-[#5c3a21]/50",
+      dotColor: "bg-[#d4a373]",
+      gradientBeam: "from-[#5c3a21] via-[#d4a373] to-[#5c3a21]",
+      ambientGlow: "bg-[#5c3a21]/15",
       icon: ShieldCheck,
-      iconBg: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      iconBg: "bg-[#21150e] text-[#e8d5c4] border-[#5c3a21]/40",
       desc: "Hopest organizes listings by police station, place, and date, allowing quick searching and instant resolution updates.",
       btnText: "Search Central Directory",
       btnAction: () => router.push("/dashboard/search?type=LOST"),
       btnIcon: Search,
-      btnStyle: "bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-800 text-white",
+      btnStyle: "bg-gradient-to-r from-[#3a2417] via-[#5c3a21] to-[#3a2417] text-white",
     },
   ];
 
   return (
-    <div className="bg-[#fbf9f6] text-[#3b2a21] min-h-screen py-8 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8 selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
+    <div className="bg-[#fbf9f6] text-[#3b2a21] min-h-screen py-8 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8 selection:bg-[#6b3f23]/30 selection:text-[#2b1f18]">
       <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
 
         {/* BACK TO DASHBOARD NAVIGATION */}
@@ -83,12 +83,12 @@ export default function DemandPage() {
 
         {/* HERO TITLE CARD WITH AMBIENT PARTICLES */}
         <div className="animated-gradient text-white rounded-3xl p-8 sm:p-11 shadow-2xl border border-white/15 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
-          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#6b3f23]/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
+          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-[#4a2c17]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4 border border-white/20 shadow-sm">
-              <Sparkles size={13} className="text-amber-300 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#d4a373] text-xs font-semibold uppercase tracking-wider mb-4 border border-white/20 shadow-sm">
+              <Sparkles size={13} className="text-[#d4a373] animate-pulse" />
               <span>Community Purpose</span>
             </div>
 
@@ -162,12 +162,12 @@ export default function DemandPage() {
         </div>
 
         {/* CALLOUT CARD (ELEVATED LUXURY SOLIDARITY CARD) */}
-        <div className="bg-gradient-to-br from-[#2b1f18] via-[#3a281e] to-[#2b1f18] text-white border border-white/10 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+        <div className="bg-gradient-to-br from-[#1c140e] via-[#2b1b11] to-[#140f0c] text-white border border-white/10 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#6b3f23]/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-5 max-w-3xl">
-              <div className="w-13 h-13 rounded-2xl bg-[#d89b52]/20 border border-[#d89b52]/40 text-[#fcd69b] flex items-center justify-center shrink-0 shadow-sm mt-1 group-hover:rotate-6 transition-transform">
+              <div className="w-13 h-13 rounded-2xl bg-[#2b1b11] border border-[#6b3f23]/50 text-[#d4a373] flex items-center justify-center shrink-0 shadow-sm mt-1 group-hover:rotate-6 transition-transform">
                 <HeartHandshake size={28} />
               </div>
               <div>
@@ -184,7 +184,7 @@ export default function DemandPage() {
               <button
                 type="button"
                 onClick={() => router.push("/dashboard/create?type=LOST")}
-                className="w-full md:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#d89b52] to-[#b37c3b] hover:brightness-110 text-[#2b1f18] font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer hover:scale-105 active:scale-95 duration-200"
+                className="w-full md:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer hover:scale-105 active:scale-95 duration-200 border border-[#8b5e3c]/40"
               >
                 <span>Report an Incident</span>
                 <ArrowRight size={15} />
