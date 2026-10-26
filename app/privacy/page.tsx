@@ -5,18 +5,13 @@ import {
   ArrowLeft,
   Shield,
   Lock,
-  Eye,
   FileText,
-  UserCheck,
-  Trash2,
   Bell,
   Mail,
   Phone,
-  Sparkles,
   CheckCircle2,
-  AlertTriangle,
+  HelpCircle,
   ArrowRight,
-  ExternalLink,
 } from "lucide-react";
 
 export default function PrivacyPage() {
@@ -24,68 +19,52 @@ export default function PrivacyPage() {
 
   const sections = [
     {
-      icon: Eye,
-      title: "1. Information We Collect",
+      icon: FileText,
+      title: "Privacy Policy",
+      badge: "Free Service",
       gradientBeam: "from-[#4a2c17] via-[#8b5e3c] to-[#4a2c17]",
-      badge: "Data Collection",
       content:
-        "When you register or submit a report on Hopest, we collect the necessary information required to facilitate recovery and community awareness. This includes your account name, email address, contact phone number, and report details (such as item title, incident category, location, date of occurrence, nearest police station, and optional photographs).",
-    },
-    {
-      icon: UserCheck,
-      title: "2. How We Use and Display Your Information",
-      gradientBeam: "from-[#5c3a21] via-[#d4a373] to-[#5c3a21]",
-      badge: "Public Visibility",
-      content:
-        "Information submitted as part of a public report (Lost, Found, Theft, or Missing) is displayed on our search directories to allow citizens, local authorities, and finders to identify items or individuals. Your personal account passwords are encrypted and never disclosed. We do not use your data for advertising tracking or third-party behavioral profiling.",
-    },
-    {
-      icon: Phone,
-      title: "3. Contact Number Visibility & Phone Privacy",
-      gradientBeam: "from-[#6b3f23] via-[#a06544] to-[#6b3f23]",
-      badge: "Phone Privacy",
-      content:
-        "When submitting a listing, the contact telephone number you provide is made accessible to verified visitors so that an honest finder, legal owner, or police officer can reach out directly via call or WhatsApp. If you wish to mask your personal number, you may specify a designated representative or authorized police station contact instead.",
+        "Hopest app as a free app.If you choose to use our services,then you agree to the collection and use of information in relation to this policy.The personal information that we collect is used for providing and improving the service.We will not use or share your information without your permissions.",
     },
     {
       icon: Lock,
-      title: "4. Security & Data Protection Measures",
-      gradientBeam: "from-[#4a2c17] via-[#6b3f23] to-[#2b1b11]",
-      badge: "Cyber Security",
+      title: "Security",
+      badge: "Protection",
+      gradientBeam: "from-[#5c3a21] via-[#d4a373] to-[#5c3a21]",
       content:
-        "We value your trust and implement commercially reasonable technical safeguards to protect your personal information from unauthorized access, accidental alteration, or disclosure. However, no internet transmission or electronic storage method is 100% immune from external hazards, and we continuously maintain our security practices.",
+        "We value your trust in providing us your personal information,thus we are striving to use commercially acceptable means of protecting it.",
     },
     {
       icon: Shield,
-      title: "5. Children's Privacy (Under 13 Protection)",
-      gradientBeam: "from-[#7a482b] via-[#8b5e3c] to-[#4a2c17]",
+      title: "Childrens Privacy",
       badge: "Child Safety",
+      gradientBeam: "from-[#6b3f23] via-[#a06544] to-[#6b3f23]",
       content:
-        "Hopest services are not targeted at or knowingly made for children under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years old. If we discover that a minor under 13 has submitted personal data without verified parental consent, we immediately purge the data from our databases.",
-    },
-    {
-      icon: Trash2,
-      title: "6. User Control & Right to Deletion",
-      gradientBeam: "from-[#6b3f23] via-[#d4a373] to-[#6b3f23]",
-      badge: "User Autonomy",
-      content:
-        "You maintain full ownership of your contributions. You can remove any active listing you published at any time directly through the 'My Creations' management dashboard. Once deleted, the listing is promptly removed from public searches. To request a complete erasure of your user profile, please email our support desk.",
+        "These services do not address anyone under the age of 13.We do not knowingly collect personally identifiable information from children under 13.In this case we discover that a child under 13 has provided us with personal information,we immediately delete this from our servers.if you are a parent or guardian and you are aware that your child has provided us with personal information,please contact us so that we will be able to do necessary actions.",
     },
     {
       icon: Bell,
-      title: "7. Modifications to This Policy",
-      gradientBeam: "from-[#5c3a21] via-[#8b5e3c] to-[#5c3a21]",
-      badge: "Policy Updates",
+      title: "Changes to This Privacy Policy",
+      badge: "Updates",
+      gradientBeam: "from-[#4a2c17] via-[#6b3f23] to-[#2b1b11]",
       content:
-        "We may update our Privacy Policy periodically to reflect technological changes, community feedback, or legal updates. Any revisions will be published on this page with an updated effective date. We recommend checking this page occasionally to stay informed about how we safeguard your data.",
+        "We may update our privacy policy from time to time.thus,you are advised to review this page periodically for any changes.We will nitify you of any changes by posting the new privacy policy on this page.these changes are effective immediately after they are posted on this page.",
+    },
+    {
+      icon: Mail,
+      title: "Contact Us",
+      badge: "Assistance",
+      gradientBeam: "from-[#7a482b] via-[#8b5e3c] to-[#4a2c17]",
+      content:
+        "If you have any questions or suggestions about our privacy policy,do not hesitate to contact us.",
     },
   ];
 
   return (
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23] selection:text-white">
-      
+
       {/* STICKY TOP BAR */}
-      <header className="sticky top-0 z-30 bg-[#2b1f18]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8 shadow-sm">
+      <header className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8 shadow-sm">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button
             type="button"
@@ -103,8 +82,8 @@ export default function PrivacyPage() {
       </header>
 
       {/* MAIN CONTAINER */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full space-y-10 sm:space-y-12">
-        
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full space-y-8 sm:space-y-10">
+
         {/* HERO BANNER */}
         <section className="animated-gradient text-white rounded-3xl p-7 sm:p-11 shadow-2xl border border-white/15 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#8b5e3c]/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-1000" />
@@ -117,71 +96,23 @@ export default function PrivacyPage() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
-              Privacy Policy & Data Security
+              Privacy Policy
             </h1>
 
             <p className="mt-3.5 text-sm sm:text-base text-white/90 leading-relaxed font-light">
-              Your trust is our cornerstone. Read our commitment to protecting your personal information, safeguarding communications, and providing full control over your published records.
+              Hopest app as a free app. Review how we protect your personal information, maintain data security, and support your privacy rights.
             </p>
-
-            <div className="mt-7 flex flex-wrap items-center gap-4 text-xs text-[#e8d5c4] pt-1 font-medium">
-              <span>Effective Date: <strong>October 2026</strong></span>
-              <span>•</span>
-              <span>Civic Transparency Standard 2.4</span>
-            </div>
           </div>
         </section>
 
-        {/* KEY HIGHLIGHTS STRIP WITH SUPER CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4a2c17] to-[#8b5e3c]" />
-            <div className="w-11 h-11 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
-              <CheckCircle2 size={20} />
-            </div>
-            <div>
-              <h3 className="font-bold font-serif text-base text-[#2b1f18]">Zero Data Selling</h3>
-              <p className="text-xs text-[#7a6252] mt-1.5 leading-relaxed">
-                We never commercialize, broker, or sell user records to advertisers.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6b3f23] to-[#d4a373]" />
-            <div className="w-11 h-11 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
-              <Shield size={20} />
-            </div>
-            <div>
-              <h3 className="font-bold font-serif text-base text-[#2b1f18]">Humanitarian Purpose</h3>
-              <p className="text-xs text-[#7a6252] mt-1.5 leading-relaxed">
-                Data is collected solely to assist recovery and community verification.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-3xl p-6 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(107,63,35,0.16)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#5c3a21] to-[#8b5e3c]" />
-            <div className="w-11 h-11 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform">
-              <Trash2 size={20} />
-            </div>
-            <div>
-              <h3 className="font-bold font-serif text-base text-[#2b1f18]">Full User Control</h3>
-              <p className="text-xs text-[#7a6252] mt-1.5 leading-relaxed">
-                Delete any listing in seconds directly from your account dashboard.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* PRIVACY SECTIONS WITH SUPER CARDS */}
+        {/* POLICY SECTIONS CARDS - EXACT CONTENT AS SHOWN IN THE IMAGES */}
         <div className="space-y-6">
           {sections.map((section, idx) => {
             const Icon = section.icon;
             return (
               <article
                 key={idx}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(75,52,37,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
+                className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5dcd3] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_16px_36px_-6px_rgba(75,52,37,0.12)] hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group"
               >
                 {/* Top Radiant Beam */}
                 <div
@@ -189,20 +120,20 @@ export default function PrivacyPage() {
                 />
 
                 <div className="flex items-start gap-4 mb-3">
-                  <div className="w-11 h-11 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                    <Icon size={20} />
+                  <div className="w-10 h-10 rounded-2xl bg-[#f4efe9] text-[#6b3f23] border border-[#e5dcd3] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform duration-300">
+                    <Icon size={18} />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#8c7565] bg-[#fbf9f6] border border-[#e8dfd6] px-2.5 py-0.5 rounded-full inline-block mb-1">
                       {section.badge}
                     </span>
-                    <h2 className="text-lg sm:text-xl font-serif font-bold text-[#2b1f18] group-hover:text-[#6b3f23] transition-colors">
+                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#6b3f23] group-hover:text-[#4a2c17] transition-colors">
                       {section.title}
                     </h2>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#665042] leading-relaxed pl-0 sm:pl-15">
+                <p className="text-sm sm:text-[15px] text-[#2c2018] leading-relaxed pl-0 sm:pl-14">
                   {section.content}
                 </p>
               </article>
@@ -210,38 +141,39 @@ export default function PrivacyPage() {
           })}
         </div>
 
-        {/* CONTACT PRIVACY OFFICER CARD */}
+        {/* CONTACT US ACTION CARD */}
         <section className="bg-gradient-to-br from-[#2b1f18] via-[#38261a] to-[#2b1f18] text-white border border-white/10 rounded-3xl p-7 sm:p-9 shadow-xl relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#8b5e3c]/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
-          
+
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-widest text-[#d4a373] font-semibold block mb-1">
                 Data Privacy & Inquiries
               </span>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
-                Have Questions or Need an Account Deletion?
+                Have questions about our privacy policy?
               </h3>
               <p className="text-xs sm:text-sm text-white/80 mt-1.5 max-w-xl leading-relaxed font-light">
-                Our privacy desk is ready to assist you with record updates, deletion requests, or data compliance questions.
+                Do not hesitate to reach out to our team anytime. We are here to help and protect your information.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
               <a
                 href="mailto:hopestdhanaf@gmail.com"
-                className="w-full sm:w-auto bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] hover:brightness-110 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md transition cursor-pointer hover:scale-105 active:scale-95 duration-200"
+                className="w-full sm:w-auto bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] hover:brightness-110 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md transition cursor-pointer hover:scale-105 active:scale-95 duration-200 border border-[#8b5e3c]/40"
               >
                 <Mail size={15} />
-                <span>Email Privacy Desk</span>
+                <span>Email Us</span>
               </a>
-              <a
-                href="tel:+918590168840"
+              <button
+                type="button"
+                onClick={() => router.push("/about")}
                 className="w-full sm:w-auto border border-white/20 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold px-5 py-3 rounded-xl flex items-center justify-center gap-2 transition cursor-pointer"
               >
                 <Phone size={15} />
-                <span>Call Helpline</span>
-              </a>
+                <span>Call Support</span>
+              </button>
             </div>
           </div>
         </section>

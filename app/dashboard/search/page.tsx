@@ -88,10 +88,12 @@ export default function SearchPage() {
             item.Itemname ||
             item.itemname ||
             item.name ||
+            item.missingperson ||
             ""
           ).toLowerCase();
 
           const place = (
+            item.place_of_occurrence ||
             item.lostplace ||
             item.foundplace ||
             item.theftplace ||
@@ -101,23 +103,28 @@ export default function SearchPage() {
           ).toLowerCase();
 
           const police = (
+            item.police_station ||
             item.nearpolicestation ||
             item.Nearpolicestation ||
             item.police ||
             ""
           ).toLowerCase();
 
+          const complainant = (item.complainant || item.Complainant || "").toLowerCase();
           const district = (item.district || item.District || "").toLowerCase();
           const town = (item.town || item.Town || "").toLowerCase();
           const pin = (item.pin || item.Pin || "").toString().toLowerCase();
+          const mob = (item.contact_number || item.mob || item.Mob || "").toString().toLowerCase();
 
           return (
             itemName.includes(q) ||
             place.includes(q) ||
             police.includes(q) ||
+            complainant.includes(q) ||
             district.includes(q) ||
             town.includes(q) ||
-            pin.includes(q)
+            pin.includes(q) ||
+            mob.includes(q)
           );
         });
 
@@ -163,7 +170,7 @@ export default function SearchPage() {
     },
     MISSING: {
       title: "Missing Person Alerts",
-      badge: "Urgent Priority",
+      badge: "മിസ്സിംഗ് പേഴ്സൺസ്",
       badgeClass: "bg-[#2b1c14] text-white border-[#7a482b]/60",
       accentBorder: "border-t-[#4a2c17]",
       emptyMessage: "No missing person notices match your search.",
@@ -316,16 +323,143 @@ export default function SearchPage() {
           /* ACTIVE RESULTS GRID */
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {items.map((item, index) => {
-              const name = item.itemname || item.Itemname || item.name || "Untitled Item";
-              const place = item.lostplace || item.foundplace || item.theftplace || item.missingplace || item.place || "Location pending";
-              const date = item.lostdate || item.founddate || item.theftdate || item.missingdate || item.date || "";
-              const police = item.nearpolicestation || item.Nearpolicestation || item.police || "Jurisdiction pending";
+              const name = item.itemname || item.Itemname || item.name || item.missingperson || "Untitled Item";
+              const place = item.place_of_occurrence || item.lostplace || item.foundplace || item.theftplace || item.missingplace || item.place || "Location pending";
+              const date = item.date_of_occurrence || item.lostdate || item.founddate || item.theftdate || item.missingdate || item.date || "";
+              const police = item.police_station || item.nearpolicestation || item.Nearpolicestation || item.police || "Jurisdiction pending";
+              const complainant = item.complainant || item.Complainant || "";
               const district = item.district || item.District || "";
               const town = item.town || item.Town || "";
               const pin = item.pin || item.Pin || "";
-              const mob = item.mob || item.Mob || "";
+              const mob = item.contact_number || item.mob || item.Mob || "";
               const itemImage = item.itemimage || item.Itemimage || "";
               const itemId = item.id || index;
+
+              if (type === "MISSING") {
+                const imageSrc =
+                  itemImage === "missingperson.jpeg" || itemImage.includes("missingperson")
+                    ? "/missingperson.jpeg"
+                    : itemImage.startsWith("http")
+                      ? itemImage
+                      : `http://hopest.in/hopestphp/uploads/${itemImage}`;
+
+                return (
+                  <div
+                    key={itemId}
+                    className="bg-white rounded-[28px] p-6 sm:p-7 border border-[#e5dcd3] shadow-[0_12px_36px_-6px_rgba(75,52,37,0.1)] hover:shadow-[0_20px_45px_-6px_rgba(75,52,37,0.18)] transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* CARD TITLE - EXACT MALAYALAM BADGE */}
+                      <div className="mb-4 text-left">
+                        <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1f1610] tracking-tight">
+                          മിസ്സിംഗ് പേഴ്സൺസ്
+                        </h2>
+                        <span className="text-[11px] font-medium text-[#7a6252] block -mt-0.5">
+                          Verified Public Notice • Kerala Police Jurisdiction
+                        </span>
+                      </div>
+
+                      {/* PHOTO */}
+                      <div className="w-full flex justify-center mb-4">
+                        <div className="w-full max-w-[240px] aspect-[4/5] rounded-2xl bg-[#f2ebe3] border border-[#ded3c5] overflow-hidden shadow-inner relative flex items-center justify-center">
+                          <img
+                            src={imageSrc}
+                            alt={name}
+                            className="w-full h-full object-cover object-top"
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = "/missingperson.jpeg";
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* NAME */}
+                      <div className="text-left mb-2">
+                        <h3 className="text-base font-bold text-[#1f1610] tracking-tight">
+                          {name}
+                        </h3>
+                      </div>
+
+                      {/* DIVIDER */}
+                      <hr className="border-t border-[#e2d5c7] my-3" />
+
+                      {/* EXACT LABELED SPECIFICATIONS */}
+                      <div className="space-y-1.5 text-xs text-[#2c2018] font-normal text-left">
+                        <p>
+                          <span className="font-semibold text-[#1a1410] mr-1.5">District-</span>
+                          <span>{district || "Kerala"}</span>
+                        </p>
+                        <p>
+                          <span className="font-semibold text-[#1a1410] mr-1.5">Police Station-</span>
+                          <span>{police}</span>
+                        </p>
+                        <p>
+                          <span className="font-semibold text-[#1a1410] mr-1.5">Date of Occurence-</span>
+                          <span>{date}</span>
+                        </p>
+                        <p>
+                          <span className="font-semibold text-[#1a1410] mr-1.5">Place of Occurrence-</span>
+                          <span>{place}</span>
+                        </p>
+                        <p>
+                          <span className="font-semibold text-[#1a1410] mr-1.5">Name of Complainant-</span>
+                          <span>{complainant || "Local Citizen Notice"}</span>
+                        </p>
+                        <p>
+                          <span className="font-semibold text-[#1a1410] mr-1.5">Contact Number -</span>
+                          <span className="font-semibold text-[#6b3f23]">{mob || "Contact Police"}</span>
+                        </p>
+                        <p>
+                          <span className="font-semibold text-[#1a1410] mr-1.5">Missing Person-</span>
+                          <span className="font-semibold text-[#1a1410]">{item.missingperson || name}</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* ACTIONS */}
+                    <div className="pt-4 mt-4 border-t border-[#ede3d8] flex flex-col gap-2">
+                      {mob && (
+                        <div className="grid grid-cols-2 gap-2">
+                          <a
+                            href={`tel:${mob.replace(/[^0-9]/g, "")}`}
+                            className="bg-gradient-to-r from-[#3d2314] via-[#5c371e] to-[#3d2314] hover:brightness-110 text-white font-semibold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm transition"
+                          >
+                            <Phone size={13} />
+                            <span>Call: {mob}</span>
+                          </a>
+                          <button
+                            type="button"
+                            onClick={() => handleCopyPhone(itemId, mob)}
+                            className="border border-[#d5c7bc] hover:bg-[#f5eee6] text-[#3b2a21] font-medium py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition cursor-pointer"
+                          >
+                            {copiedId === itemId ? (
+                              <>
+                                <Check size={13} className="text-[#6b3f23]" />
+                                <span className="text-[#6b3f23] font-semibold">Copied</span>
+                              </>
+                            ) : (
+                              <>
+                                <Copy size={13} />
+                                <span>Copy Number</span>
+                              </>
+                            )}
+                          </button>
+                        </div>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => router.push("/missing")}
+                        className="w-full bg-[#4b3425] hover:bg-[#38261a] text-white py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-sm transition cursor-pointer"
+                      >
+                        <span>View Missing Persons Page</span>
+                        <ArrowRight size={14} />
+                      </button>
+                    </div>
+                  </div>
+                );
+              }
 
               return (
                 <div
@@ -345,21 +479,24 @@ export default function SearchPage() {
                               onError={(e) => {
                                 e.currentTarget.onerror = null;
                                 e.currentTarget.src =
-                                  type === "MISSING"
-                                    ? "/missingperson.jpeg"
-                                    : type === "LOST"
-                                      ? "/lostdas.jpeg"
-                                      : type === "FOUND"
-                                        ? "/founddas.jpeg"
-                                        : "/theftdas.jpeg";
+                                  type === "LOST"
+                                    ? "/lostdas.jpeg"
+                                    : type === "FOUND"
+                                      ? "/founddas.jpeg"
+                                      : "/theftdas.jpeg";
                               }}
                             />
                           </div>
                         )}
                         <div>
-                          <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border mb-1.5 ${typeConfig.badgeClass}`}>
-                            {type}
-                          </span>
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${typeConfig.badgeClass}`}>
+                              {type}
+                            </span>
+                            <span className="text-[10px] font-mono font-bold bg-[#f4efe9] text-[#6b3f23] border border-[#e8ded3] px-2 py-0.5 rounded-full">
+                              ID: #{itemId}
+                            </span>
+                          </div>
                           <h2 className="text-lg sm:text-xl font-serif font-bold text-[#2b1f18] leading-snug">
                             {name}
                           </h2>
@@ -374,11 +511,11 @@ export default function SearchPage() {
                       )}
                     </div>
 
-                    {/* STRUCTURED SPEC GRID */}
+                    {/* ONLY REQUESTED FIELDS: PLACE, DATE, POLICE STATION, DISTRICT, ID NUMBER */}
                     <div className="grid grid-cols-2 gap-2.5 my-4 text-xs">
                       <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
                         <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
-                          Location / Place
+                          {type === "LOST" ? "Lost Place" : type === "FOUND" ? "Found Place" : "Incident Place"}
                         </span>
                         <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={place}>
                           <MapPin size={11} className="text-[#8b5e3c] shrink-0" />
@@ -388,7 +525,17 @@ export default function SearchPage() {
 
                       <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
                         <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
-                          Nearest Police
+                          {type === "LOST" ? "Lost Date" : type === "FOUND" ? "Found Date" : "Incident Date"}
+                        </span>
+                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={date}>
+                          <Calendar size={11} className="text-[#8b5e3c] shrink-0" />
+                          <span className="truncate">{date || "Not Specified"}</span>
+                        </p>
+                      </div>
+
+                      <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
+                        <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
+                          Police Station
                         </span>
                         <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={police}>
                           <Shield size={11} className="text-[#8b5e3c] shrink-0" />
@@ -398,104 +545,35 @@ export default function SearchPage() {
 
                       <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
                         <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
-                          District & Town
+                          District
                         </span>
-                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={`${district}, ${town}`}>
+                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1" title={district}>
                           <Compass size={11} className="text-[#8b5e3c] shrink-0" />
-                          <span className="truncate">{district || town ? `${district} • ${town}` : "Kerala Jurisdiction"}</span>
-                        </p>
-                      </div>
-
-                      <div className="bg-[#fcfaf7] border border-[#ede5db] rounded-xl p-2.5">
-                        <span className="text-[10px] font-bold text-[#8b5e3c] uppercase tracking-wider block mb-0.5">
-                          PIN Code
-                        </span>
-                        <p className="font-semibold text-[#2b1f18] truncate flex items-center gap-1">
-                          <Hash size={11} className="text-[#8b5e3c] shrink-0" />
-                          <span>{pin || "Kerala"}</span>
+                          <span className="truncate">{district || "Kerala"}</span>
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* CARD ACTIONS */}
+                  {/* SECURE CARD ACTIONS - CONTACT HOPEST TEAM (NO PERSONAL PHONE NUMBER) */}
                   <div className="pt-4 border-t border-[#f0e8e0]">
-                    {type === "MISSING" ? (
-                      <div className="flex flex-col gap-2">
-                        {mob && (
-                          <div className="flex items-center gap-2">
-                            <a
-                              href={`tel:${mob}`}
-                              className="flex-1 bg-gradient-to-r from-[#4b3425] to-[#6b3f23] hover:brightness-110 text-white py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition"
-                            >
-                              <Phone size={13} />
-                              <span>Call: +91 {mob}</span>
-                            </a>
-                            <button
-                              type="button"
-                              onClick={() => handleCopyPhone(itemId, mob)}
-                              title="Copy phone number"
-                              className="px-3 py-2.5 rounded-xl border border-[#d5c7bc] hover:bg-[#f7f2ed] text-[#3b2a21] text-xs font-semibold flex items-center justify-center gap-1 transition cursor-pointer"
-                            >
-                              {copiedId === itemId ? (
-                                <>
-                                  <Check size={13} className="text-[#6b3f23]" />
-                                  <span className="text-[#6b3f23]">Copied</span>
-                                </>
-                              ) : (
-                                <>
-                                  <Copy size={13} />
-                                  <span className="hidden sm:inline">Copy</span>
-                                </>
-                              )}
-                            </button>
-                          </div>
-                        )}
-                        <button
-                          type="button"
-                          onClick={() => router.push("/missing")}
-                          className="w-full bg-[#4b3425] hover:bg-[#38261a] text-white py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition cursor-pointer"
-                        >
-                          <span>Open Full Missing Directory</span>
-                          <ArrowRight size={14} />
-                        </button>
-                      </div>
-                    ) : mob ? (
-                      <div className="flex items-center gap-2">
-                        <a
-                          href={`tel:${mob}`}
-                          className="flex-1 bg-gradient-to-r from-[#4b3425] to-[#6b3f23] hover:brightness-110 text-white py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition"
-                        >
-                          <Phone size={13} />
-                          <span>Call: +91 {mob}</span>
-                        </a>
+                    <div className="flex flex-col gap-2">
+                      <button
+                        type="button"
+                        onClick={() => router.push(`/support?ref=${type.toLowerCase()}&id=${itemId}`)}
+                        className="w-full bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] hover:brightness-110 text-white py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition cursor-pointer"
+                      >
+                        <Shield size={14} className="text-[#d4a373]" />
+                        <span>Contact Hopest Team to Verify & Claim</span>
+                        <ArrowRight size={14} className="text-white/80" />
+                      </button>
 
-                        <button
-                          type="button"
-                          onClick={() => handleCopyPhone(itemId, mob)}
-                          title="Copy phone number"
-                          className="px-3 py-2.5 rounded-xl border border-[#d5c7bc] hover:bg-[#f7f2ed] text-[#3b2a21] text-xs font-semibold flex items-center justify-center gap-1 transition cursor-pointer"
-                        >
-                          {copiedId === itemId ? (
-                            <>
-                              <Check size={13} className="text-[#6b3f23]" />
-                              <span className="text-[#6b3f23]">Copied</span>
-                            </>
-                          ) : (
-                            <>
-                              <Copy size={13} />
-                              <span className="hidden sm:inline">Copy</span>
-                            </>
-                          )}
-                        </button>
+                      <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#8c7565] mt-0.5 text-center">
+                        <Shield size={12} className="text-[#8b5e3c] shrink-0" />
+                        <span>Protected by Hopest: Citizen contact numbers remain strictly confidential.</span>
                       </div>
-                    ) : (
-                      <div className="text-center text-xs text-[#8c7565] py-1">
-                        <span>Contact coordinator through Hopest team</span>
-                      </div>
-                    )}
+                    </div>
                   </div>
-
                 </div>
               );
             })}

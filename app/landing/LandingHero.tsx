@@ -81,21 +81,21 @@ export default function LandingHero() {
             href="/landing"
             className="flex items-center gap-3 group cursor-pointer select-none"
           >
-            <div className="relative h-10 w-7 sm:w-8 flex items-center justify-center shrink-0">
+            <div className="relative h-9 w-7 flex items-center justify-center shrink-0">
               <Image
-                src="/main-logo.png"
+                src="/logo.png"
                 alt="HOPEST Logo"
-                width={100}
-                height={150}
-                className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(107,63,35,0.3)]"
+                width={48}
+                height={76}
+                className="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_10px_rgba(107,63,35,0.35)]"
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-xl font-black tracking-[0.2em] text-[#d4a373] leading-tight drop-shadow-sm group-hover:text-white transition-colors">
+            <div className="flex flex-col justify-center leading-none">
+              <span className="text-xl font-black tracking-[0.2em] text-[#d4a373] drop-shadow-sm group-hover:text-white transition-colors leading-none">
                 HOPEST
               </span>
-              <span className="text-[9px] uppercase tracking-widest text-stone-400 font-bold -mt-0.5 hidden sm:block">
+              <span className="text-[9px] uppercase tracking-widest text-stone-400 font-bold mt-1 hidden sm:block">
                 Community Platform
               </span>
             </div>

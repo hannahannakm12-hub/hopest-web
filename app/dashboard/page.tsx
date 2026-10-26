@@ -377,26 +377,16 @@ export default function DashboardPage() {
               {/* CARD ACTIONS WITH MAGNETIC HOVER */}
               <div className="pt-4 border-t border-[#f0e8e0] relative z-10">
                 {item.type === "MISSING" ? (
-                  /* Dual actions for Missing Person */
-                  <div className="grid grid-cols-2 gap-3 w-full">
-                    <button
-                      type="button"
-                      onClick={() => router.push("/missing")}
-                      className="bg-[#2b1f18] hover:bg-[#1a120e] text-white px-4 py-3 rounded-xl flex items-center shimmer-button justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
-                    >
-                      <Eye size={16} className="group-hover/btn:scale-110 transition-transform" />
-                      <span>{item.searchLabel}</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => router.push("/dashboard/create?type=MISSING")}
-                      className="bg-gradient-to-r from-[#5c3a21] via-[#8b5e3c] to-[#5c3a21] hover:brightness-110 text-white px-4 py-3 rounded-xl shimmer-button flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
-                    >
-                      <Plus size={16} className="group-hover/btn:rotate-90 transition-transform" />
-                      <span>{item.createLabel}</span>
-                    </button>
-                  </div>
+                  /* Single full-width action for Missing Person */
+                  <button
+                    type="button"
+                    onClick={() => router.push("/missing")}
+                    className="w-full bg-gradient-to-r from-[#2b1f18] via-[#4a2c17] to-[#2b1f18] hover:brightness-110 text-white px-5 py-3.5 rounded-xl flex items-center shimmer-button justify-center gap-2.5 text-xs sm:text-sm font-semibold shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
+                  >
+                    <Eye size={16} className="group-hover/btn:scale-110 transition-transform text-[#d4a373]" />
+                    <span>View Missing Persons Directory</span>
+                    <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform text-white/80" />
+                  </button>
                 ) : (
                   /* Dual actions for Lost, Found, Theft */
                   <div className="grid grid-cols-2 gap-3 w-full">

@@ -69,14 +69,14 @@ export function HopestBrandLoader({
         <div className="relative w-24 h-24 mb-6 flex items-center justify-center">
           {/* Subtle spinning outer ring */}
           <div className="absolute inset-0 rounded-3xl border border-dashed border-[#d4a373]/40 animate-[spin_10s_linear_infinite]" />
-          
+
           {/* Glowing pulse ring */}
           <div className="absolute inset-1 rounded-2xl bg-gradient-to-tr from-[#4a2c17] to-[#d4a373] opacity-30 blur-md animate-pulse" />
 
           {/* Core icon box */}
           <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#140f0c] via-[#21150e] to-[#140f0c] border border-[#6b3f23]/60 flex items-center justify-center shadow-[0_0_30px_rgba(107,63,35,0.35)] p-2.5">
             <Image
-              src="/logo.png"
+              src="/main-logo.png"
               alt="Hopest Emblem"
               width={42}
               height={42}

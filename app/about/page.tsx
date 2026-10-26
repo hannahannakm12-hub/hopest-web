@@ -123,30 +123,30 @@ export default function AboutPage() {
   ];
 
   const emergencyNumbers = [
-    { 
-      label: "Emergency Response Support", 
-      number: "112", 
+    {
+      label: "Emergency Response Support",
+      number: "112",
       desc: "National Emergency Helpline",
       beam: "from-[#4a2c17] via-[#7a482b] to-[#4a2c17]",
       glow: "bg-[#6b3f23]/15"
     },
-    { 
-      label: "Kerala Police Control Room", 
-      number: "100", 
+    {
+      label: "Kerala Police Control Room",
+      number: "100",
       desc: "Immediate police intervention",
       beam: "from-[#3a2417] via-[#6b3f23] to-[#3a2417]",
       glow: "bg-[#5c3a21]/15"
     },
-    { 
-      label: "Women Safety Helpline", 
-      number: "1091", 
+    {
+      label: "Women Safety Helpline",
+      number: "1091",
       desc: "24/7 dedicated support",
       beam: "from-[#5c3a21] via-[#8b5e3c] to-[#5c3a21]",
       glow: "bg-[#8b5e3c]/15"
     },
-    { 
-      label: "Child Protection Support", 
-      number: "1098", 
+    {
+      label: "Child Protection Support",
+      number: "1098",
       desc: "National Childline Network",
       beam: "from-[#2b1b11] via-[#d4a373] to-[#2b1b11]",
       glow: "bg-[#6b3f23]/15"
@@ -155,7 +155,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#d89b52]/30 selection:text-[#2b1f18]">
-      
+
       {/* STICKY TOP BAR */}
       <header className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8 shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -176,7 +176,7 @@ export default function AboutPage() {
 
       {/* MAIN CONTAINER */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full space-y-12">
-        
+
         {/* HERO BANNER WITH REALISTIC PARTICLES & MESH */}
         <section className="relative text-white rounded-3xl p-6 sm:p-12 shadow-2xl border border-white/15 overflow-hidden group">
           {/* Rich multi-layer background */}
@@ -184,7 +184,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,163,115,0.22),transparent_55%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(107,63,35,0.45),transparent_60%)]" />
           <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#6b3f23]/15 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
-          
+
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#6b3f23]/40 text-[#d4a373] text-xs font-bold uppercase tracking-wider mb-5 shadow-inner">
               <Sparkles size={14} className="text-[#d4a373] animate-pulse" />
@@ -196,9 +196,8 @@ export default function AboutPage() {
             </h1>
 
             <p className="mt-4 text-sm sm:text-base text-stone-200 leading-relaxed font-light max-w-2xl">
-              Hopest (<em>Hope for the best</em>) is a free community-driven humanitarian platform dedicated to connecting citizens across Kerala to report lost items, return found belongings, document theft incidents, and broadcast urgent missing persons alerts.
+              Hopest (<em>Hope for the best</em>) is an useful and free application,here you can help others by posting things that you have create or search for ypur lost,found and theft items.
             </p>
-
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <a
                 href="#support"
@@ -248,7 +247,7 @@ export default function AboutPage() {
                 >
                   {/* Radiant top gradient beam */}
                   <div className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r ${contact.gradientBeam} opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500`} />
-                  
+
                   {/* Ambient glowing radial blur */}
                   <div className={`absolute -top-16 -right-16 w-44 h-44 rounded-full ${contact.ambientGlow} blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out`} />
 
@@ -330,7 +329,7 @@ export default function AboutPage() {
                 >
                   {/* Radiant top gradient beam */}
                   <div className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r ${pillar.gradientBeam} opacity-80 group-hover:opacity-100 group-hover:h-2 transition-all duration-500`} />
-                  
+
                   {/* Ambient glowing radial blur */}
                   <div className={`absolute -top-16 -right-16 w-44 h-44 rounded-full ${pillar.ambientGlow} blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 ease-out`} />
 
@@ -354,7 +353,7 @@ export default function AboutPage() {
         {/* EMERGENCY POLICE & ESSENTIAL HELPLINES */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8dfd6] shadow-[0_4px_20px_-4px_rgba(75,52,37,0.06)] space-y-5 relative overflow-hidden">
           <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#4a2c17] via-[#7a482b] to-[#4a2c17]" />
-          
+
           <div className="flex items-start gap-3.5 pt-1">
             <div className="w-10 h-10 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/40 text-[#d4a373] flex items-center justify-center shrink-0">
               <Shield size={20} className="text-[#d4a373]" />
@@ -399,7 +398,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-[#fdfbf9] via-[#f7f2ec] to-[#eee5db]" />
           <div className="absolute -top-24 -left-24 w-72 h-72 bg-[#8b5e3c]/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#6b3f23]/10 rounded-full blur-3xl pointer-events-none" />
-          
+
           <div className="relative z-10 max-w-xl mx-auto space-y-3">
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#2b1f18]">
               Be a Guardian for Your Community
