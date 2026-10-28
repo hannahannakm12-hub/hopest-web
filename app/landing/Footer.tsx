@@ -26,15 +26,15 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="relative bg-[#080706] text-white border-t border-white/[0.08]">
+    <footer id="contact" className="relative bg-[#080706] text-white border-t border-white/[0.08] overflow-hidden">
       {/* Top subtle glow flare */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[150px] bg-[#8b5e3c]/[0.08] blur-[120px]" />
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[700px] h-[150px] bg-[#8b5e3c]/[0.08] blur-[120px]" />
 
       {/* =====================================================
           MAIN FOOTER
       ===================================================== */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14">
+        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-8 min-[480px]:gap-10 sm:gap-12 lg:gap-14">
           {/* =================================================
               BRAND
           ================================================= */}
@@ -54,7 +54,7 @@ export default function Footer() {
                 />
               </div>
 
-              <span className="text-xl font-black text-[#d4a373] tracking-[0.18em]">
+              <span className="text-2xl font-black text-[#d4a373] tracking-[0.18em]">
                 HOPEST
               </span>
             </div>
@@ -74,7 +74,7 @@ export default function Footer() {
               QUICK LINKS
           ================================================= */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
+            <h3 className="text-base sm:text-lg font-bold uppercase tracking-wider text-white mb-5">
               Quick Links
             </h3>
 
@@ -139,7 +139,7 @@ export default function Footer() {
               CONTACT INFO
           ================================================= */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
+            <h3 className="text-base sm:text-lg font-bold uppercase tracking-wider text-white mb-5">
               Contact Info
             </h3>
 
@@ -178,7 +178,7 @@ export default function Footer() {
               CONNECT WITH US
           ================================================= */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
+            <h3 className="text-base sm:text-lg font-bold uppercase tracking-wider text-white mb-5">
               Connect With Us
             </h3>
 
@@ -207,7 +207,7 @@ export default function Footer() {
 
               {/* Facebook */}
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1SodkjuD3o/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -218,7 +218,7 @@ export default function Footer() {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/dhanafdavood?srtk=dHFkdjFwdGNiZjQz"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -236,12 +236,14 @@ export default function Footer() {
       ===================================================== */}
       <div className="border-t border-white/[0.06] bg-[#040303]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
+          <div className="flex flex-col min-[760px]:flex-row justify-between items-center gap-4 text-xs text-stone-500 text-center min-[760px]:text-left">
             {/* Copyright */}
-            <p>© 2026 HOPEST (hopest.in) • Civic Safety &amp; Lost Property Network. All rights reserved.</p>
+            <p className="max-w-md min-[760px]:max-w-[420px] lg:max-w-none leading-relaxed">
+              © 2026 HOPEST (hopest.in) • Civic Safety &amp; Lost Property Network. All rights reserved.
+            </p>
 
             {/* Right side policies */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center min-[760px]:justify-end gap-3 shrink-0">
               <button
                 onClick={() => router.push("/privacy")}
                 className="hover:text-[#d4a373] transition-colors"

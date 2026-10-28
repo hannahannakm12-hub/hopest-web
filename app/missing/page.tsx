@@ -92,40 +92,40 @@ export default function MissingPage() {
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23] selection:text-white">
 
       {/* STICKY TOP BAR - MATCHING INNER DASHBOARD PAGES */}
-      <header className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
+      <header className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3 px-3.5 min-[360px]:px-4 sm:px-8">
+        <div className="max-w-5xl mx-auto flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={() => router.push("/dashboard")}
-            className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer"
+            className="flex items-center gap-1.5 min-[360px]:gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer shrink-0"
           >
             <ArrowLeft size={16} />
             <span>Back</span>
           </button>
 
-          <span className="text-xs font-mono uppercase tracking-widest text-[#d4a373] font-medium">
+          <span className="text-[10px] min-[360px]:text-xs font-mono uppercase tracking-wider min-[360px]:tracking-widest text-[#d4a373] font-medium text-right truncate">
             Hopest Portal • Missing Persons
           </span>
         </div>
       </header>
 
       {/* MAIN CONTAINER */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full flex-1">
+      <main className="max-w-5xl mx-auto px-3.5 min-[360px]:px-4 sm:px-6 py-6 sm:py-10 w-full flex-1">
 
         {/* HERO BANNER - PROJECT SIGNATURE ANIMATED GRADIENT */}
-        <section className="animated-gradient text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
+        <section className="animated-gradient text-white rounded-2xl min-[360px]:rounded-3xl p-4 min-[360px]:p-6 sm:p-10 mb-6 sm:mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
             {/* Live broadcast pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2b1c14] border border-[#7a482b]/60 text-white text-xs font-semibold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2b1c14] border border-[#7a482b]/60 text-white text-[11px] min-[360px]:text-xs font-semibold uppercase tracking-wider mb-3 min-[360px]:mb-4">
               <span className="w-2 h-2 rounded-full bg-[#d4a373] animate-ping mr-0.5"></span>
               <span>Verified Public Broadcast</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+            <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight mb-2 min-[360px]:mb-3">
               Missing Persons Directory
             </h1>
 
-            <p className="mt-3 text-sm sm:text-base text-white/85 leading-relaxed font-light">
+            <p className="text-xs min-[360px]:text-sm sm:text-base text-white/85 leading-relaxed font-light">
               Official community appeals to assist families and local law enforcement in locating missing individuals across Kerala. If you recognize anyone, please immediately contact the coordinates provided below.
             </p>
 

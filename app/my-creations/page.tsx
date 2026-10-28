@@ -496,11 +496,11 @@ export default function MyCreationsPage() {
                       </div>
 
                       {/* CARD FOOTER WITH SECURE DELETE */}
-                      <div className="pt-4 border-t border-[#f0e8e0] flex items-center justify-between gap-3">
+                      <div className="pt-4 border-t border-[#f0e8e0] flex flex-col min-[401px]:flex-row items-stretch min-[401px]:items-center justify-between gap-3">
                         <button
                           type="button"
                           onClick={() => router.push(`/dashboard/search?type=${item.type}`)}
-                          className="text-xs font-semibold text-[#8b5e3c] hover:text-[#4b3425] hover:underline transition cursor-pointer"
+                          className="text-xs font-semibold text-[#8b5e3c] hover:text-[#4b3425] hover:underline transition cursor-pointer text-center min-[401px]:text-left py-1 min-[401px]:py-0"
                         >
                           View in {item.type} Directory →
                         </button>
@@ -514,7 +514,7 @@ export default function MyCreationsPage() {
                               title: name,
                             })
                           }
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8b5e3c] bg-[#2b1b11]/5 hover:bg-[#2b1b11]/15 border border-[#6b3f23]/30 transition cursor-pointer"
+                          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 min-[401px]:py-2 rounded-xl text-xs font-semibold text-[#8b5e3c] bg-[#2b1b11]/5 hover:bg-[#2b1b11]/15 border border-[#6b3f23]/30 transition cursor-pointer w-full min-[401px]:w-auto"
                         >
                           <Trash2 size={13} />
                           <span>Delete Report</span>

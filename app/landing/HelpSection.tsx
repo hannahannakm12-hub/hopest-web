@@ -145,7 +145,7 @@ export default function HelpSection() {
           </div>
 
           {/* Main Heading with Gold Gradient */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
             Four ways{" "}
             <span className="bg-gradient-to-r from-white via-[#d4a373] to-[#8b5e3c] bg-clip-text text-transparent">
               Hopest helps
@@ -208,7 +208,7 @@ export default function HelpSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="mt-6 text-xl font-extrabold text-white group-hover:text-[#f5efe8] transition-colors">
+                  <h3 className="mt-6 text-2xl font-extrabold text-white group-hover:text-[#f5efe8] transition-colors">
                     {item.title}
                   </h3>
 

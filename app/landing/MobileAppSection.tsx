@@ -177,7 +177,7 @@ export default function MobileAppSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
               Carry Hopest
               <br />
               <span className="bg-gradient-to-r from-white via-[#d4a373] to-[#8b5e3c] bg-clip-text text-transparent">
@@ -225,25 +225,13 @@ export default function MobileAppSection() {
             </div>
 
             {/* App Download Buttons (Direct Store Links with Animated Gradient) */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              {/* App Store Button */}
-              <a
-                href="https://apps.apple.com/search?term=hopest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-bold text-sm shadow-[0_0_30px_rgba(107,63,35,0.5)] hover:shadow-[0_0_45px_rgba(139,94,60,0.7)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
-                title="Download from Apple App Store"
-              >
-                <Smartphone className="w-5 h-5 text-white" />
-                <span className="text-white font-bold">App Store</span>
-              </a>
-
+            <div className="mt-8 sm:mt-10 flex flex-col lg:flex-row items-stretch lg:items-center gap-3.5 sm:gap-4 w-full">
               {/* Google Play Button */}
               <a
                 href="https://play.google.com/store/apps/details?id=com.hopestogapp.hopestog"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-[#140f0c]/90 border-2 border-[#6d3f22]/60 hover:border-[#8d7455] hover:scale-[1.03] active:scale-[0.98] text-white font-bold text-sm shadow-lg hover:shadow-[0_0_30px_rgba(107,63,35,0.35)] transition-all duration-300 cursor-pointer"
+                className="w-full lg:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#140f0c]/90 border-2 border-[#6d3f22]/60 hover:border-[#8d7455] hover:scale-[1.02] active:scale-[0.98] text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-[0_0_30px_rgba(107,63,35,0.35)] transition-all duration-300 cursor-pointer"
                 title="Install from Google Play Store"
               >
                 <svg
@@ -264,16 +252,16 @@ export default function MobileAppSection() {
           {/* ================================================= */}
           {/* RIGHT SIDE: DYNAMIC PHONE MOCKUP */}
           {/* ================================================= */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-[310px] sm:w-[350px] rounded-[44px] border-4 border-stone-800 bg-[#140f0c] p-2.5 shadow-[0_25px_70px_rgba(0,0,0,0.7)]">
+          <div className="flex justify-center lg:justify-end w-full">
+            <div className="relative w-full max-w-[310px] sm:max-w-[340px] md:max-w-[382px] lg:max-w-[340px] xl:max-w-[360px] rounded-[44px] border-4 border-stone-800 bg-[#140f0c] p-2 sm:p-2.5 shadow-[0_25px_70px_rgba(0,0,0,0.75)] mx-auto lg:mx-0">
               {/* Soft Outer Ambient Glow */}
-              <div className="absolute -inset-4 -z-10 rounded-[50px] bg-[#8b5e3c]/20 blur-2xl" />
+              <div className="absolute -inset-4 -z-10 rounded-[50px] bg-[#8b5e3c]/20 blur-2xl pointer-events-none" />
 
               {/* Phone Bezel / Screen */}
-              <div className="rounded-[36px] border border-white/10 bg-[#080706] overflow-hidden min-h-[520px] flex flex-col justify-between">
+              <div className="rounded-[36px] border border-white/10 bg-[#080706] overflow-hidden min-h-[500px] sm:min-h-[530px] flex flex-col justify-between">
 
                 {/* Status Bar */}
-                <div className="pt-3 px-6 pb-2 flex items-center justify-between text-[11px] text-stone-400 font-mono">
+                <div className="pt-3 px-5 sm:px-6 pb-2 flex items-center justify-between text-[11px] text-stone-400 font-mono">
                   <span>9:41</span>
                   {/* Dynamic Island / Notch */}
                   <div className="w-20 h-4 bg-stone-950 rounded-full border border-white/10 mx-auto" />
@@ -341,11 +329,11 @@ export default function MobileAppSection() {
                       <div
                         key={`${item.type}-${item.id}`}
                         onClick={() => router.push(item.link)}
-                        className={`rounded-xl border border-white/[0.08] ${item.borderHover} bg-stone-900/70 p-3.5 transition-all duration-200 cursor-pointer group hover:bg-stone-900/90`}
+                        className={`rounded-xl border border-white/[0.08] ${item.borderHover} bg-stone-900/70 p-3 sm:p-3.5 transition-all duration-200 cursor-pointer group hover:bg-stone-900/90 active:scale-[0.99]`}
                       >
-                        <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center justify-between mb-1 gap-2">
                           <span
-                            className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border ${item.badgeStyle}`}
+                            className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${item.badgeStyle}`}
                           >
                             {item.category}
                           </span>
@@ -358,8 +346,8 @@ export default function MobileAppSection() {
                           {item.title}
                         </p>
 
-                        <div className="flex items-center justify-between mt-1.5 text-[11px] text-[#d4a373]">
-                          <span className="flex items-center gap-1 text-stone-400 text-[10px] truncate max-w-[170px]">
+                        <div className="flex items-center justify-between mt-1.5 text-[11px] text-[#d4a373] gap-2">
+                          <span className="flex items-center gap-1 text-stone-400 text-[10px] truncate max-w-[220px]">
                             <MapPin size={10} className="text-[#d4a373] shrink-0" />
                             <span className="truncate">{item.place}</span>
                           </span>

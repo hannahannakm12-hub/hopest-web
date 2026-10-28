@@ -53,15 +53,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark scroll-smooth overflow-x-hidden">
       <head>
-        <link rel="icon" href="/logo.png?v=3" sizes="any" type="image/png" />
-        <link rel="icon" href="/logo.png?v=3" sizes="32x32" type="image/png" />
-        <link rel="icon" href="/logo.png?v=3" sizes="16x16" type="image/png" />
-        <link rel="shortcut icon" href="/logo.png?v=3" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo.png?v=3" />
+        <link rel="icon" href="/main-logo.png?v=3" sizes="any" type="image/png" />
+        <link rel="icon" href="/main-logo.png?v=3" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/main-logo.png?v=3" sizes="16x16" type="image/png" />
+        <link rel="shortcut icon" href="/main-logo.png?v=3" type="image/png" />
+        <link rel="apple-touch-icon" href="/main-logo.png?v=3" />
       </head>
-      <body className={`${inter.variable} antialiased bg-[#080706] text-white selection:bg-[#6b3f23] selection:text-white`}>
+      <body className={`${inter.variable} antialiased bg-[#080706] text-white selection:bg-[#6b3f23] selection:text-white overflow-x-hidden min-h-screen w-full`}>
         {children}
       </body>
     </html>

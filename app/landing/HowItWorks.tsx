@@ -36,7 +36,7 @@ export default function HowItWorks() {
     >
       {/* Background Texture & Ambient Lights */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:32px_32px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#8b5e3c]/[0.12] blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[350px] bg-[#8b5e3c]/[0.12] blur-[150px] pointer-events-none rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* ================= HEADING ================= */}
@@ -47,7 +47,7 @@ export default function HowItWorks() {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Three simple steps
           </h2>
 
@@ -83,7 +83,7 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#f5efe8] transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#f5efe8] transition-colors">
                     {step.title}
                   </h3>
 
@@ -106,7 +106,7 @@ export default function HowItWorks() {
         </div>
 
         {/* CTA Button with Animated Gradient */}
-        <div className="mt-14 flex justify-center">
+        <div className="mt-14 flex justify-center w-full">
           <button
             onClick={() => {
               const user = localStorage.getItem("user");
@@ -116,7 +116,7 @@ export default function HowItWorks() {
                 router.push("/dashboard/create?type=LOST");
               }
             }}
-            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-bold text-sm sm:text-base shadow-[0_0_35px_rgba(107,63,35,0.5)] hover:shadow-[0_0_50px_rgba(139,94,60,0.7)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
+            className="group w-full lg:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-bold text-sm sm:text-base shadow-[0_0_35px_rgba(107,63,35,0.5)] hover:shadow-[0_0_50px_rgba(139,94,60,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer btn-animated-gradient"
           >
             <span className="text-white font-bold">Post a Report in Seconds</span>
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200 text-white" />

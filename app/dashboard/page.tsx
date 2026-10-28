@@ -167,7 +167,7 @@ export default function DashboardPage() {
             </p>
 
             {/* 4 INTERACTIVE QUICK SHORTCUTS */}
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            <div className="mt-8 grid grid-cols-1 min-[401px]:grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
 
               <button
                 type="button"
@@ -206,7 +206,7 @@ export default function DashboardPage() {
                 className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#8b5e3c]/50 backdrop-blur-md rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer group/card relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-16 h-16 bg-[#8b5e3c]/25 rounded-full blur-xl pointer-events-none group-hover/card:scale-150 transition-transform"></div>
-                <div className="flex items-center justify-between text-xs text-[#e8d5c4] font-semibold mb-1.5">
+                <div className="flex items-center justify-between text-xs text-[#d4a373] font-semibold mb-1.5">
                   <span>Found Registry</span>
                   <ArrowUpRight size={14} className="group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 transition-transform" />
                 </div>
@@ -276,11 +276,11 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex flex-col min-[401px]:flex-row items-stretch min-[401px]:items-center gap-2.5 w-full sm:w-auto">
             <button
               type="button"
               onClick={() => router.push("/my-creations")}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6b3f23] hover:text-[#2b1f18] bg-[#f4efe9] hover:bg-[#eae1d7] px-4 py-2 rounded-full transition border border-[#dfd4c8] cursor-pointer shadow-xs"
+              className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#6b3f23] hover:text-[#2b1f18] bg-[#f4efe9] hover:bg-[#eae1d7] px-4 py-2.5 min-[401px]:py-2 rounded-full transition border border-[#dfd4c8] cursor-pointer shadow-xs w-full min-[401px]:w-auto"
             >
               <FolderPlus size={14} />
               <span>My Creations</span>
@@ -288,7 +288,7 @@ export default function DashboardPage() {
             <button
               type="button"
               onClick={() => router.push("/dashboard/usesage")}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#4b3425] hover:bg-[#38261a] px-4 py-2 rounded-full transition cursor-pointer shadow-sm"
+              className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-white bg-[#4b3425] hover:bg-[#38261a] px-4 py-2.5 min-[401px]:py-2 rounded-full transition cursor-pointer shadow-sm w-full min-[401px]:w-auto"
             >
               <HelpCircle size={14} />
               <span>User Guide</span>
@@ -301,7 +301,7 @@ export default function DashboardPage() {
           {categories.map((item, i) => (
             <div
               key={i}
-              className={`group bg-white rounded-3xl p-6 sm:p-8 border border-[#e5dcd3] shadow-[0_6px_24px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_24px_50px_-10px_rgba(75,52,37,0.16)] ${item.accentBorder} ${item.accentGlow} hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between relative overflow-hidden`}
+              className={`group bg-white rounded-2xl min-[360px]:rounded-3xl p-4 min-[360px]:p-5 min-[401px]:p-6 sm:p-8 border border-[#e5dcd3] shadow-[0_6px_24px_-4px_rgba(75,52,37,0.06)] hover:shadow-[0_24px_50px_-10px_rgba(75,52,37,0.16)] ${item.accentBorder} ${item.accentGlow} hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between relative overflow-hidden`}
             >
               {/* TOP RADIANT BEAM (Expands and shines on hover) */}
               <div
@@ -315,11 +315,11 @@ export default function DashboardPage() {
 
               {/* TOP HEADER & MEDIA ROW */}
               <div className="relative z-10">
-                <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex items-start justify-between gap-3 min-[360px]:gap-4 mb-3.5 min-[360px]:mb-4">
                   {/* Badge & Title */}
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2.5">
-                      <span className={`inline-flex items-center text-[11px] font-bold px-3 py-1 rounded-full border shadow-2xs ${item.badgeColor} transition-transform group-hover:scale-105 duration-300`}>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-2 min-[360px]:mb-2.5">
+                      <span className={`inline-flex items-center text-[10px] min-[360px]:text-[11px] font-bold px-2.5 min-[360px]:px-3 py-1 rounded-full border shadow-2xs ${item.badgeColor} transition-transform group-hover:scale-105 duration-300`}>
                         {item.type === "MISSING" ? (
                           <span className="w-2 h-2 rounded-full bg-red-600 animate-ping mr-1.5 inline-block"></span>
                         ) : (
@@ -329,14 +329,14 @@ export default function DashboardPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#2b1f18] group-hover:text-[#6b3f23] transition-colors leading-tight">
+                    <h3 className="text-lg min-[360px]:text-xl min-[401px]:text-2xl sm:text-3xl font-serif font-bold text-[#2b1f18] group-hover:text-[#6b3f23] transition-colors leading-tight">
                       {item.title}
                     </h3>
                   </div>
 
                   {/* ULTRA-STYLISH FLOATING MEDIA PORTAL WITH BADGE */}
                   <div className="relative shrink-0">
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-white/95 to-[#f4efe9] p-1.5 border border-[#e5dcd3] shadow-[0_8px_20px_-6px_rgba(75,52,37,0.12)] group-hover:shadow-[0_16px_30px_-6px_rgba(75,52,37,0.22)] group-hover:-translate-y-1 group-hover:scale-105 group-hover:rotate-1 transition-all duration-500 overflow-hidden relative backdrop-blur-sm">
+                    <div className="w-14 h-14 min-[360px]:w-16 min-[360px]:h-16 min-[400px]:w-20 min-[400px]:h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-white/95 to-[#f4efe9] p-1.5 border border-[#e5dcd3] shadow-[0_8px_20px_-6px_rgba(75,52,37,0.12)] group-hover:shadow-[0_16px_30px_-6px_rgba(75,52,37,0.22)] group-hover:-translate-y-1 group-hover:scale-105 group-hover:rotate-1 transition-all duration-500 overflow-hidden relative backdrop-blur-sm">
                       <Image
                         src={item.img}
                         alt={item.title}
@@ -349,19 +349,19 @@ export default function DashboardPage() {
                     </div>
 
                     {/* Floating Category Icon Badge */}
-                    <div className={`absolute -bottom-2 -left-2 w-7 h-7 rounded-full ${item.iconBadgeBg} text-white flex items-center justify-center shadow-md border-2 border-white transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6`}>
-                      <item.icon size={13} />
+                    <div className={`absolute -bottom-2 -left-2 w-6 h-6 min-[360px]:w-7 min-[360px]:h-7 rounded-full ${item.iconBadgeBg} text-white flex items-center justify-center shadow-md border-2 border-white transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6`}>
+                      <item.icon size={12} className="min-[360px]:scale-110" />
                     </div>
                   </div>
                 </div>
 
                 {/* DESCRIPTION */}
-                <p className="text-xs sm:text-sm text-[#665042] leading-relaxed mb-5">
+                <p className="text-xs sm:text-sm text-[#665042] leading-relaxed mb-4 min-[360px]:mb-5">
                   {item.desc}
                 </p>
 
                 {/* HIGHLIGHTED CAPABILITIES PILLS WITH HOVER DELIGHT */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
+                <div className="flex flex-wrap gap-1.5 mb-5 min-[360px]:mb-6">
                   {item.features.map((feat, idx) => (
                     <span
                       key={idx}
@@ -381,30 +381,30 @@ export default function DashboardPage() {
                   <button
                     type="button"
                     onClick={() => router.push("/missing")}
-                    className="w-full bg-gradient-to-r from-[#2b1f18] via-[#4a2c17] to-[#2b1f18] hover:brightness-110 text-white px-5 py-3.5 rounded-xl flex items-center shimmer-button justify-center gap-2.5 text-xs sm:text-sm font-semibold shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
+                    className="w-full bg-gradient-to-r from-[#2b1f18] via-[#4a2c17] to-[#2b1f18] hover:brightness-110 text-white px-4 min-[401px]:px-5 py-3.5 rounded-xl flex items-center shimmer-button justify-center gap-2 min-[401px]:gap-2.5 text-xs sm:text-sm font-semibold shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
                   >
-                    <Eye size={16} className="group-hover/btn:scale-110 transition-transform text-[#d4a373]" />
+                    <Eye size={16} className="group-hover/btn:scale-110 transition-transform text-[#d4a373] shrink-0" />
                     <span>View Missing Persons Directory</span>
-                    <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform text-white/80" />
+                    <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform text-white/80 shrink-0" />
                   </button>
                 ) : (
-                  /* Dual actions for Lost, Found, Theft */
-                  <div className="grid grid-cols-2 gap-3 w-full">
+                  /* Dual actions for Lost, Found, Theft - column-wise on <= 400px, 2 columns on > 400px */
+                  <div className="flex flex-col min-[401px]:flex-row gap-2.5 min-[401px]:gap-3 w-full">
                     <button
                       type="button"
                       onClick={() => router.push(`/dashboard/create?type=${item.type}`)}
-                      className="bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] shimmer-button hover:brightness-110 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
+                      className="w-full min-[401px]:flex-1 bg-gradient-to-r from-[#4b3425] via-[#6b3f23] to-[#4b3425] shimmer-button hover:brightness-110 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group/btn"
                     >
-                      <Plus size={16} className="group-hover/btn:rotate-90 transition-transform" />
+                      <Plus size={16} className="group-hover/btn:rotate-90 transition-transform shrink-0" />
                       <span>{item.createLabel}</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => router.push(`/dashboard/search?type=${item.type}`)}
-                      className="border border-[#c9bfb6] text-[#3b2a21] hover:border-[#6b3f23] shimmer-button hover:bg-[#f7f2ed] px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 cursor-pointer bg-white group/btn"
+                      className="w-full min-[401px]:flex-1 border border-[#c9bfb6] text-[#3b2a21] hover:border-[#6b3f23] shimmer-button hover:bg-[#f7f2ed] px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 cursor-pointer bg-white group/btn"
                     >
-                      <Search size={16} className="group-hover/btn:scale-110 transition-transform text-[#6b3f23]" />
+                      <Search size={16} className="group-hover/btn:scale-110 transition-transform text-[#6b3f23] shrink-0" />
                       <span>{item.searchLabel}</span>
                     </button>
                   </div>
@@ -621,10 +621,10 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex flex-col min-[401px]:flex-row items-stretch min-[401px]:items-center gap-2.5 min-[401px]:gap-3 w-full sm:w-auto">
             <a
               href="tel:+918590168840"
-              className="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-[#6b3f23] hover:bg-[#523019] text-white text-xs font-semibold text-center transition shadow-xs hover:scale-105 active:scale-95 duration-200"
+              className="w-full min-[401px]:w-auto min-[401px]:flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-[#6b3f23] hover:bg-[#523019] text-white text-xs font-semibold text-center transition shadow-xs hover:scale-105 active:scale-95 duration-200"
             >
               Call +91 85901 68840
             </a>
@@ -632,7 +632,7 @@ export default function DashboardPage() {
               href="https://wa.me/918590168840?text=Hello%20Hopest%20Support,%20I%20need%20assistance%20with%20my%20dashboard%20report."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#4a2c17] via-[#6b3f23] to-[#4a2c17] hover:brightness-110 border border-[#8b5e3c]/40 text-white text-xs font-semibold text-center transition shadow-xs flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95 duration-200"
+              className="w-full min-[401px]:w-auto min-[401px]:flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#4a2c17] via-[#6b3f23] to-[#4a2c17] hover:brightness-110 border border-[#8b5e3c]/40 text-white text-xs font-semibold text-center transition shadow-xs flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95 duration-200"
             >
               <MessageCircle size={14} />
               <span>WhatsApp</span>

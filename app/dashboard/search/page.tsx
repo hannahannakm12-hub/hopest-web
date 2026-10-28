@@ -181,38 +181,38 @@ export default function SearchPage() {
     <div className="min-h-screen bg-[#fbf9f6] text-[#3b2a21] flex flex-col justify-between selection:bg-[#6b3f23]/30 selection:text-[#2b1f18]">
 
       {/* STICKY TOP BAR */}
-      <div className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3.5 px-4 sm:px-8">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <div className="sticky top-0 z-30 bg-[#080706]/95 backdrop-blur-md border-b border-white/10 text-white py-3 px-3.5 min-[360px]:px-4 sm:px-8">
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={() => router.push("/dashboard")}
-            className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer"
+            className="flex items-center gap-1.5 min-[360px]:gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition cursor-pointer shrink-0"
           >
             <ArrowLeft size={16} />
             <span>Back</span>
           </button>
 
-          <span className="text-xs font-mono uppercase tracking-widest text-[#d4a373] font-medium">
+          <span className="text-[10px] min-[360px]:text-xs font-mono uppercase tracking-wider min-[360px]:tracking-widest text-[#d4a373] font-medium text-right truncate">
             Hopest Portal • Search Records
           </span>
         </div>
       </div>
 
       {/* MAIN CONTAINER */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
+      <main className="max-w-6xl mx-auto px-3.5 min-[360px]:px-4 sm:px-6 py-6 sm:py-10 w-full">
 
         {/* HERO BANNER WITH CATEGORY SWITCHER */}
-        <div className="animated-gradient text-white rounded-3xl p-6 sm:p-8 md:p-10 mb-8 shadow-xl border border-white/10 relative overflow-hidden">
+        <div className="animated-gradient text-white rounded-2xl min-[360px]:rounded-3xl p-4 min-[360px]:p-5 sm:p-8 md:p-10 mb-6 sm:mb-8 shadow-xl border border-white/10 relative overflow-hidden">
           <div className="relative z-10">
-            {/* CATEGORY SWITCHER TABS */}
-            <div className="flex flex-wrap items-center gap-2 mb-6">
+            {/* CATEGORY SWITCHER TABS - BALANCED GRID FOR 320PX/360PX */}
+            <div className="grid grid-cols-4 gap-1.5 min-[360px]:gap-2 sm:flex sm:flex-wrap items-center mb-4 min-[360px]:mb-5 sm:mb-6">
               {TYPES.map((t) => (
                 <button
                   key={t}
                   type="button"
                   onClick={() => handleTypeChange(t)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${type === t
-                      ? "bg-white text-[#3b2a21] shadow-md scale-105"
+                  className={`w-full sm:w-auto px-1 min-[360px]:px-3 py-1.5 rounded-full text-[10px] min-[360px]:text-xs font-semibold tracking-wider text-center transition-all cursor-pointer ${type === t
+                      ? "bg-white text-[#3b2a21] shadow-md font-bold"
                       : "bg-white/10 text-white/80 hover:text-white hover:bg-white/20"
                     }`}
                 >
@@ -221,24 +221,24 @@ export default function SearchPage() {
               ))}
             </div>
 
-            <div className="flex items-center gap-2 mb-2">
-              <span className={`inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${typeConfig.badgeClass}`}>
+            <div className="flex items-center gap-2 mb-2 min-[360px]:mb-2.5">
+              <span className={`inline-block text-[10px] min-[360px]:text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${typeConfig.badgeClass}`}>
                 {typeConfig.badge}
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white tracking-tight">
+            <h1 className="text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white tracking-tight leading-tight mb-2 min-[360px]:mb-2.5">
               {typeConfig.title}
             </h1>
 
-            <p className="mt-2 text-sm sm:text-base text-white/85 max-w-2xl font-light">
+            <p className="text-xs min-[360px]:text-sm sm:text-base text-white/85 max-w-2xl font-light leading-relaxed">
               Search real-time community records across Kerala by item title, locality, town, district, or police station.
             </p>
           </div>
         </div>
 
         {/* SEARCH AND ACTION BAR */}
-        <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#e8dfd6] shadow-[0_8px_30px_-6px_rgba(75,52,37,0.06)] mb-8">
+        <div className="bg-white rounded-2xl min-[360px]:rounded-3xl p-3.5 min-[360px]:p-4 sm:p-6 border border-[#e8dfd6] shadow-[0_8px_30px_-6px_rgba(75,52,37,0.06)] mb-6 sm:mb-8">
           <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
 
             {/* SEARCH INPUT */}

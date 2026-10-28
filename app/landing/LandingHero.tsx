@@ -75,7 +75,7 @@ export default function LandingHero() {
           : "bg-gradient-to-b from-[#080706]/90 via-[#080706]/60 to-transparent border-b border-white/[0.04] py-5"
           }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Brand Logo */}
           <Link
             href="/landing"
@@ -136,16 +136,16 @@ export default function LandingHero() {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {user ? (
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-1.5 sm:gap-2.5">
                 <NotificationDropdown uid={user?.uid || ""} align="right" />
                 <button
                   onClick={() => router.push("/dashboard")}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#6b3f23] to-[#4a2c17] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(107,63,35,0.4)] hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer btn-animated-gradient"
+                  className="px-2.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-[#6b3f23] to-[#4a2c17] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(107,63,35,0.4)] hover:brightness-110 transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer btn-animated-gradient"
                 >
                   <LayoutDashboard size={15} />
-                  <span>Dashboard</span>
+                  <span className="hidden sm:inline">Dashboard</span>
                 </button>
                 <button
                   onClick={() => {
@@ -154,7 +154,7 @@ export default function LandingHero() {
                     router.push("/landing");
                   }}
                   title="Log out"
-                  className="p-2 rounded-xl border border-white/10 text-stone-400 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                  className="hidden sm:flex p-2 rounded-xl border border-white/10 text-stone-400 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
                 >
                   <LogOut size={16} />
                 </button>
@@ -163,14 +163,14 @@ export default function LandingHero() {
               <>
                 <Link
                   href="/auth/login"
-                  className="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-stone-900/90 border border-white/20 hover:border-[#8b5e3c]/80 text-xs sm:text-sm font-semibold text-stone-200 hover:text-white transition-all duration-200 shadow-md"
+                  className="hidden lg:inline-flex px-5 py-2.5 rounded-xl bg-stone-900/90 border border-white/20 hover:border-[#8b5e3c]/80 text-xs sm:text-sm font-semibold text-stone-200 hover:text-white transition-all duration-200 shadow-md"
                 >
                   Log in
                 </Link>
 
                 <Link
                   href="/auth/register"
-                  className="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(107,63,35,0.5)] hover:shadow-[0_0_30px_rgba(139,94,60,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer btn-animated-gradient"
+                  className="hidden lg:inline-flex relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(107,63,35,0.5)] hover:shadow-[0_0_30px_rgba(139,94,60,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer btn-animated-gradient"
                 >
                   <span className="relative z-10 text-white font-black">Get Started</span>
                   <div className="absolute inset-0 -translate-x-full group-hover:animate-streak bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
@@ -232,24 +232,43 @@ export default function LandingHero() {
                 <>
                   <Link
                     href="/auth/login"
-                    className="w-full py-2.5 rounded-xl bg-stone-900/80 border border-white/20 text-sm font-semibold text-center text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full py-2.5 rounded-xl bg-stone-900/80 border border-white/20 text-sm font-semibold text-center text-white hover:bg-stone-800 transition-colors"
                   >
                     Log in
                   </Link>
                   <Link
                     href="/auth/register"
+                    onClick={() => setMobileMenuOpen(false)}
                     className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] via-[#6d3f22] to-[#3d2314] text-white text-sm font-bold text-center shadow-lg btn-animated-gradient"
                   >
-                    Create Account
+                    Get Started
                   </Link>
                 </>
               ) : (
-                <button
-                  onClick={() => router.push("/dashboard")}
-                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] to-[#6d3f22] text-white font-bold text-center btn-animated-gradient"
-                >
-                  Go to Dashboard
-                </button>
+                <div className="flex flex-col gap-2">
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      router.push("/dashboard");
+                    }}
+                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#3d2314] to-[#6d3f22] text-white font-bold text-center btn-animated-gradient"
+                  >
+                    Go to Dashboard
+                  </button>
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      localStorage.removeItem("user");
+                      setUser(null);
+                      router.push("/landing");
+                    }}
+                    className="w-full py-2 rounded-xl border border-white/10 text-stone-400 hover:text-white hover:bg-white/5 text-xs font-semibold transition-colors flex items-center justify-center gap-2"
+                  >
+                    <LogOut size={14} />
+                    <span>Log Out</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -259,7 +278,7 @@ export default function LandingHero() {
       {/* =====================================================
           HERO SECTION (Rich Ambient Effects & Standard Typography)
       ===================================================== */}
-      <section className="relative landing-ambient-gradient min-h-[88vh] md:min-h-[94vh] flex flex-col justify-center items-center pt-32 pb-20">
+      <section className="relative overflow-hidden landing-ambient-gradient min-h-[88vh] md:min-h-[94vh] flex flex-col justify-center items-center pt-32 pb-20">
         {/* Background Image & Cinematic Vignette Overlays */}
         <div
           className="absolute inset-0 bg-cover bg-no-repeat transition-transform duration-1000 scale-105"
@@ -280,7 +299,7 @@ export default function LandingHero() {
             DYNAMIC BACKGROUND EFFECTS
         ===================================================== */}
         {/* 1. Pulsing Warm Brown Aurora Orb */}
-        <div className="pointer-events-none absolute top-1/5 left-1/2 -translate-x-1/2 w-[900px] h-[480px] bg-gradient-to-b from-[#8b5e3c]/25 via-[#6b3f23]/15 to-transparent blur-[150px] rounded-full animate-ambient-pulse" />
+        <div className="pointer-events-none absolute top-1/5 left-1/2 -translate-x-1/2 w-full max-w-[900px] h-[480px] bg-gradient-to-b from-[#8b5e3c]/25 via-[#6b3f23]/15 to-transparent blur-[150px] rounded-full animate-ambient-pulse" />
 
         {/* 2. Side Ambient Color Accents */}
         <div className="pointer-events-none absolute top-1/3 -left-32 w-[550px] h-[550px] bg-[#5c3a21]/20 blur-[170px] rounded-full" />
@@ -309,28 +328,28 @@ export default function LandingHero() {
         {/* =====================================================
             HERO CONTENT
         ===================================================== */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center w-full">
+        <div className="relative z-10 max-w-4xl mx-auto px-3 min-[360px]:px-4 sm:px-6 text-center w-full">
           {/* =====================================================
               MODERN SHIMMER BADGE (Clean Brown/Black/White)
           ===================================================== */}
-          <div className="inline-block mb-8 group cursor-default">
-            <div className="relative p-[1px] rounded-full bg-gradient-to-r from-[#8b5e3c]/35 via-[#d4a373]/50 to-[#8b5e3c]/35 shadow-[0_0_25px_rgba(107,63,35,0.25)] group-hover:shadow-[0_0_35px_rgba(139,94,60,0.45)] transition-all duration-300">
-              <div className="flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#110f0d]/90 backdrop-blur-2xl text-xs sm:text-sm font-medium">
+          <div className="inline-block mb-8 group cursor-default max-w-full">
+            <div className="relative p-[1px] rounded-full bg-gradient-to-r from-[#8b5e3c]/35 via-[#d4a373]/50 to-[#8b5e3c]/35 shadow-[0_0_25px_rgba(107,63,35,0.25)] group-hover:shadow-[0_0_35px_rgba(139,94,60,0.45)] transition-all duration-300 max-w-full">
+              <div className="flex items-center justify-center gap-2 sm:gap-2.5 px-3.5 min-[400px]:px-5 py-2 rounded-full bg-[#110f0d]/90 backdrop-blur-2xl text-xs sm:text-sm font-medium max-w-full">
                 {/* Pulsing indicator */}
-                <span className="flex h-2 w-2 relative">
+                <span className="flex h-2 w-2 relative shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4a373] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d4a373]" />
                 </span>
 
-                <Sparkles className="w-3.5 h-3.5 text-[#d4a373] animate-spin [animation-duration:10s]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#d4a373] animate-spin [animation-duration:10s] shrink-0" />
 
-                <span className="text-stone-200 font-semibold tracking-wide">
+                <span className="text-stone-200 font-semibold tracking-wide text-xs sm:text-sm truncate">
                   Free &amp; Community-Powered Platform
                 </span>
 
-                <span className="text-[#8b5e3c] font-bold">•</span>
+                <span className="hidden min-[540px]:inline text-[#8b5e3c] font-bold shrink-0">•</span>
 
-                <span className="text-[#d4a373] font-bold">
+                <span className="hidden min-[540px]:inline text-[#d4a373] font-bold text-xs sm:text-sm shrink-0">
                   Always Here to Help
                 </span>
               </div>
@@ -346,7 +365,7 @@ export default function LandingHero() {
 
             {/* Monumental Headline with Continuous Animated Brownish Sheen */}
             <h1
-              className="relative text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-[0.04em] leading-none drop-shadow-[0_4px_35px_rgba(0,0,0,0.95)] h1-animated-gradient"
+              className="relative text-[3.25rem] min-[360px]:text-[3.75rem] min-[400px]:text-[4.25rem] min-[480px]:text-[4.75rem] min-[606px]:text-[5.25rem] sm:text-[5.5rem] md:text-[5.75rem] lg:text-[6.5rem] xl:text-[7.25rem] 2xl:text-[8rem] font-black tracking-tight sm:tracking-[0.02em] leading-none drop-shadow-[0_4px_35px_rgba(0,0,0,0.95)] h1-animated-gradient"
               style={{
                 background:
                   "linear-gradient(135deg, #ffffff 0%, #f4ede6 18%, #af8f6a 36%, #695741 52%, #3d2415 68%, #8d7455 84%, #ffffff 100%)",
@@ -364,7 +383,7 @@ export default function LandingHero() {
           </div>
 
           {/* Animated Brownish Bronze Tagline */}
-          <div className="mt-4 sm:mt-5 flex justify-center gap-3 sm:gap-5 text-xs sm:text-sm md:text-base tracking-[0.45em] uppercase text-[#af8f6a] font-bold">
+          <div className="mt-4 sm:mt-5 flex justify-center gap-3 sm:gap-5 text-sm sm:text-base md:text-lg tracking-[0.45em] uppercase text-[#af8f6a] font-bold">
             {["Hope", "For", "The", "Best"].map((word, index) => (
               <span
                 key={word}
@@ -430,7 +449,7 @@ export default function LandingHero() {
           TRUST PILLARS / CORE VALUES SECTION
           (Stunning Glassmorphism Cards)
       ===================================================== */}
-      <section className="relative landing-ambient-gradient z-10 border-y border-white/[0.08] bg-gradient-to-b from-[#0c0a09]/95 via-[#080706]/95 to-[#0c0a09]/95 backdrop-blur-2xl">
+      <section className="relative overflow-hidden landing-ambient-gradient z-10 border-y border-white/[0.08] bg-gradient-to-b from-[#0c0a09]/95 via-[#080706]/95 to-[#0c0a09]/95 backdrop-blur-2xl">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* 1. Verified reports */}
@@ -442,7 +461,7 @@ export default function LandingHero() {
                 <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <ShieldCheck size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
+                <h3 className="text-white font-bold text-lg sm:text-xl mb-2 group-hover:text-[#e8d5c4] transition-colors">
                   Verified Reports
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
@@ -464,7 +483,7 @@ export default function LandingHero() {
                 <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <Lock size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
+                <h3 className="text-white font-bold text-lg sm:text-xl mb-2 group-hover:text-[#e8d5c4] transition-colors">
                   Privacy First
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
@@ -486,7 +505,7 @@ export default function LandingHero() {
                 <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <Clock size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
+                <h3 className="text-white font-bold text-lg sm:text-xl mb-2 group-hover:text-[#e8d5c4] transition-colors">
                   Fast Reach
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
@@ -508,7 +527,7 @@ export default function LandingHero() {
                 <div className="w-12 h-12 rounded-xl bg-[#2b1b11] border border-[#6b3f23]/50 flex items-center justify-center text-[#d4a373] group-hover:scale-110 group-hover:bg-[#3a2417] group-hover:border-[#8b5e3c]/60 group-hover:shadow-[0_0_20px_rgba(107,63,35,0.4)] transition-all duration-300 mb-4 shadow-inner">
                   <HeartHandshake size={22} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-1.5 group-hover:text-[#e8d5c4] transition-colors">
+                <h3 className="text-white font-bold text-lg sm:text-xl mb-2 group-hover:text-[#e8d5c4] transition-colors">
                   Always Free
                 </h3>
                 <p className="text-xs sm:text-[13px] leading-relaxed text-stone-400 group-hover:text-stone-300 transition-colors">
