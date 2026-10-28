@@ -81,6 +81,12 @@ export default function WelcomeScreen() {
   const handleContinue = () => {
     if (!acknowledged) return;
     setIsNavigating(true);
+    try {
+      sessionStorage.setItem("hopest_terms_accepted", "true");
+      localStorage.setItem("hopest_terms_accepted", "true");
+    } catch (e) {
+      console.error(e);
+    }
     setTimeout(() => {
       router.push("/landing");
     }, 280);
