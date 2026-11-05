@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
+        url: "/icon-512.png",
         width: 512,
         height: 512,
         alt: "Hopest Logo",

@@ -46,7 +46,7 @@ export default function Footer() {
             >
               <div className="relative h-9 w-7 flex items-center justify-center shrink-0">
                 <Image
-                  src="/main-logo.png"
+                  src="/logo.png"
                   alt="HOPEST Logo"
                   width={100}
                   height={90}
